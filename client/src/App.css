@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .App h1{
@@ -20,4 +21,17 @@
   border-style: groove;
   border-color: blanchedalmond;
   font-size: 25px;
+}
+
+.card{
+  width: 500px;
+  height: 155px;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+#updateInput {
+  width: 150px;
+  height: 20px;
 }
