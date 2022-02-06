@@ -49,14 +49,13 @@ app.delete('/api/delete/:movieName', (req, res) => {
     });
 });
 
-app.put('api/update', (req, res) => {
-    const name = req.params.movieName;
+app.put('/api/update', (req, res) => {
+    const name = req.body.movieName;
     const movieReview = req.body.movieReview;
     const sqlUpdate = "UPDATE movie_reviews SET movieReview = ? WHERE movieName = ?"
-    db.query(sqlUpdate,[name, movieReview], (err, result) => {
+    db.query(sqlUpdate,[movieReview, name], (err, result) => {
         console.log(result);
-    })
-   
+    });
 });
 
 app.listen(3001, () => {
