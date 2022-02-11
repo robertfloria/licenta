@@ -64,9 +64,9 @@ app.post("/api/login", (req,res) => {
     });
 });
 
-app.delete('/api/delete/:username', (req, res) => {
+app.delete('/api/delete/:userName', (req, res) => {
 
-    const userName = req.params.username;
+    const userName = req.params.userName;
     const sqlDelete = "DELETE FROM userregister WHERE username = ?"
     db.query(sqlDelete, userName, (err, result) => {
         console.log(result);

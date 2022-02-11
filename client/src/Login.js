@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Axios from "axios";
-
+import {Alert} from 'react-alert';
 function Login() {
 
   const [userName, setUserName] = useState("");
@@ -16,9 +16,8 @@ function Login() {
     });
   };
 
-  const deleteUser = () => {
+  const deleteUser = (userName) => {
     Axios.delete(`http://localhost:3001/api/delete/${userName}`)
-        //face delete request-ului
   };
 
   const updatePassword = () => {
@@ -67,9 +66,10 @@ function Login() {
                     setNewUserPassword(e.target.value);
                   }}
                 />
-                <button onClick={updatePassword}>Update Password</button>               
+                <button onClick={updatePassword}>Update Password</button>     
+                <button onClick={() => {deleteUser(userName)}}>Delete User</button>        
             </div>
-            <button onClick={deleteUser}>Delete User</button>
+              
         </div>
     </div>
   );
