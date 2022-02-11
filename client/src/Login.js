@@ -17,7 +17,8 @@ function Login() {
   };
 
   const deleteUser = () => {
-    Axios.delete(`http://localhost:3001/api/delete/${userName}`)      //face delete request-ului
+    Axios.delete(`http://localhost:3001/api/delete/${userName}`)
+        //face delete request-ului
   };
 
   const updatePassword = () => {
@@ -75,20 +76,3 @@ function Login() {
 };
 
 export default Login;
-
-
-/* {movieReviewList.map((val) => {
-      return (
-          <div className="card">
-              <h1>{val.movieName}</h1>
-              <p>{val.movieReview}</p>
-
-              <button onClick={() => {deleteReview(val.movieName)}}>Delete</button>
-              <input type = "text" id="updateInput" onChange={(e) => {
-                  setNewReview(e.target.value);
-              }}/>
-              <button onClick={() => {updateReview(val.movieName)}}>Update</button>
-          </div>
-          );
-      })
-  } */
