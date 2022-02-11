@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Axios from "axios";
-import {Alert} from 'react-alert';
 function Login() {
 
   const [userName, setUserName] = useState("");
@@ -13,7 +12,7 @@ function Login() {
     Axios.post("http://localhost:3001/api/login", {
       username: userName, 
       password: userPassword
-    });
+    })
   };
 
   const deleteUser = (userName) => {
