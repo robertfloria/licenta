@@ -13,7 +13,7 @@ function App() {
     Axios.get("http://localhost:3001/api/select").then((response) => {
       setMovieList(response.data);
     });
-  }, []);
+  }, []);     // se pune [] deoarece useEffect se apeleaza la fiecare randare a paginii, iar noi nu vrem asta
 
   const submitReview = () => {
     Axios.post("http://localhost:3001/api/insert", {
