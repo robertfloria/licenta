@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import {Modal} from './Modal';
+//import {Modal} from './Modal';
 const Container = styled.div`
     display: flex';
     justify-content: center;
@@ -19,7 +19,7 @@ const Button = styled.button`
     font-size: 24px;
     cursor: pointer;
 `;
-
+/*
 function Appp(){
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
@@ -36,3 +36,4 @@ function Appp(){
 }
 
 export default Appp;
+*/
