@@ -1,22 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import BarChart from './Chart1';
 import '../App.css';
 
-class App extends Component {
-  
-    state = {
-      data: [12, 5, 6, 6, 9, 10],
-      width: 700,
-      height: 400     
-    }
- 
-    render() {
-      return (
-        <div className="App">
-          <BarChart data={this.state.data} width={this.state.width} height={this.state.height} />
-        </div>
-      );
-    };
-}
+export default function App () {
+    const [data, setData] = useState([12, 5, 6, 6, 9, 10]);
+    const [width, setWidth] = useState("700");
+    const [height, setHeight] = useState("400");
 
-export default App;
+    return (
+      <div className="App">
+          <BarChart data={data} width={width} height={height} />
+      </div>
+    );
+}
