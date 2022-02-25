@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    left: 0;
+    top: 0;
 }
 
 .modalContainer {
@@ -16,10 +18,19 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 10px;
 }
 
-.modalContainer .title {
+.modalLogin {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
     display: inline-block;
     text-align: center;
     margin-top: 10px;
@@ -37,7 +48,7 @@
     cursor: pointer;
 }
 
-.modalContainer .body {
+.modalLogin .body {
     flex: 50%;
     display: flex;
     justify-content: center;
@@ -46,7 +57,7 @@
     text-align: center;
 }
 
-.modalContainer .footer {
+.modalLogin .footer {
     flex: 20%;
     display: flex;
     justify-content: center;
@@ -67,4 +78,8 @@
 
 #cencelButton {
     background-color: red;
+}
+
+.openModal {
+    
 }
