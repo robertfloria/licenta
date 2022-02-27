@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 import "./Modal.css";
+import LoginModal from './ModalLogin';
+import RegisterModal from './ModalRegister';
 
 export default function Modal ({closeModal}) {
 
@@ -13,19 +15,7 @@ export default function Modal ({closeModal}) {
                 <div className='closeButton'>
                     <button onClick={() => closeModal(false)}>X</button>
                 </div>
-                <div className='modalLogin'>
-                    <div className='title'>
-                        <h1>Continue if you have courage!</h1>
-                    </div>
-                    <div className='body'>
-                        <p>Move forword</p>
-                    </div>
-                    <div className='footer'>
-                        <button onClick={() => closeModal(false)} id='cancelButton'>Cancel</button>
-                        <button>Login</button>
-                        <a href='#'>Go to login</a>
-                    </div>
-                </div>             
+                {openLogin ? <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} /> : <RegisterModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal}/>}                 
             </div>
         </div>
     )

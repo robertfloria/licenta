@@ -30,6 +30,15 @@
     flex-direction: column;
 }
 
+.modalRegister {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
 .title {
     display: inline-block;
     text-align: center;
@@ -64,6 +73,22 @@
     align-items: center;
 }
 
+.modalRegister .body {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.modalRegister .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .modalContainer .footer button {
     width: 150px;
     height: 45px;
@@ -81,5 +106,7 @@
 }
 
 .openModal {
-    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
