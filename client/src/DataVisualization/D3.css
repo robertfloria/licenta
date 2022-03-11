@@ -1,0 +1,59 @@
+.test{
+    color:rgba(78, 0, 204, 0.685);
+  
+}
+
+body {     
+    margin:0;
+    padding: 0;
+}
+
+.App{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.952);
+}
+/* ------------------------------- */
+html{
+    font-family: sans-serif;
+}
+
+#app {
+    display: flex;
+    margin: 2rem 1rem;
+}
+
+#chart {
+    box-shadow: 0 2px 8px rgba(0, 0 ,0, 0.26);
+    padding: 1rem;
+}
+
+#chart,
+#data {
+    margin: 0 2rem;
+}
+
+#data ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#data li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0 ,0, 0.26);
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.bar {
+    fill: #4f009e;
+}
+
+.label {
+    fill: #4f009e;
+}
