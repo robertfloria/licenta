@@ -2,7 +2,7 @@ import React, {Component, useState} from 'react';
 import Chart1 from './Chart1';
 import Chart2 from './Chart2';
 import Chart3 from './Chart3';
-import './D3.css';
+
 import ReactComponent from './Experimental/ChartTest';
 
 export default function App () {
@@ -17,12 +17,15 @@ export default function App () {
       {id: 'd3', region: 'China', value: 11},
       {id: 'd4', region: 'Germany', value: 6}
     ]);
+
+    const [margin, setMargin] = useState({top: 20, bottom: 10});
     const [width3, setWidth3] = useState(600);
-    const [height3, setHeight3] = useState(400);
+    const [height3, setHeight3] = useState(400 - margin.top - margin.bottom);
+    
 
     return (
-      <div className="App12">
-           <Chart3 data={data3} width={width3} height={height3} />     
+      <div>
+           <Chart3 data={data3} width={width3} height={height3} margin={margin} />     
       </div>
     );
 }
