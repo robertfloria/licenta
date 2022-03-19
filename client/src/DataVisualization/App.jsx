@@ -15,7 +15,15 @@ export default function App () {
       {id: 'd1', region: 'USA', value: 10},
       {id: 'd2', region: 'India', value: 12},
       {id: 'd3', region: 'China', value: 11},
-      {id: 'd4', region: 'Germany', value: 6}
+      {id: 'd4', region: 'Germany', value: 6},
+      {id: 'd5', region: 'Romania', value: 2},
+      {id: 'd6', region: 'France', value: 6},
+      {id: 'd7', region: 'SUA', value: 15},
+      {id: 'd8', region: 'Japan', value: 10},
+      {id: 'd9', region: 'Spain', value: 5},
+      {id: 'd10', region: 'Italy', value: 5},
+      {id: 'd11', region: 'Holand', value: 4},
+      {id: 'd12', region: 'Brasil', value: 7}
     ]);
 
     const [margin, setMargin] = useState({top: 20, bottom: 10});
