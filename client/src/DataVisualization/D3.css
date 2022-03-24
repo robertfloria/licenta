@@ -8,7 +8,7 @@ body {
     padding: 0;
 }
 html {
-    background-color: rgb(68, 68, 68);
+    background-color: rgba(126, 126, 126, 0.097);
 }
 .App{
     width: 100vw;
@@ -28,42 +28,61 @@ html{
 #chart {
     width: 50vw;
     height: 50vh;
-    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.53);
+    box-shadow: 0 16px 43px rgba(0, 0, 0, 0.53);
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.925);
 }
 
 #chart,
 #data {
+    display: flex;
+    align-content: flex-start;
     margin: 0 2rem;
+    
+}
+
+#data {
+    position: relative;
+   
 }
 
 #data ul {
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #data li {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0 ,0, 0.26);
-    width: 10rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 10px 33px rgba(0, 0 ,0, 0.26);
+    width: 4rem; 
+    height: 2rem;
+    align-content: center;
     font-weight: bold;
     color: rgb(83, 83, 83);
     background-color: rgba(255, 255, 255, 0.925);
+    border-radius: 5%;
+    border: thick double rgba(0, 0, 0, 0.083);
 }
 #data input {
    width: 1rem;
    height: 1rem;
+   position:relative;
 }
+
 .bar {
-    fill: rgba(128, 105, 30, 0.932);
+    fill: rgba(136, 132, 160, 0.693);
 }
 
 .label {
     fill: #4f009e;
+}
+
+.test{
+    fill: #5e5b0096;
+    font-size: larger;
+    
 }

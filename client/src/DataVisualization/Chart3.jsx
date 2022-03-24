@@ -1,76 +1,69 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
 import './D3.css';
 
 export default function Chart3 (props) {
 
-    const myRef = useRef(null);
-    let selectedData = props.data;
-    let unselectedIds = []; 
-    const x = d3.scaleBand().rangeRound([0, props.width]).padding(0.3);
+    const myRef = useRef(null); 
+    const x = d3.scaleBand().rangeRound([0, props.width]).padding(0.05);
     const y = d3.scaleLinear().range([props.height, 0]);
-    
+    let selectedData = props.data;
 
-    useEffect(() => {
-      
-      drowChart();
-    },[]);
 
     const drowChart = () => {
-                 
+        
         const svg = d3.select(myRef.current)
                     .append("svg")  // adauga
                     .attr("width", props.width)
-                    .attr("height", props.height + props.margin.top + props.margin.bottom);
+                    .attr("height", props.height + props.margin.top + props.margin.bottom).attr('overflow','scroll');
                     
         x.domain(props.data.map((d) => d.region));   //transforms array of object into array of strings
-        y.domain([0, d3.max(props.data, (d) => d.value) + 3]);
+        y.domain([0, d3.max(props.data, (d) => d.value) + 2]);
         
-        const chart = svg.append('g'); // ce se afla in interiorul svg-ului, patratului
-        
+        const chart = svg.append('g'); // ce se afla in interiorul svg-ului, patratului The <g> SVG element is a container used to group other SVG elements.
+                         
         chart.append('g')
-             .call(d3.axisBottom(x).tickSizeOuter(0)) // extract data in x and put at the bottom; install d3-axis
+             .call(d3.axisBottom(x).tickSizeOuter(18)) // extract data in x and put at the bottom; install d3-axis
              .attr('transform',`translate(0, ${props.height})`)  //move the axis down
-             .attr('color','black');
+             .attr('color','black')
+             .style('font-weight','bold')
+             .style('font-size','0.15cm');
              
-        function renderChart() {
+             
+        const renderChart = () => {
 
-            chart.selectAll('.bar')
-                 .data(selectedData, (data) => data.id)
+            chart.selectAll('rect')
+                 .data(selectedData, data => data.id)
                  .enter()
                  .append('rect')
-                 //.classed('bar', true)
                  .attr("width", x.bandwidth())
                  .attr("height", (data) => props.height - y(data.value))
                  .attr('x', (data) => x(data.region))
                  .attr('y', (data) => y(data.value))       
                  .attr("fill", (data, i) => {
                      if(data.value < 3)
-                        return "rgba(145, 0, 198, 0.932)";
+                        return "rgba(136, 132, 160, 0.693)";
                      else
                         if(data.value >= 3 && data.value <=5)
-                            return "rgba(128, 105, 30, 0.932)";
+                            return "rgba(162, 3, 3, 0.693)";
                     else
                         if(data.value > 5 && data.value <=9)
-                            return "rgba(20, 0, 236, 0.483)";
+                            return "rgba(25, 0, 114, 0.556)";
                     else
                         if(data.value > 9 && data.value <=12)
                             return "rgba(4, 0, 52, 0.7)";
                     else
                         if(data.value > 12)
-                            return "rgba(64, 0, 226, 0.932)";           
-                    });
-  
-            
+                            return "#5e5b0096";           
+                    });             
 
-            chart.selectAll('.bar') // for removing data when we unselect
-                 .data(selectedData, (data) => data.id)
-                 .enter()
+            chart.selectAll('rect') // for removing data when we unselect
+                 .data(selectedData, data => data.id)
                  .exit()
                  .remove();
 
             chart.selectAll('.label')
-                 .data(selectedData, (data) => data.id)
+                 .data(selectedData, data => data.id)
                  .enter()
                  .append('text')
                  .text((data) => data.value)
@@ -80,41 +73,48 @@ export default function Chart3 (props) {
                  .classed('label', true);           
 
             chart.selectAll('.label') // for removing data when we unselect
-                 .data(selectedData, (data) => data.id)
-                 .enter()
+                 .data(selectedData, data => data.id)
                  .exit()
                  .remove();
-        }
+        };
                    
-        renderChart();      
-        
+        renderChart();                        
+        let unselectedIds = []; 
+
         const listItems = d3.select('#data')
                             .select('ul')                           
                             .selectAll('li')
                             .data(props.data)
                             .enter()                          
                             .append('li');
-                            
+ 
         listItems.append('span')
-                 .text((data) => data.region);
+                 .text((data) => data.region)
+                 .style('font-size','0.3cm');
 
         listItems.append('input')
                  .attr('type', 'checkbox')
                  .attr('checked', true)
+                 .attr('id', (data) => data.id)
                  .on('change', (data) => {                          // eventListener
-                    if (unselectedIds.indexOf(data.id) === -1){
-                        unselectedIds.push(data.id); 
+                    if (unselectedIds.indexOf(data.target.id) === -1){
+                        unselectedIds.push(data.target.id);
                     } else {
-                        unselectedIds = unselectedIds.filter((id) => id !== data.id);
+                        unselectedIds = unselectedIds.filter((id) => id !== data.target.id);
                     }
                     
                     selectedData = props.data.filter(
                         (d) => unselectedIds.indexOf(d.id) === -1
                     );
-                    
+                                 
                     renderChart();   
                 });
-    }
+    };
+ 
+    useEffect(() => {
+
+        drowChart();
+      },[drowChart]);
 
     return (
         <div id="app">
