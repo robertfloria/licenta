@@ -3,6 +3,7 @@ import Chart1 from './Chart1';
 import Chart2 from './Chart2';
 import Chart3 from './Chart3';
 import Chart4 from './Chart4';
+import Chart5 from './Chart5';
 
 import ReactComponent from './Experimental/ChartTest';
 
@@ -39,8 +40,8 @@ export default function App () {
 
     return (
       <div>
+           <Chart5 />
            
-           <Chart4 />
       </div>
     );
 }
@@ -48,3 +49,4 @@ export default function App () {
 //<Chart2 data={data2} width={width} height={height} />
 //<Chart3 data={data3} width={width3} height={height3} />
 //<Chart3 data={data3} width={width3} height={height3} margin={margin} />
+// <Chart4 />

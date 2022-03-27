@@ -27,3 +27,18 @@
       color: white;
   }
   
+#dd {
+  
+ 
+}
+
+svg {
+  width: 100vw;
+  height: 200vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-left: 20%;
+  overflow: scroll;
+}
+
