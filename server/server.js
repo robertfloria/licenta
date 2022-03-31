@@ -52,13 +52,19 @@ app.post("/api/login", (req,res) => {
         {                    
             console.log("---> User does not exist")
             res.sendStatus(404)
+            
         }
         if(result.length > 0){
             const password = result[0].password
             if(password == userPassword){           
+            {
                 console.log("---> Logged successfully")
-            }else{               
-                console.log("---> Password incorrect!")                        
+                res.sendStatus(200)
+            }
+
+            }else {               
+                console.log("---> Password incorrect!")
+                res.sendStatus(404)                                   
             }
         }
     });

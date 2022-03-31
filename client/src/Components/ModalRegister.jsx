@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from "react";
-import "./Modal.css";
 import Axios from "axios";
 
 const RegisterModal = (props) => {

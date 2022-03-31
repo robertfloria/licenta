@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './DataVisualization/App';
-import OpenModal from './OpenModal';
+import App from './DataVisualization/App'; // data visualization
+import OpenModal from './OpenModal';  // login/register
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<OpenModal/>, document.getElementById('root'));
 

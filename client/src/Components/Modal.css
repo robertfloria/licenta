@@ -1,7 +1,7 @@
 .modalBackground {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(200,200,200);
+    background-color: rgb(29, 29, 29);
     position: fixed;
     display: flex;
     justify-content: center;
@@ -11,8 +11,8 @@
 }
 
 .modalContainer {
-    width: 500px;
-    height: 700px;
+    width: 300px;
+    height: 300px;
     border-radius: 12px;
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -22,8 +22,8 @@
 }
 
 .modalLogin {
-    width: 500px;
-    height: 700px;
+    width: 300px;
+    height: 300px;
     border-radius: 12px;
     background-color: whitesmoke;
     display: flex;
@@ -31,8 +31,8 @@
 }
 
 .modalRegister {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     border-radius: 12px;
     background-color: whitesmoke;
     display: flex;
@@ -45,6 +45,19 @@
     margin-top: 10px;
 }
 
+.modalLogin .title h1{
+    color:black;
+}
+
+.modalRegister .title h1{
+    color:black;
+}
+
+.form input {
+    width: 45%;
+    height: 20%;
+}
+
 .modalContainer .closeButton {
     display: flex;
     justify-content: flex-end;
@@ -53,7 +66,7 @@
 .modalContainer .closeButton button{
     background-color: transparent;
     border: none;
-    font-size: 25px;
+    font-size: 11px;
     cursor: pointer;
 }
 
@@ -71,6 +84,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
 }
 
 .form{
@@ -78,6 +92,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .form label {
+      font-size: 13px;
+  }
+
+  .form button {
+      width: 25%;
+      height: 45%;
+      font-size: 9px;
+      justify-content: center;
+      align-items: center;
   }
 
 .modalRegister .body {
@@ -96,16 +122,24 @@
     align-items: center;
 }
 
+
+
 .modalContainer .footer button {
-    width: 150px;
-    height: 45px;
+    width: 100px;
+    height: 35px;
     margin: 10px;
     border: none;
     background-color: cornflowerblue;
     color:white;
     border-radius: 8px;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
+    
+}
+
+.modalContainer .footer a {
+    font-size: 10px;
+    
 }
 
 #cencelButton {
@@ -113,7 +147,16 @@
 }
 
 .openModal {
+    align-content: center;
     justify-content: center;
-    align-items: center;
     text-align: center;
+}
+
+.openModal h1{
+    color: rgba(240, 255, 255, 0.885);
+}
+
+
+html {
+    background-color: rgb(29, 29, 29);
 }
