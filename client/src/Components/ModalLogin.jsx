@@ -89,6 +89,10 @@ const LoginModal = (props) => {
                             alert("Logged!");
                             setLoginErr("");
                             setLoginRes("");
+                            props.openRegister(false); props.openLogin(false);
+                            return (
+                            <div><App /></div>);
+                            
                           }
                         else
                           {
@@ -96,7 +100,7 @@ const LoginModal = (props) => {
                             alert("try again, bitch!")
                             setLoginErr("");
                             setLoginRes("");
-                            //<App />
+                            
                           }
                       }
                     }>Login</button>

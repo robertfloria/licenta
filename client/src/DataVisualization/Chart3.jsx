@@ -5,7 +5,7 @@ import './D3.css';
 export default function Chart3 (props) {
 
     const myRef = useRef(null); 
-    const x = d3.scaleBand().rangeRound([0, props.width]).padding(0.05);
+    const x = d3.scaleBand().rangeRound([0, props.width]).padding(0.30);
     const y = d3.scaleLinear().range([props.height, 0]);
     let selectedData = props.data;
 
@@ -24,8 +24,8 @@ export default function Chart3 (props) {
                          
         chart.append('g')
              .call(d3.axisBottom(x).tickSizeOuter(18)) // extract data in x and put at the bottom; install d3-axis
-             .attr('transform',`translate(0, ${props.height})`)  //move the axis down
-             .attr('color','black')
+             .attr('transform',`translate(0, ${props.height + 2})`)  //move the axis down
+             .attr('color','#cdcdcd')
              .style('font-weight','bold')
              .style('font-size','0.15cm');
              
@@ -45,16 +45,16 @@ export default function Chart3 (props) {
                         return "rgba(136, 132, 160, 0.693)";
                      else
                         if(data.value >= 3 && data.value <=5)
-                            return "rgba(162, 3, 3, 0.693)";
+                            return "#ff863bf5";
                     else
                         if(data.value > 5 && data.value <=9)
-                            return "rgba(25, 0, 114, 0.556)";
+                            return "#c2c2c2";
                     else
                         if(data.value > 9 && data.value <=12)
-                            return "rgba(4, 0, 52, 0.7)";
+                            return "#e90000f5";
                     else
                         if(data.value > 12)
-                            return "#5e5b0096";           
+                            return "rgba(86, 56, 255, 0.975)";           
                     });             
 
             chart.selectAll('rect') // for removing data when we unselect

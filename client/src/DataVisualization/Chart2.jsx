@@ -17,7 +17,7 @@ export default function Chart2 (props) {
                     .append("svg")
                     .attr("width", props.width)
                     .attr("height", props.height)
-                    .style("background-color","rgba(12, 12, 12, 0.897)")
+                    .style("background-color","rgba(0, 0, 0, 0.53)")
                     .style("padding-left",60)
                     .style("padding-right",60)  
                     .style("padding-bottom",60)                                           

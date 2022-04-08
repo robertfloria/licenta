@@ -3,8 +3,9 @@ import * as  d3 from 'd3';
 import './D3chart4.css';
 import Chart2 from './Chart2';
 import Chart3 from './Chart3';
+import Chart5 from './Chart5';
 
-export default function Chart4 (props) {
+export default function AllCharts (props) {
     const [data3, setData3] = useState([
         {id: 'd1', region: 'USA', value: 17},
         {id: 'd2', region: 'India', value: 12},
@@ -28,19 +29,20 @@ export default function Chart4 (props) {
       const [width, setWidth] = useState("1350");
       const [height, setHeight] = useState("250");
       const [margin, setMargin] = useState({top: 20, bottom: 10});
-      const [width3, setWidth3] = useState(750);
-      const [height3, setHeight3] = useState(400 - margin.top - margin.bottom);
+      const [width3, setWidth3] = useState(450);
+      const [height3, setHeight3] = useState(200 - margin.top - margin.bottom);
 
     return (
     <div class="wrapper">
         <div class="one">
             <Chart3 data={data3} width={width3} height={height3} margin={margin} />
         </div>
-        <div class="two">Two</div>
+        <div class="two"><Chart5 /></div>
         <div class="three">
-            <Chart2 data={data2} width={width} height={height} />
+            
         </div>
         <div class="four">Four</div>
     </div>
     );
 }
+//<Chart2 data={data2} width={width} height={height} />

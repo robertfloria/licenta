@@ -1,17 +1,17 @@
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
-import './D3chart4.css';
-import * as daTa from './data/data.json';
+import * as dataJson from './data/data.json';
 
 export default function Chart5 (props) {
 
    // const data = props.data;
     const myRef = useRef(null); 
 
-    const width = 600;
+    //const width = 800;
+    const width = 650;
     const radius = width / 6;
 
-    const data = daTa;
+    const data = dataJson;
 
     const partition = (data) => {
         const root = d3.hierarchy(data)
@@ -22,17 +22,17 @@ export default function Chart5 (props) {
                  .size([2 * Math.PI, root.height + 1])(root);
       }
       
-    const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
+    const color = d3.scaleOrdinal(data.children, d3.quantize(d3.interpolateRainbow, data.children.length));
 
     const format = d3.format(".2f");
 
     const arc = d3.arc()
            .startAngle(d => d.x0)
            .endAngle(d => d.x1)
-           .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
+           .padAngle(d => Math.min((d.x1 - d.x0) / 1.5, 0.01))
            .padRadius(radius * 1.5)
            .innerRadius(d => d.y0 * radius)
-           .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1));
+           .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius) -1);
 
     const drowChart = () => {
 
@@ -52,14 +52,15 @@ export default function Chart5 (props) {
                       .selectAll("path")
                       .data(root.descendants().slice(1))
                       .join("path")
-                        .attr("fill", (d) => { 
-                          while (d.depth > 1) 
-                            d = d.parent; 
-                            return color(d.data.nume);
-                        })
-                        .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.7 : 0.4) : 0)
-                        .attr("pointer-events", (d) => arcVisible(d.current) ? "auto" : "none")
-                        .attr("d", (d) => arc(d.current));
+                      .attr("fill", (d) => { 
+                        while (d.depth > 1) 
+                          d = d.parent; 
+                        return color(d.current);                       
+                      })
+                      //.attr("fill","#ff2f2fec")
+                      .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.7 : 0.45) : 0)
+                      .attr("pointer-events", (d) => arcVisible(d.current) ? "auto" : "none")
+                      .attr("d", (d) => arc(d.current));
 
         path.filter(d => d.children)
             .style("cursor", "pointer")
@@ -71,11 +72,14 @@ export default function Chart5 (props) {
         const label = g.append("g")
                        .attr("pointer-events", "none")
                        .attr("text-anchor", "middle")
+                       .attr("text-align", "center")
+                       .attr("font-size", "0.7rem")
                        .style("user-select", "none")
                        .selectAll("text")
                        .data(root.descendants().slice(1))
                        .join("text")
                        .attr("dy", "0.35em")
+                       .attr("fill","#000000")
                        .attr("fill-opacity", d => +labelVisible(d.current))
                        .attr("transform", d => labelTransform(d.current))
                        .text(d => d.data.name);
@@ -98,9 +102,7 @@ export default function Chart5 (props) {
               y1: Math.max(0, d.y1 - p.depth)
             });
 
-
-
-            const t = g.transition().duration(950);
+            const t = g.transition().duration(750);
 
             // Transition the data on all arcs, even the ones that aren’t visible,
             // so that if this transition is interrupted, entering arcs will start
@@ -113,7 +115,7 @@ export default function Chart5 (props) {
                 .filter(function(d) {
                 return +this.getAttribute("fill-opacity") || arcVisible(d.target);
                 })
-                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
+                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.7 : 0.45) : 0)
                 .attr("pointer-events", d => arcVisible(d.target) ? "auto" : "none")         
                 .attrTween("d", d => () => arc(d.current));
         

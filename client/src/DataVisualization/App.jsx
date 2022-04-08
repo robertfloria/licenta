@@ -2,8 +2,9 @@ import React, {Component, useState} from 'react';
 import Chart1 from './Chart1';
 import Chart2 from './Chart2';
 import Chart3 from './Chart3';
-import Chart4 from './Chart4';
+import AllCharts from './AllCharts';
 import Chart5 from './Chart5';
+import './D3.css';
 
 import ReactComponent from './Experimental/ChartTest';
 
@@ -40,7 +41,7 @@ export default function App () {
 
     return (
       <div>
-           <Chart5 />
+           <AllCharts />
            
       </div>
     );
@@ -50,3 +51,4 @@ export default function App () {
 //<Chart3 data={data3} width={width3} height={height3} />
 //<Chart3 data={data3} width={width3} height={height3} margin={margin} />
 // <Chart4 />
+// <Chart5 />

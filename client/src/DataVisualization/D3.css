@@ -7,9 +7,11 @@ body {
     margin:0;
     padding: 0;
 }
+
 html {
-    background-color: rgba(126, 126, 126, 0.097);
+    background-color: rgba(226, 223, 223, 0.515);
 }
+
 .App{
     width: 100vw;
     height: 100vh;
@@ -30,11 +32,11 @@ html{
 }
 
 #chart {
-    width: 50vw;
-    height: 50vh;
+    width: 30vw;
+    height: 25vh;
     box-shadow: 0 16px 43px rgba(0, 0, 0, 0.53);
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.925);
+    background-color: rgb(80, 80, 80);
 }
 
 #chart,
@@ -47,22 +49,24 @@ html{
 
 #data {
     position: relative;
-   
+    
+    top:40%;
 }
 
 #data ul {
+
+    left: 0;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
 }
 
 #data li {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     box-shadow: 0 10px 33px rgba(0, 0 ,0, 0.26);
-    width: 4rem; 
+    width: 2rem; 
     height: 2rem;
     align-content: center;
     font-weight: bold;
@@ -82,11 +86,13 @@ html{
 }
 
 .label {
-    fill: #4f009e;
+    fill: #cdcdcd;
+    font-size: 0.7rem;
 }
 
 .test{
-    fill: #5e5b0096;
-    font-size: larger;
+    fill: rgba(86, 56, 255, 0.975);
+    font-size: 2px;
+    
     
 }
