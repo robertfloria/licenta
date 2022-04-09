@@ -12,6 +12,8 @@ const LoginModal = (props) => {
 
     const [loginRes, setLoginRes] = useState("");
     const [loginErr, setLoginErr] = useState("");
+    //const [loginStatus, setLoginStatus] = useState(false);
+    let loginStatus = false;
 
     const getLogin = () => {
         Axios.post("http://localhost:3001/api/login", {
@@ -44,28 +46,29 @@ const LoginModal = (props) => {
       setNewUserEmail("");
     };
 
-    useEffect(()=>{
+    const openChart = () => {
+      console.log(loginStatus +" as");   
+      if(loginStatus == true)
+            return <App />         
+    }
 
+    useEffect(()=>{
+      
       if(loginRes === 200 && loginErr === "")
-      {
-        alert("Logged!");
-        setLoginErr("");
-        setLoginRes(""); 
-        props.closeModal(false);                             
-        return(
-          <>
-            <App />
-          </>)
-        
+      { 
+        props.closeModal(false);
+        alert("Logged!");  
+        loginStatus = true;console.log(loginStatus);   
       }
       else
         if(loginRes !== 200 && loginErr !== "")
           {
-            alert("try again, bitch!")
-            setLoginErr("");
-            setLoginRes("");                           
-          }                              
+            alert("try again, bitch!")             
+          }
+                                 
     },[loginRes, loginErr]);
+
+    
 
     return (
         <>
@@ -84,37 +87,38 @@ const LoginModal = (props) => {
                     <input type="password" name="userPassword" onChange={(e) => {
                         setUserPassword(e.target.value);
                     }} 
-                    />
-                    {/*}
-                    <div>
-                        <input type="text" name="newUserEmail" onChange={(e) => {
-                            setNewUserEmail(e.target.value);
-                          }}
-                        />
-                        <button onClick={updateEmail}>Update Email</button>   
-                        
-                        <input type="password" name="newUserPassword" onChange={(e) => {
-                            setNewUserPassword(e.target.value);
-                          }}
-                        />
-                        <button onClick={updatePassword}>Update Password</button>     
-                        <button onClick={() => {deleteUser(userName)}}>Delete User</button>        
-                    </div>*/}
+                    />                    
                 </div> 
 
                 <div className='footer'>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
                     <button onClick={() => getLogin()}>Login</button>
-
+                    {openChart()}
                     <p>Need an Account?</p>
                     <a href='#' onClick={() => {
                         props.openRegister(true); props.openLogin(false);
                         }}>Sign Up
                     </a> 
-                    
-                </div>       
+                </div> 
+                           
             </div>  
         </>           
     )
 }
 export default LoginModal;
+
+/*}
+    <div>
+        <input type="text" name="newUserEmail" onChange={(e) => {
+            setNewUserEmail(e.target.value);
+          }}
+        />
+        <button onClick={updateEmail}>Update Email</button>   
+        
+        <input type="password" name="newUserPassword" onChange={(e) => {
+            setNewUserPassword(e.target.value);
+          }}
+        />
+        <button onClick={updatePassword}>Update Password</button>     
+        <button onClick={() => {deleteUser(userName)}}>Delete User</button>        
+    </div>*/

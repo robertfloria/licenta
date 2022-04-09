@@ -4,11 +4,9 @@ import * as dataJson from './data/data.json';
 
 export default function Chart5 (props) {
 
-   // const data = props.data;
     const myRef = useRef(null); 
 
     const width = 600;
-    //const width =  50;
     const radius = width / 6;
 
     const data = dataJson;
@@ -57,7 +55,6 @@ export default function Chart5 (props) {
                           d = d.parent; 
                         return color(d.current);                       
                       })
-                      //.attr("fill","#ff2f2fec")
                       .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.7 : 0.45) : 0)
                       .attr("pointer-events", (d) => arcVisible(d.current) ? "auto" : "none")
                       .attr("d", (d) => arc(d.current));

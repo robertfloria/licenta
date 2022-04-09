@@ -33,15 +33,15 @@ export default function AllCharts (props) {
       const [height3, setHeight3] = useState(200 - margin.top - margin.bottom);
 
     return (
-    <div class="wrapper">
-        <div class="one">
+    <div className="wrapper">
+        <div className="one">
             <Chart3 data={data3} width={width3} height={height3} margin={margin} />
         </div>
-        <div class="two"><Chart5 /></div>
-        <div class="three">
+        <div className="two"><Chart5 /></div>
+        <div className="three">
             
         </div>
-        <div class="four">Four</div>
+        <div className="four">Four</div>
     </div>
     );
 }
