@@ -1,41 +1,332 @@
-.App {
-  text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(35, 35, 35);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
 }
 
-.App h1{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.modalContainer {
+  width: 31rem;
+  height: 33rem;
+  border-radius: 1rem;
+  background-color: rgb(235, 235, 235);
+  box-shadow: rgba(190, 190, 190, 0.55) 0rem 0.1rem 0.99rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.modalLogin {   
+  display: flex;
+  flex-direction: column;
+}
+
+.modalRegister {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  text-align: center;
+  margin-top: 0.6rem;
+  font-size: medium;
+}
+
+.modalLogin .title h1{
+  color:rgb(44, 44, 44);
+}
+
+.modalRegister .title h1{
+  color:rgb(44, 44, 44);
 }
 
 .form{
   display:flex;
   flex-direction: column;
   align-items: center;
+  
+}
+
+.form input {
+  display: flex;
+  position:relative;      
+  width: 17rem;
+  height: 2rem;
+  border: 0;
+  border-bottom:0.1rem solid #555;  
+  background: transparent;
+  font-size: 1.2rem;
+  color:rgb(74, 74, 74); 
+}
+
+.form input:focus {
+  border:none;	
+  outline:none;
+  border-bottom:0.1rem solid #e74c3c;
+  max-width: 100%;
+  width: 20rem;
+}
+
+.modalContainer .closeButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalContainer .closeButton button{
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.modalLogin .body {
+  flex: 50%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
 }
 
-.form input{
-  width: 300px;
-  height: 60px;
-  margin: 10px;
-  border-style: groove;
-  border-color: blanchedalmond;
-  font-size: 25px;
+.modalLogin .footer {
+  flex: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  flex-wrap: wrap;
 }
 
-.card{
-  width: 500px;
-  height: 155px;
-  border: 2px solid black;
-  border-radius: 15px;
-  margin: 10px;
+.form label {
+    color: rgb(44, 44, 44);
+    display: flex;
+    padding-top: 2.4rem;     
+    font-size: 1.2rem;
+  transition: all 0.5s ease-in-out;
 }
 
-#updateInput {
-  width: 150px;
-  height: 20px;
+.form button {
+    width: 25%;
+    height: 45%;
+    font-size: 9px;
+    justify-content: center;
+    align-items: center;
 }
 
-.App {
-  padding: 10px;
+.modalRegister .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalRegister .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  flex-wrap: wrap;
+}
+
+
+
+.modalContainer .footer button {
+  width: 10rem;
+  height: 3rem;
+  margin: 0.6rem;
+  border: none;
+  background-color: rgb(144, 36, 36);
+  color:white;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  cursor: pointer;   
+}
+
+.modalContainer .footer a {
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 100%;
+}
+
+.modalLogin .footer p {
+  font-size: 0.95rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 100%;
+}
+
+.openModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.openModal h1{
+  color: rgba(240, 255, 255, 0.885);
+}
+
+
+html {
+  background-color: rgba(17, 17, 17, 0.953);
+}
+
+/* ---------------------------- D3 ---------------------------------*/
+
+.test{
+    color:rgba(78, 0, 204, 0.685);
+  
+}
+
+body {     
+    margin:0;
+    padding: 0;
+}
+
+.App{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.952);
+}
+/* ------------------------------- */
+
+.title {
+  font-size: 10px;
+}
+
+#app {
+  display: flex;
+  margin: 2rem 1rem;
+}
+
+#chart {
+  width: 30vw;
+  height: 25vh;
+  box-shadow: 0 16px 43px rgba(0, 0, 0, 0.53);
+  padding: 1rem;
+  background-color: rgb(80, 80, 80);
+}
+
+#chart,
+#data {
+  display: flex;
+  align-content: flex-start;
+  margin: 0 2rem;
+  
+}
+
+#data {
+  position: relative;
+  
+  top:40%;
+}
+
+#data ul {
+
+  left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#data li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 33px rgba(0, 0 ,0, 0.26);
+  width: 2rem; 
+  height: 2rem;
+  align-content: center;
+  font-weight: bold;
+  color: rgb(83, 83, 83);
+  background-color: rgba(255, 255, 255, 0.925);
+  border-radius: 5%;
+  border: thick double rgba(0, 0, 0, 0.083);
+}
+#data input {
+ width: 1rem;
+ height: 1rem;
+ position:relative;
+}
+
+.bar {
+  fill: rgba(136, 132, 160, 0.693);
+}
+
+#app .label {
+  fill: #cdcdcd;
+  font-size: 0.7rem;
+}
+
+.test{
+  fill: rgba(86, 56, 255, 0.975);
+  font-size: 2px;
+  
+  
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  grid-auto-rows: minmax(400px, auto);
+ 
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 1;
+  grid-row: 2;
+}
+.four {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.wrapper div {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+
+#dd {
+position: absolute;
+display: flex;
+justify-content:center;
+align-content:center;
+right: 0;
+
+}
+
+#dd svg {
+width: 45vw;
+height: 100vh;
+
 }

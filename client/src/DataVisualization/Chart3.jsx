@@ -1,6 +1,6 @@
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
-import './D3.css';
+import '../App.css';
 
 export default function Chart3 (props) {
 

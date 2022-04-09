@@ -4,7 +4,7 @@ import Chart2 from './Chart2';
 import Chart3 from './Chart3';
 import AllCharts from './AllCharts';
 import Chart5 from './Chart5';
-import './D3.css';
+import '../App.css';
 
 import ReactComponent from './Experimental/ChartTest';
 

@@ -1,6 +1,6 @@
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
-import './D3chart4.css';
+import '../App.css';
 import Chart2 from './Chart2';
 import Chart3 from './Chart3';
 import Chart5 from './Chart5';

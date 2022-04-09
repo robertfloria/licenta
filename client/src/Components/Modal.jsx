@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { render } from 'react-dom';
-import "./Modal.css";
+import "../App.css"
 import LoginModal from './ModalLogin';
 import RegisterModal from './ModalRegister';
 
@@ -13,7 +13,6 @@ export default function Modal ({closeModal}) {
     const OpenLoginRegisterModal = () => {
         if (openLogin == true && openRegister == false)
         {
-            console.log("nnu repa");
             return <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} />;
         }
         else 

@@ -1,6 +1,6 @@
 import Modal from "./Components/Modal";
-import "./Components/Modal.css";
-import { useState } from "react";
+import "./App.css";
+import { useState, useEffect } from "react";
 
 export default function OpenModal() {
 

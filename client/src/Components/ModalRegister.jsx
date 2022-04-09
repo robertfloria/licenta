@@ -46,7 +46,7 @@ const RegisterModal = (props) => {
                     <button onClick={insertCredentials}>Submit</button>
                     <a href='#' onClick={()=>{
                         props.openRegister(false); props.openLogin(true);
-                        }}>Go to Login</a>
+                        }}>Sign In</a>
                 </div>       
             </div>  
         </>

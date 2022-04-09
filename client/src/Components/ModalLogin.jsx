@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import App from '../DataVisualization/App.jsx';
 
@@ -44,6 +44,29 @@ const LoginModal = (props) => {
       setNewUserEmail("");
     };
 
+    useEffect(()=>{
+
+      if(loginRes === 200 && loginErr === "")
+      {
+        alert("Logged!");
+        setLoginErr("");
+        setLoginRes(""); 
+        props.closeModal(false);                             
+        return(
+          <>
+            <App />
+          </>)
+        
+      }
+      else
+        if(loginRes !== 200 && loginErr !== "")
+          {
+            alert("try again, bitch!")
+            setLoginErr("");
+            setLoginRes("");                           
+          }                              
+    },[loginRes, loginErr]);
+
     return (
         <>
             <div className='modalLogin'>
@@ -52,7 +75,7 @@ const LoginModal = (props) => {
                 </div>
                 <div className='form'>
                     <label>Username</label>
-                    <input type="text" name="userName" onChange={(e) => {
+                    <input type="text" required name="userName" onChange={(e) => {
                         setUserName(e.target.value);
                     }} 
                     />
@@ -62,7 +85,7 @@ const LoginModal = (props) => {
                         setUserPassword(e.target.value);
                     }} 
                     />
-                    
+                    {/*}
                     <div>
                         <input type="text" name="newUserEmail" onChange={(e) => {
                             setNewUserEmail(e.target.value);
@@ -76,37 +99,19 @@ const LoginModal = (props) => {
                         />
                         <button onClick={updatePassword}>Update Password</button>     
                         <button onClick={() => {deleteUser(userName)}}>Delete User</button>        
-                    </div>
-                </div>
+                    </div>*/}
+                </div> 
 
                 <div className='footer'>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
-                    <button onClick={() => {
-                        getLogin(); console.log(loginRes);
-                        if(loginRes === 200 && loginErr == "")
-                          {
-                            console.log("mota");
-                            alert("Logged!");
-                            setLoginErr("");
-                            setLoginRes("");
-                            props.openRegister(false); props.openLogin(false);
-                            return (
-                            <div><App /></div>);
-                            
-                          }
-                        else
-                          {
-                            console.log("nu")
-                            alert("try again, bitch!")
-                            setLoginErr("");
-                            setLoginRes("");
-                            
-                          }
-                      }
-                    }>Login</button>
-                    <a href='#' onClick={()=>{
+                    <button onClick={() => getLogin()}>Login</button>
+
+                    <p>Need an Account?</p>
+                    <a href='#' onClick={() => {
                         props.openRegister(true); props.openLogin(false);
-                        }}>Go to Register</a>
+                        }}>Sign Up
+                    </a> 
+                    
                 </div>       
             </div>  
         </>           

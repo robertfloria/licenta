@@ -7,8 +7,8 @@ export default function Chart5 (props) {
    // const data = props.data;
     const myRef = useRef(null); 
 
-    //const width = 800;
-    const width = 650;
+    const width = 600;
+    //const width =  50;
     const radius = width / 6;
 
     const data = dataJson;

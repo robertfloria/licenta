@@ -1,8 +1,8 @@
 .modalBackground {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(29, 29, 29);
-    position: fixed;
+    background-color: rgb(35, 35, 35);
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,51 +11,68 @@
 }
 
 .modalContainer {
-    width: 300px;
-    height: 300px;
-    border-radius: 12px;
-    background-color: whitesmoke;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 31rem;
+    height: 33rem;
+    border-radius: 1rem;
+    background-color: rgb(235, 235, 235);
+    box-shadow: rgba(190, 190, 190, 0.55) 0rem 0.1rem 0.99rem;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-.modalLogin {
-    width: 300px;
-    height: 300px;
-    border-radius: 12px;
-    background-color: whitesmoke;
+.modalLogin {   
     display: flex;
     flex-direction: column;
 }
 
 .modalRegister {
-    width: 300px;
-    height: 300px;
-    border-radius: 12px;
-    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
 }
 
 .title {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0.6rem;
+    font-size: medium;
 }
 
 .modalLogin .title h1{
-    color:black;
+    color:rgb(44, 44, 44);
 }
 
 .modalRegister .title h1{
-    color:black;
+    color:rgb(44, 44, 44);
 }
 
+.form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
 .form input {
-    width: 45%;
-    height: 20%;
+    display: flex;
+    position:relative;      
+    width: 17rem;
+    height: 2rem;
+    border: 0;
+    border-bottom:0.1rem solid #555;  
+    background: transparent;
+    font-size: 1.2rem;
+    color:rgb(74, 74, 74); 
+}
+
+.form input:focus {
+    border:none;	
+    outline:none;
+    border-bottom:0.1rem solid #e74c3c;
+    max-width: 100%;
+    width: 20rem;
 }
 
 .modalContainer .closeButton {
@@ -66,7 +83,7 @@
 .modalContainer .closeButton button{
     background-color: transparent;
     border: none;
-    font-size: 11px;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
@@ -82,20 +99,19 @@
 .modalLogin .footer {
     flex: 20%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 3rem;
+    flex-wrap: wrap;
 }
 
-.form{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .form label {
-      font-size: 13px;
+.form label {
+      color: rgb(44, 44, 44);
+      display: flex;
+      padding-top: 2.4rem;     
+      font-size: 1.2rem;
+	  transition: all 0.5s ease-in-out;
   }
 
   .form button {
@@ -120,35 +136,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 1rem;
+    flex-wrap: wrap;
 }
 
 
 
 .modalContainer .footer button {
-    width: 100px;
-    height: 35px;
-    margin: 10px;
+    width: 10rem;
+    height: 3rem;
+    margin: 0.6rem;
     border: none;
-    background-color: cornflowerblue;
+    background-color: rgb(144, 36, 36);
     color:white;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    cursor: pointer;   
 }
 
 .modalContainer .footer a {
-    font-size: 10px;
-    
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
 }
 
-#cencelButton {
-    background-color: red;
+.modalLogin .footer p {
+    font-size: 0.95rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
 }
 
 .openModal {
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    align-content: center;
     text-align: center;
 }
 
