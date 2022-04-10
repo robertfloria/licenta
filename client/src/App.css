@@ -1,7 +1,8 @@
 .modalBackground {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(35, 35, 35);
+  /*background-color: rgb(27, 27, 27);*/
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277 - Copy.jpg");
   position: absolute;
   display: flex;
   justify-content: center;
@@ -11,15 +12,101 @@
 }
 
 .modalContainer {
-  width: 31rem;
-  height: 33rem;
-  border-radius: 1rem;
-  background-color: rgb(235, 235, 235);
-  box-shadow: rgba(190, 190, 190, 0.55) 0rem 0.1rem 0.99rem;
+  width: 30rem;
+  height: 32rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.906);
+  box-shadow: rgba(255, 255, 255, 0.436) 0rem 0.1rem 0.7rem 0.1rem;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 0.4rem;  
+
+  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
 }
+/*
+.modalContainer { https://codepen.io/designcouch/pen/obvKxm
+  width: 30rem;
+  height: 32rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.906);
+  box-shadow: rgba(255, 255, 255, 0.436) 0rem 0.1rem 0.7rem 0.1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem;
+
+    z-index: 0;
+    transform: scale(1);
+    .modal-background {
+      background: rgba(0, 0, 0, 0.7);
+      .modal {
+        animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+      }
+    }
+    + .content {
+      z-index: 1;
+      animation: blowUpContent 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+    &.out {
+      .modal-background {
+        .modal {
+          animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+            forwards;
+        }
+      }
+      + .content {
+        animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+          forwards;
+      }
+    }
+}*/
+
+@keyframes blowUpModal {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes blowUpModalTwo {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes blowUpContent {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  99.9% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes blowUpContentTwo {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
 
 .modalLogin {   
   display: flex;
@@ -36,8 +123,8 @@
   align-items: center;
   justify-content: center; 
   text-align: center;
-  margin-top: 0.6rem;
-  font-size: medium;
+  position: relative;
+  font-size: 1.2rem;
 }
 
 .modalLogin .title h1{
@@ -48,29 +135,45 @@
   color:rgb(44, 44, 44);
 }
 
-.form{
+.modalLogin .form{
   display:flex;
   flex-direction: column;
   align-items: center;
-  
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.modalRegister .form{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 1.5rem;
 }
 
 .form input {
   display: flex;
   position:relative;      
-  width: 17rem;
-  height: 2rem;
+  width: 20.5rem;
+  height: 2.5rem;
   border: 0;
-  border-bottom:0.1rem solid #555;  
-  background: transparent;
-  font-size: 1.2rem;
-  color:rgb(74, 74, 74); 
+  border-radius: 4%;
+  background-color: rgba(255, 255, 255, 0.386);
+  font-size: 1.2rem; 
+  box-shadow:rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.7rem 0.02rem;
+  font-size: 1.3rem;
 }
 
-.form input:focus {
+.form input[type="text"]:focus {
   border:none;	
   outline:none;
-  border-bottom:0.1rem solid #e74c3c;
+  max-width: 100%;
+  width: 20rem;
+}
+
+.form input[type="password"]:focus {
+  border:none;	
+  outline:none;
   max-width: 100%;
   width: 20rem;
 }
@@ -81,9 +184,13 @@
 }
 
 .modalContainer .closeButton button{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: transparent;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  position: relative;
+  right: 0.6rem;
+  top: 0.6rem;
   cursor: pointer;
 }
 
@@ -106,18 +213,28 @@
   flex-wrap: wrap;
 }
 
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+}
+
 .form label {
     color: rgb(44, 44, 44);
     display: flex;
-    padding-top: 2.4rem;     
-    font-size: 1.2rem;
-  transition: all 0.5s ease-in-out;
+    position: relative;
+    bottom: 0.5rem;
+    padding-top: 1.8rem;     
+    font-size: 1.3rem;
+    align-self: flex-start;
 }
 
 .form button {
     width: 25%;
     height: 45%;
-    font-size: 9px;
+    font-size: 1rem;
     justify-content: center;
     align-items: center;
 }
@@ -138,30 +255,68 @@
   align-items: center;
   padding-top: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  bottom: 1.6rem;
+}
+
+.modalLogin .footer {
+  position: relative;
+  bottom: 1.2rem;
+}
+
+.modalLogin .form a {
+  display: flex;
+  align-self: flex-start;
+  position: relative;
+  top: 1rem;
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color:rgba(63, 63, 63, 0.587);
 }
 
 
-
-.modalContainer .footer button {
-  width: 10rem;
-  height: 3rem;
+.modalLogin .footer button {
+  width: 10.5rem;
+  height: 3.2rem;
   margin: 0.6rem;
   border: none;
-  background-color: rgb(144, 36, 36);
+  background-color: rgba(47, 29, 206, 0.801);
   color:white;
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
+  border-radius: 0.7rem;
+  font-size: 1.3rem;
   cursor: pointer;   
+  position:relative;
+  top: 1.9rem;
 }
 
-.modalContainer .footer a {
+.modalRegister .footer button {
+  width: 10.5rem;
+  height: 3.2rem;
+  margin: 0.6rem;
+  border: none;
+  background-color: rgba(47, 29, 206, 0.801);
+  color:white;
+  border-radius: 0.7rem;
+  font-size: 1.3rem;
+  cursor: pointer;   
+  position: relative;
+  top: 0.1rem;
+}
+
+.modalLogin .footer a {
   font-size: 0.8rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 100%;
+  position: relative;
+  left: 0.2rem;
+  top: 1rem;
+  text-decoration: none;
+  color: rgba(107, 0, 165, 0.77);
 }
 
 .modalLogin .footer p {
@@ -171,22 +326,89 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 100%;
+  position: relative;
+  top: 1rem;
+  color: rgba(0, 0, 0, 0.801);
 }
 
+.modalRegister .footer p {
+  font-size: 0.95rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: flex;
+  position: relative;
+  bottom: 0.7rem;
+  color: rgba(0, 0, 0, 0.801);
+}
+
+.modalRegister .footer a {
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0.2rem;
+  bottom: 0.7rem;
+  text-decoration: none;
+  color: rgba(107, 0, 165, 0.77);
+}
+
+.modalLogin .footer #line {
+  display: flex;
+  color:rgb(0, 0, 0);
+  margin-left: auto;
+  margin-right: auto;
+  border-style:ridge;
+  border-width: 0.01rem;
+  width: 85%;
+  position:relative;
+  top: 2rem;
+  box-shadow: rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.2rem 0.02rem;
+}
+
+.modalRegister .footer #line {
+  display: flex;
+  color:rgb(0, 0, 0);
+  margin-left: auto;
+  margin-right: auto;
+  border-style:ridge;
+  border-width: 0.01rem;
+  width: 85%;
+  position:relative;
+  top: 0.2rem;
+  box-shadow: rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.2rem 0.02rem;
+}
+
+
 .openModal {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
   text-align: center;
+  position: relative;
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
+ 
 }
 
-.openModal h1{
+.openModal h1, h3{
   color: rgba(240, 255, 255, 0.885);
 }
 
+.openModal .openModalBtn {
+  width: 7rem;
+  height: 3rem;
+  border-radius: 5%;
+  background-color: rgba(90, 90, 255, 0.098);
+  border: none;
+  color: rgba(255, 255, 255, 0.833);
+  font-size: large;
+}
 
 html {
   background-color: rgba(17, 17, 17, 0.953);
@@ -220,7 +442,7 @@ body {
 #chart {
   width: 30vw;
   height: 25vh;
-  box-shadow: 0 16px 43px rgba(0, 0, 0, 0.53);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.53);
   padding: 1rem;
   background-color: rgb(80, 80, 80);
 }
@@ -251,7 +473,7 @@ body {
 #data li {
   margin-bottom: 0.5rem;
   padding: 0.5rem;
-  box-shadow: 0 10px 33px rgba(0, 0 ,0, 0.26);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0 ,0, 0.26);
   width: 2rem; 
   height: 2rem;
   align-content: center;
@@ -287,8 +509,8 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  grid-auto-rows: minmax(400px, auto);
+  gap: 0.2rem;
+  grid-auto-rows: minmax(30rem, auto);
  
 }
 .one {
@@ -314,11 +536,12 @@ body {
 }
 
 #dd {
-position: absolute;
+position: relative;
 display: flex;
 justify-content:center;
 align-content:center;
 right: 0;
+top: 1rem;
 
 }
 

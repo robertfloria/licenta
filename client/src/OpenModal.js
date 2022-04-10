@@ -8,15 +8,14 @@ export default function OpenModal() {
 
     return (
         <div className="openModal">
-            <h1>Open Modal</h1>
-
+            <h1>Welcome Back!</h1>
             <button 
                 className="openModalBtn" 
                 onClick={() => {
                     setOpenModal(true)
                 }}
             >
-                Open
+                Modal
             </button>           
             
             {openModal && <Modal closeModal={setOpenModal}/>} {/* if statement, daca openModal este true atunci se executa functia Modal */}

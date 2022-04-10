@@ -78,7 +78,7 @@ const LoginModal = (props) => {
                 </div>
                 <div className='form'>
                     <label>Username</label>
-                    <input type="text" required name="userName" onChange={(e) => {
+                    <input type="text" name="userName" onChange={(e) => {
                         setUserName(e.target.value);
                     }} 
                     />
@@ -87,10 +87,12 @@ const LoginModal = (props) => {
                     <input type="password" name="userPassword" onChange={(e) => {
                         setUserPassword(e.target.value);
                     }} 
-                    />                    
+                    />    
+                    <a href='#'>Forgot Password?</a>                 
                 </div> 
 
                 <div className='footer'>
+                    <hr id="line"></hr>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
                     <button onClick={() => getLogin()}>Login</button>
                     {openChart()}

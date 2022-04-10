@@ -28,7 +28,7 @@ export default function Modal ({closeModal}) {
         <div className='modalBackground'>
             <div className='modalContainer'>
                 <div className='closeButton'>
-                    <button onClick={() => closeModal(false)}>X</button>
+                    <button onClick={() => closeModal(false)}>x</button>
                 </div>
             <OpenLoginRegisterModal/>
             

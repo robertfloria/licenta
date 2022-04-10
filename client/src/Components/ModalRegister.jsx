@@ -40,10 +40,13 @@ const RegisterModal = (props) => {
                         setUserEmail(e.target.value);
                     }} 
                     />
+
                 </div>
                 <div className='footer'>
+                    <hr id="line"></hr>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
                     <button onClick={insertCredentials}>Submit</button>
+                    <p>Already have an Account?</p>
                     <a href='#' onClick={()=>{
                         props.openRegister(false); props.openLogin(true);
                         }}>Sign In</a>
