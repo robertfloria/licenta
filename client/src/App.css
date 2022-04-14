@@ -521,13 +521,29 @@ body {
 }
 
 .test{
-  fill: rgba(86, 56, 255, 0.975);
+  fill: rgba(255, 177, 177, 0.82);
   font-size: 2px;
   
   
 }
 
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+ 
+  
+ 
+}
+.one {
+  flex-wrap: wrap;
+  align-self: center;
+}
+.two {
+
+}
+
+/*
 .wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -550,7 +566,7 @@ body {
 .four {
   grid-column: 2;
   grid-row: 2;
-}
+}*/
 
 .wrapper div { 
     background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277 - Copy.jpg");

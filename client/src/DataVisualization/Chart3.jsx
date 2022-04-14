@@ -45,16 +45,16 @@ export default function Chart3 (props) {
                         return "rgba(136, 132, 160, 0.693)";
                      else
                         if(data.value >= 3 && data.value <=5)
-                            return "#ff863bf5";
+                            return "rgba(255, 56, 56, 0.975)";
                     else
                         if(data.value > 5 && data.value <=9)
-                            return "#c2c2c2";
+                            return "rgba(255, 126, 126, 0.975)";
                     else
                         if(data.value > 9 && data.value <=12)
-                            return "#e90000f5";
+                            return "rgba(198, 0, 0, 0.82)";
                     else
                         if(data.value > 12)
-                            return "rgba(86, 56, 255, 0.975)";           
+                            return "rgba(255, 177, 177, 0.82)";           
                     });             
 
             chart.selectAll('rect') // for removing data when we unselect

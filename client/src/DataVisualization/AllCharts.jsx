@@ -38,10 +38,6 @@ export default function AllCharts (props) {
             <Chart3 data={data3} width={width3} height={height3} margin={margin} />
         </div>
         <div className="two"><Chart5 /></div>
-        <div className="three">
-            
-        </div>
-        <div className="four">Four</div>
     </div>
     );
 }
