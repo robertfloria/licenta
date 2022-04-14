@@ -20,10 +20,23 @@
   display: flex;
   flex-direction: column;
   padding: 0.4rem;  
-
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-
 }
+
+/*
+
+ Change styles for span and cancel button on extra small screens 
+@media screen and (max-width: 300px) {
+  span.passw {
+     
+     float: right;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+*/
+
 /*
 .modalContainer { https://codepen.io/designcouch/pen/obvKxm
   width: 30rem;
@@ -96,7 +109,7 @@
 
 @keyframes blowUpContentTwo {
   0% {
-    transform: scale(2);
+    transform: scale(0.5);
     opacity: 0;
   }
   100% {
@@ -111,11 +124,13 @@
 .modalLogin {   
   display: flex;
   flex-direction: column;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 .modalRegister {
   display: flex;
   flex-direction: column;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 .title {
@@ -168,17 +183,19 @@
   border:none;	
   outline:none;
   max-width: 100%;
-  width: 20rem;
+  width: 19.5rem;
+  transition: ease-in-out, width .1s ease-in-out;
 }
 
 .form input[type="password"]:focus {
   border:none;	
   outline:none;
   max-width: 100%;
-  width: 20rem;
+  width: 19.5rem;
+  transition: ease-in-out, width .1s ease-in-out;
 }
 
-.modalContainer .closeButton {
+.modalContainer .closeButton{
   display: flex;
   justify-content: flex-end;
 }
@@ -239,6 +256,10 @@
     align-items: center;
 }
 
+.footer button:hover {
+  opacity: 0.95;
+}
+
 .modalRegister .body {
   flex: 50%;
   display: flex;
@@ -274,6 +295,7 @@
   font-weight: bold;
   text-decoration: none;
   color:rgba(63, 63, 63, 0.587);
+  cursor: pointer;
 }
 
 
@@ -530,8 +552,8 @@ body {
   grid-row: 2;
 }
 
-.wrapper div {
-    background-color: rgb(80, 80, 80);
+.wrapper div { 
+    background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277 - Copy.jpg");
     color: white;
 }
 

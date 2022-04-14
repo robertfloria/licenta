@@ -12,8 +12,8 @@ const LoginModal = (props) => {
 
     const [loginRes, setLoginRes] = useState("");
     const [loginErr, setLoginErr] = useState("");
-    //const [loginStatus, setLoginStatus] = useState(false);
-    let loginStatus = false;
+
+    
 
     const getLogin = () => {
         Axios.post("http://localhost:3001/api/login", {
@@ -21,6 +21,7 @@ const LoginModal = (props) => {
           password: userPassword
         }).then((res) => {
             setLoginRes(res.status);
+            //props.loginStatus(true);
           }).catch((err) => {
               setLoginErr(err);
             })
@@ -46,27 +47,27 @@ const LoginModal = (props) => {
       setNewUserEmail("");
     };
 
-    const openChart = () => {
-      console.log(loginStatus +" as");   
-      if(loginStatus == true)
-            return <App />         
-    }
-
     useEffect(()=>{
       
       if(loginRes === 200 && loginErr === "")
       { 
         props.closeModal(false);
         alert("Logged!");  
-        loginStatus = true;console.log(loginStatus);   
+        props.loginStatus(true);  
       }
       else
         if(loginRes !== 200 && loginErr !== "")
           {
             alert("try again, bitch!")             
           }
+
+      return()=>{  // useEffect cleanup; after every render return this
+        setLoginErr("");
+        setLoginRes("");   
+        //props.loginStatus(false);
+      };
                                  
-    },[loginRes, loginErr]);
+    },[loginRes, loginErr, props]);
 
     
 
@@ -94,16 +95,18 @@ const LoginModal = (props) => {
                 <div className='footer'>
                     <hr id="line"></hr>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
-                    <button onClick={() => getLogin()}>Login</button>
-                    {openChart()}
+                    <button onClick={() => {
+                      getLogin();
+                                            
+                      }}>Login</button>
+                    
                     <p>Need an Account?</p>
                     <a href='#' onClick={() => {
                         props.openRegister(true); props.openLogin(false);
                         }}>Sign Up
                     </a> 
-                </div> 
-                           
-            </div>  
+                </div>                       
+            </div>
         </>           
     )
 }

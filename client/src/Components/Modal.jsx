@@ -4,24 +4,24 @@ import { render } from 'react-dom';
 import "../App.css"
 import LoginModal from './ModalLogin';
 import RegisterModal from './ModalRegister';
+import App from '../DataVisualization/App.jsx';
 
-export default function Modal ({closeModal}) {
+export default function Modal ({closeModal, loginStatus}) {
 
     const [openLogin, setOpenLogin] = useState(true);
     const [openRegister, setOpenRegister] = useState(false);
+    //const [loginStatus, setLoginStatus] = useState(false);
 
     const OpenLoginRegisterModal = () => {
         if (openLogin == true && openRegister == false)
         {
-            return <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} />;
+            return <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} loginStatus = {loginStatus}/>;
         }
         else 
             if(openRegister == true  && openLogin == false)
             {
                 return <RegisterModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal}/>;
-            }
-        else return "ok";
-        
+            }               
     }
 
     return (
@@ -31,6 +31,7 @@ export default function Modal ({closeModal}) {
                     <button onClick={() => closeModal(false)}>x</button>
                 </div>
             <OpenLoginRegisterModal/>
+            
             
              {/*{openLogin ? <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} /> : <RegisterModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal}/>}   */}   
             </div>
