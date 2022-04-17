@@ -41,4 +41,3 @@ export default function AllCharts (props) {
     </div>
     );
 }
-//<Chart2 data={data2} width={width} height={height} />

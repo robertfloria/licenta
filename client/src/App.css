@@ -479,8 +479,6 @@ body {
 
 #data {
   position: relative;
-  
-  top:40%;
 }
 
 #data ul {
@@ -493,8 +491,8 @@ body {
 }
 
 #data li {
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding: 0.3rem;
   box-shadow: 0 0.5rem 2rem rgba(0, 0 ,0, 0.26);
   width: 2rem; 
   height: 2rem;
@@ -503,11 +501,13 @@ body {
   color: rgb(83, 83, 83);
   background-color: rgba(255, 255, 255, 0.925);
   border-radius: 5%;
-  border: thick double rgba(0, 0, 0, 0.083);
+  /**border: thick double rgba(0, 0, 0, 0.083);*/
+  margin-left: 1rem;
+  border-style: groove;
 }
 #data input {
- width: 1rem;
- height: 1rem;
+ width: 0.7rem;
+ height: 0.7rem;
  position:relative;
 }
 

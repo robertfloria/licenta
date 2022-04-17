@@ -3,6 +3,8 @@ const app = express();
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const db = mysql.createPool({
     host: "localhost",
@@ -21,14 +23,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
-app.post("/api/insert/credentials", (req,res) => {
+app.post("/api/insert/credentials", async (req,res) => {
 
-    const userName = req.body.username
-    const userPassword = req.body.password
-    const userEmail = req.body.email
+    const userName = req.body.username;
+    //const userPassword = req.body.password;
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const userEmail = req.body.email;
     const sqlInsert = "INSERT INTO userregister (username, password, email) VALUES (?, ?, ?)"
 
-    db.query(sqlInsert, [userName, userPassword, userEmail], (err, result) => {
+    db.query(sqlInsert, [userName, hashedPassword, userEmail], (err, result) => {
         console.log(result);
     });
 });
@@ -41,13 +44,13 @@ app.get("/api/select", (req,res) => {
     });
 });
 
-app.post("/api/login", (req,res) => {
+app.post("/api/login", async(req,res) => {
 
-    const userName = req.body.username
-    const userPassword = req.body.password
-    const sqlSearch = "SELECT * FROM userregister WHERE username = ?"
+    const userName = req.body.username;
+    const userPassword = req.body.password;
+    const sqlSearch = "SELECT * FROM userregister WHERE username = ?";
 
-    db.query(sqlSearch, [userName], (err, result) => {        
+    await db.query(sqlSearch, [userName], async(err, result) => {        
         if(err || result.length == 0)
         {                    
             console.log("---> User does not exist")
@@ -55,14 +58,12 @@ app.post("/api/login", (req,res) => {
             
         }
         if(result.length > 0){
-            const password = result[0].password
-            if(password == userPassword){           
-            {
+            const hashedPassword = result[0].password;
+            if(await bcrypt.compare(userPassword, hashedPassword)){
                 console.log("---> Logged successfully")
                 res.sendStatus(200)
-            }
-
-            }else {               
+            }       
+            else {               
                 console.log("---> Password incorrect!")
                 res.sendStatus(404)                                   
             }

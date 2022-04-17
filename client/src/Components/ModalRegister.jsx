@@ -30,7 +30,7 @@ const RegisterModal = (props) => {
                     />
         
                     <label>Password</label>
-                    <input type="text" name="userPassword" onChange={(e) => {
+                    <input type="password" name="userPassword" onChange={(e) => {
                         setUserPassword(e.target.value);
                     }} 
                     />
