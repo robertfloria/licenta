@@ -90,7 +90,7 @@ export default function Chart3 (props) {
  
         listItems.append('span')
                  .text((data) => data.region)
-                 .style('font-size','0.3cm');
+                 .style('font-size','0.25cm');
 
         listItems.append('input')
                  .attr('type', 'checkbox')

@@ -1,9 +1,5 @@
 import React, {Component, useState} from 'react';
-import Chart1 from './Chart1';
-import Chart2 from './Chart2';
-import Chart3 from './Chart3';
 import AllCharts from './AllCharts';
-import Chart5 from './Chart5';
 import '../App.css';
 
 import ReactComponent from './Experimental/ChartTest';

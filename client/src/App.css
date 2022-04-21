@@ -12,14 +12,14 @@
 }
 
 .modalContainer {
-  width: 30rem;
-  height: 32rem;
-  border-radius: 2rem;
+  width: 28.5rem;
+  height: 31rem;
+  border-radius: 4rem 0.4rem 4rem 0.4rem;
   background-color: rgba(255, 255, 255, 0.906);
   box-shadow: rgba(255, 255, 255, 0.436) 0rem 0.1rem 0.7rem 0.1rem;
   display: flex;
   flex-direction: column;
-  padding: 0.4rem;  
+  padding-bottom: 0.4rem;  
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
@@ -139,7 +139,7 @@
   justify-content: center; 
   text-align: center;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .modalLogin .title h1{
@@ -170,9 +170,9 @@
   display: flex;
   position:relative;      
   width: 20.5rem;
-  height: 2.5rem;
+  height: 2.2rem;
   border: 0;
-  border-radius: 4%;
+  border-radius: 0rem 1rem 0rem 1rem;
   background-color: rgba(255, 255, 255, 0.386);
   font-size: 1.2rem; 
   box-shadow:rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.7rem 0.02rem;
@@ -206,8 +206,8 @@
   border: none;
   font-size: 1.3rem;
   position: relative;
-  right: 0.6rem;
-  top: 0.6rem;
+  right: 0.4rem;
+  top: 0.2rem;
   cursor: pointer;
 }
 
@@ -244,7 +244,7 @@
     position: relative;
     bottom: 0.5rem;
     padding-top: 1.8rem;     
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     align-self: flex-start;
 }
 
@@ -301,12 +301,12 @@
 
 .modalLogin .footer button {
   width: 10.5rem;
-  height: 3.2rem;
+  height: 3.1rem;
   margin: 0.6rem;
   border: none;
   background-color: rgba(47, 29, 206, 0.801);
   color:white;
-  border-radius: 0.7rem;
+  border-radius: 0rem 0.6rem 0rem 0.6rem;
   font-size: 1.3rem;
   cursor: pointer;   
   position:relative;
@@ -315,12 +315,12 @@
 
 .modalRegister .footer button {
   width: 10.5rem;
-  height: 3.2rem;
+  height: 3.1rem;
   margin: 0.6rem;
   border: none;
   background-color: rgba(47, 29, 206, 0.801);
   color:white;
-  border-radius: 0.7rem;
+  border-radius: 0rem 0.6rem 0rem 0.6rem;
   font-size: 1.3rem;
   cursor: pointer;   
   position: relative;
@@ -387,7 +387,7 @@
   width: 85%;
   position:relative;
   top: 2rem;
-  box-shadow: rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.2rem 0.02rem;
+  box-shadow: rgba(64, 64, 64, 0.55) 0rem 0.1rem 0.2rem 0.02rem;
 }
 
 .modalRegister .footer #line {
@@ -400,7 +400,7 @@
   width: 85%;
   position:relative;
   top: 0.2rem;
-  box-shadow: rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.2rem 0.02rem;
+  box-shadow: rgba(64, 64, 64, 0.55) 0rem 0.1rem 0.2rem 0.02rem;
 }
 
 
@@ -432,9 +432,6 @@
   font-size: large;
 }
 
-html {
-  background-color: rgba(17, 17, 17, 0.953);
-}
 
 /* ---------------------------- D3 ---------------------------------*/
 
@@ -464,9 +461,7 @@ body {
 #chart {
   width: 30vw;
   height: 25vh;
-  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.53);
   padding: 1rem;
-  background-color: rgb(80, 80, 80);
 }
 
 #chart,
@@ -474,6 +469,7 @@ body {
   display: flex;
   align-content: flex-start;
   margin: 0 2rem;
+
   
 }
 
@@ -493,15 +489,13 @@ body {
 #data li {
   margin-bottom: 0.2rem;
   padding: 0.3rem;
-  box-shadow: 0 0.5rem 2rem rgba(0, 0 ,0, 0.26);
   width: 2rem; 
   height: 2rem;
   align-content: center;
   font-weight: bold;
   color: rgb(83, 83, 83);
-  background-color: rgba(255, 255, 255, 0.925);
+  background-color: rgb(255, 255, 255);
   border-radius: 5%;
-  /**border: thick double rgba(0, 0, 0, 0.083);*/
   margin-left: 1rem;
   border-style: groove;
 }
@@ -542,6 +536,13 @@ body {
 .two {
 
 }
+
+.sideBar {
+  width: 12rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.908) ;
+}
+
 
 /*
 .wrapper {
@@ -584,7 +585,7 @@ top: 1rem;
 }
 
 #dd svg {
-width: 45vw;
+width: 40vw;
 height: 100vh;
 
 }
