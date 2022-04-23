@@ -7,7 +7,7 @@ export default function Sidebar () {
     const sideBarData = [ 
         {
             title: "Home",
-            icon: <Icon />,
+            //icon: <Icon />,
             link: "/home"
         }
     ];
