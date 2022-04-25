@@ -540,9 +540,9 @@ body {
 .sideBar {
   width: 12rem;
   height: 100vh;
-  background-color: rgba(30, 30, 30, 0.682);
+  background-color: rgba(47, 47, 47, 0.682);
   display: flex;
-  box-shadow: rgba(103, 103, 103, 0.405) 0rem 0rem 0.7rem 0.08rem;
+  box-shadow: rgba(66, 66, 66, 0.405) 0rem 0rem 0.7rem 0.08rem;
   
 }
 
@@ -558,7 +558,7 @@ body {
   list-style-type: none;
   margin: 0;
   display: flex;
-  color:rgba(207, 207, 207, 0.859);
+  color:rgba(224, 224, 224, 0.959);
   justify-content: center;
   align-items: center;
   font-family: 'Courier New', Courier, monospace;
@@ -584,10 +584,10 @@ body {
   background-color: rgba(23, 13, 99, 0.751);
 }
 
-.sideBarBackground {
+.AppMainPage {
   width: 100vw;
   height: 100vh;
-  background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277 - Copy.jpg");
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
 
 }
 /*
@@ -616,7 +616,7 @@ body {
 }*/
 
 .wrapper div { 
-    background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277 - Copy.jpg");
+    background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
     color: white;
 }
 

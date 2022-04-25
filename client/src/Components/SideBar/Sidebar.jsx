@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import "../App.css";
+import "D:/GitHub/licenta/client/src/App.css"
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -58,7 +58,7 @@ export default function Sidebar () {
     ];
 
     return (
-        <div className='sideBarBackground'>
+        <>
             <div className='sideBar'> 
                 <ul className='sideBarList'>
                     {sideBarData.map((val, key) => {
@@ -74,7 +74,7 @@ export default function Sidebar () {
                     })}
                 </ul>
             </div>
-        </div>
+        </>
     )
 }
 //https://www.youtube.com/watch?v=5R9jFHlG6ik&ab_channel=PedroTech  8:09

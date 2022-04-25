@@ -2,6 +2,7 @@ import Modal from "./Components/Modal";
 import "./App.css";
 import { useState, useEffect } from "react";
 import App from './DataVisualization/App.jsx';
+import MainMenu from "./Components/MainMenu.jsx";
 import { BrowserRouter as Router, Switch, Route, Navigate} from "react-router-dom";
 
 export default function OpenModal() {
@@ -14,7 +15,7 @@ export default function OpenModal() {
             {return <Modal closeModal={setOpenModal} loginStatus = {setLoginStatus}/>}
         else
             if(loginStatus == true)
-                return <App />
+                return <MainMenu />
     }
 
     return (
@@ -34,7 +35,7 @@ export default function OpenModal() {
             {OpenPages()}
 
         </div>
-        {loginStatus && <App/>}
+        
 
         
 

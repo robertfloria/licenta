@@ -14,7 +14,7 @@ const LoginModal = (props) => {
     const [loginErr, setLoginErr] = useState("");
 
     
-
+  /*
     const getLogin = () => {
         Axios.post("http://localhost:3001/api/login", {
           username: userName, 
@@ -25,7 +25,21 @@ const LoginModal = (props) => {
           }).catch((err) => {
               setLoginErr(err);
             })
-    };
+    };*/
+
+    const getLogin = () => {
+      Axios.post("http://localhost:3001/api/login", {
+        username: userName, 
+        password: userPassword
+      }).then((response) => {
+        if(!response.data.message){
+          setLoginRes(response.data.message);
+          console.log("---" + response.data.message);
+        } else {
+          console.log(response.data);
+          setLoginRes(response.data[0].userName);
+        }       
+    })};
     
     const deleteUser = (userName) => {
       Axios.delete(`http://localhost:3001/api/delete/${userName}`)

@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
+//import createTokens from "./JWT.js";
 
 const db = mysql.createPool({
     host: "localhost",
@@ -22,6 +24,7 @@ db.getConnection( (err, connection)=> {
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieParser());
 
 app.post("/api/insert/credentials", async (req,res) => {
 
@@ -54,14 +57,19 @@ app.post("/api/login", async(req,res) => {
         if(err || result.length == 0)
         {                    
             console.log("---> User does not exist")
-            res.sendStatus(404)
-            
+            res.sendStatus(404)         
         }
         if(result.length > 0){
             const hashedPassword = result[0].password;
             if(await bcrypt.compare(userPassword, hashedPassword)){
                 console.log("---> Logged successfully")
-                res.sendStatus(200)
+
+                const accesToken = createTokens(result[0]);
+
+                res.cookie("access-token", accesToken, {
+                    maxAge: 2592000000 // 30 days in milliseconds [ms]; cookie will expire in 30 days
+                });
+                
             }       
             else {               
                 console.log("---> Password incorrect!")
@@ -69,6 +77,10 @@ app.post("/api/login", async(req,res) => {
             }
         }
     });
+});
+
+app.get("/profile", validateToken, (req, res) => {
+    res.json("token validated")
 });
 
 app.delete('/api/delete/:userName', (req, res) => {
@@ -103,3 +115,30 @@ app.put('/api/update/email', (req, res) => {
 app.listen(3001, () => {
     console.log("running on port 3001")
 });
+
+function createTokens (user) {
+
+    const accesToken = jwt.sign({username: user.username, id: user.id}, "secret");
+    return accesToken;
+};
+
+function validateToken (req, res, next) {
+
+    const accesToken = req.cookies["access-token"];
+
+    if(!accesToken)
+        return res.status(400).json({error: "User not authenticated!"});
+
+    try{
+
+        const validToken = jwt.verify(accesToken, "secret")
+
+        if(validToken){
+
+            req.authenticated = true;
+            return next();
+        }
+    } catch(err) {
+        return res.status(400).json({error: err});
+    }
+}
