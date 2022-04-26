@@ -6,6 +6,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const session = require("express-session"); // it helps to mantain the session; works with cookies
 //import createTokens from "./JWT.js";
 
 const db = mysql.createPool({
@@ -21,10 +22,25 @@ db.getConnection( (err, connection)=> {
     console.log ("DB connected successful: " + connection.threadId)
  })
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true       // allow the cookie to be enable
+}));
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(session({
+    key: "userId",
+    secret: "subscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie:{
+        expires: 24*60*60 //expires in 24 hours, converted in seconds[s]
+    }
+}))
 
 app.post("/api/insert/credentials", async (req,res) => {
 
@@ -57,26 +73,38 @@ app.post("/api/login", async(req,res) => {
         if(err || result.length == 0)
         {                    
             console.log("---> User does not exist")
-            res.sendStatus(404)         
+            res.json({authorised: false, message: "User does not exist!"});        
         }
         if(result.length > 0){
             const hashedPassword = result[0].password;
             if(await bcrypt.compare(userPassword, hashedPassword)){
+                
                 console.log("---> Logged successfully")
 
                 const accesToken = createTokens(result[0]);
-
-                res.cookie("access-token", accesToken, {
-                    maxAge: 2592000000 // 30 days in milliseconds [ms]; cookie will expire in 30 days
-                });
+                req.session.user = result;
                 
+                res.json({authorised: true, token: accesToken});
+                //res.send(result);
             }       
             else {               
                 console.log("---> Password incorrect!")
-                res.sendStatus(404)                                   
+                res.json({authorised: false, message: "Password incorrect!"});                                   
             }
         }
     });
+});
+
+app.get("/api/userAuthStatus", validateToken,(req, res)=>{
+    res.send("You are authenticated!")
+});
+
+app.get("/api/login", (req, res)=>{
+    if(req.session.user){
+        res.send({loggdedIn: true, user: req.session.user});
+    } else {
+        res.send({loggdedIn: false});
+    }
 });
 
 app.get("/profile", validateToken, (req, res) => {
@@ -118,17 +146,29 @@ app.listen(3001, () => {
 
 function createTokens (user) {
 
-    const accesToken = jwt.sign({username: user.username, id: user.id}, "secret");
+    const accesToken = jwt.sign({username: user.username, id: user.id}, "secretToken", {
+        expiresIn: 300
+    });
     return accesToken;
 };
 
 function validateToken (req, res, next) {
 
-    const accesToken = req.cookies["access-token"];
+    const accesToken = req.headers["access-token"];
 
-    if(!accesToken)
-        return res.status(400).json({error: "User not authenticated!"});
-
+    if(!accesToken){
+        return res.status(400).json({error: "User not authenticated because there's no token!"});
+    } else {
+        jwt.verify(accesToken, "secretToken", (err, decoded) => {
+            if(err){
+                res.json({authorisation: false, message: err})
+            } else {
+                req.userId = decoded.id;
+                next();
+            }
+        });
+    }
+    /*
     try{
 
         const validToken = jwt.verify(accesToken, "secret")
@@ -140,5 +180,5 @@ function validateToken (req, res, next) {
         }
     } catch(err) {
         return res.status(400).json({error: err});
-    }
-}
+    }*/
+};

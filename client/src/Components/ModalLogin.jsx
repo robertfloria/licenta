@@ -13,6 +13,9 @@ const LoginModal = (props) => {
     const [loginRes, setLoginRes] = useState("");
     const [loginErr, setLoginErr] = useState("");
 
+    const [loginStatus, setLoginStatus] = useState(false);
+
+    Axios.defaults.withCredentials = true;
     
   /*
     const getLogin = () => {
@@ -32,12 +35,11 @@ const LoginModal = (props) => {
         username: userName, 
         password: userPassword
       }).then((response) => {
-        if(!response.data.message){
-          setLoginRes(response.data.message);
-          console.log("---" + response.data.message);
+        if(response.data.authorised == false){
+          setLoginStatus(false);
         } else {
-          console.log(response.data);
-          setLoginRes(response.data[0].userName);
+          localStorage.setItem("token", response.data.token);
+          setLoginStatus(true);
         }       
     })};
     
@@ -60,7 +62,7 @@ const LoginModal = (props) => {
       });
       setNewUserEmail("");
     };
-
+/*
     useEffect(()=>{
       
       if(loginRes === 200 && loginErr === "")
@@ -82,7 +84,25 @@ const LoginModal = (props) => {
       };
                                  
     },[loginRes, loginErr, props]);
+*/
 
+const userAuthenticated = () => {
+  Axios.get("http://localhost:3001/api/userAuthStatus", {
+    headers:{
+      "access-token" : localStorage.getItem("token")
+    }}).then((response)=>{
+      console.log(response);
+
+    })
+}
+
+useEffect(()=> {
+  Axios.get("http://localhost:3001/api/login").then((response)=>{
+    if(response.data.loggedIn == true)
+      setLoginRes(response.data[0].username);
+
+  })
+},[]);
     
 
     return (
@@ -109,16 +129,18 @@ const LoginModal = (props) => {
                 <div className='footer'>
                     <hr id="line"></hr>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
-                    <button onClick={() => {
-                      getLogin();
-                                            
-                      }}>Login</button>
+                    <button onClick={getLogin}>Login</button>
                     
                     <p>Need an Account?</p>
                     <a href='#' onClick={() => {
                         props.openRegister(true); props.openLogin(false);
                         }}>Sign Up
-                    </a> 
+                    </a>
+
+                    {loginStatus && (
+                      <button onClick={userAuthenticated}> check if auth</button>
+                    )} 
+
                 </div>                       
             </div>
         </>           
