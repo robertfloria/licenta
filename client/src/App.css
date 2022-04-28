@@ -12,11 +12,11 @@
 }
 
 .modalContainer {
-  width: 28.5rem;
-  height: 31rem;
+  width: 26.5rem;
+  height: 29rem;
   border-radius: 4rem 0.4rem 4rem 0.4rem;
-  background-color: rgba(255, 255, 255, 0.906);
-  box-shadow: rgba(255, 255, 255, 0.436) 0rem 0.1rem 0.7rem 0.1rem;
+  background-color: rgba(247, 247, 247, 0.941);
+  box-shadow: rgba(165, 165, 165, 0.436) 0rem 0.01rem 0.6rem 0.01rem;
   display: flex;
   flex-direction: column;
   padding-bottom: 0.4rem;  
@@ -144,10 +144,12 @@
 
 .modalLogin .title h1{
   color:rgb(44, 44, 44);
+  font-size: 2.1rem;
 }
 
 .modalRegister .title h1{
   color:rgb(44, 44, 44);
+  font-size: 2.1rem;
 }
 
 .modalLogin .form{
@@ -169,8 +171,8 @@
 .form input {
   display: flex;
   position:relative;      
-  width: 20.5rem;
-  height: 2.2rem;
+  width: 19.5rem;
+  height: 2rem;
   border: 0;
   border-radius: 0rem 1rem 0rem 1rem;
   background-color: rgba(255, 255, 255, 0.386);
@@ -183,7 +185,7 @@
   border:none;	
   outline:none;
   max-width: 100%;
-  width: 19.5rem;
+  width: 18.5rem;
   transition: ease-in-out, width .1s ease-in-out;
 }
 
@@ -191,7 +193,7 @@
   border:none;	
   outline:none;
   max-width: 100%;
-  width: 19.5rem;
+  width: 18.5rem;
   transition: ease-in-out, width .1s ease-in-out;
 }
 
@@ -300,8 +302,8 @@
 
 
 .modalLogin .footer button {
-  width: 10.5rem;
-  height: 3.1rem;
+  width: 9.5rem;
+  height: 3rem;
   margin: 0.6rem;
   border: none;
   background-color: rgba(47, 29, 206, 0.801);
@@ -314,8 +316,8 @@
 }
 
 .modalRegister .footer button {
-  width: 10.5rem;
-  height: 3.1rem;
+  width: 9.5rem;
+  height: 3rem;
   margin: 0.6rem;
   border: none;
   background-color: rgba(47, 29, 206, 0.801);

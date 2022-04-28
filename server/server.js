@@ -81,14 +81,14 @@ app.post("/api/login", async(req,res) => {
                 
                 console.log("---> Logged successfully")
 
-                const accesToken = createTokens(result[0]);
+                const accessToken = createTokens(result[0]);
                 const refreshToken = createRefreshTokens(result[0]);
 
                 refreshTokens.push(refreshToken);
 
                 req.session.user = result;
                 
-                res.json({authorised: true, token: accesToken, refreshToken: refreshToken});
+                res.json({authorised: true, token: accessToken, refreshToken: refreshToken});
                 //res.send(result);
             }       
             else {               
@@ -139,7 +139,7 @@ app.post("/api/refreshToken", (req, res) => {
         refreshTokens.push(newRefreshToken);
 
         res.status(200).json({
-            accesToken: newAccessToken,
+            accessToken: newAccessToken,
             refreshToken: newRefreshToken
         });
     });
@@ -209,26 +209,26 @@ app.listen(3001, () => {
 
 function createTokens (user) {
 
-    const accesToken = jwt.sign({username: user.username, id: user.id}, "MySecretKey", {
-        expiresIn: 300
+    const accessToken = jwt.sign({username: user.username, id: user.id}, "MySecretKey", {
+        expiresIn: 5
     });
-    return accesToken;
+    return accessToken;
 };
 
 function createRefreshTokens (user) {
 
-    const accesToken = jwt.sign({username: user.username, id: user.id}, "MyRefreshSecretKey");
-    return accesToken;
+    const accessToken = jwt.sign({username: user.username, id: user.id}, "MyRefreshSecretKey");
+    return accessToken;
 };
 
 function validateToken (req, res, next) {
 
-    const accesToken = req.headers["access-token"];
+    const accessToken = req.headers["access-token"];
 
-    if(!accesToken){
+    if(!accessToken){
         return res.status(400).json({error: "You need a Token for authentication!"});
     } else {
-        jwt.verify(accesToken, "MySecretKey", (err, user) => {
+        jwt.verify(accessToken, "MySecretKey", (err, user) => {
             if(err){
                 return res.status(403).json({authorisation: false, message: err})
             } else {

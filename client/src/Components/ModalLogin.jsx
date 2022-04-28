@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import App from '../DataVisualization/App.jsx';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 const LoginModal = (props) => {
   
@@ -40,6 +41,9 @@ const LoginModal = (props) => {
           setLoginStatus(false);
         } else {
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem("refreshToken", response.data.refreshToken);
+
+          setUser(response.data);
           setLoginStatus(true);
         }       
     })};
@@ -107,11 +111,54 @@ const handleSubmit = async (e) => {
 const [success, setSuccess] = useState(false);
 const [error, setError] = useState(false);
 
+
+const refreshToken = async () => {
+
+  try{
+    const res = await Axios.post("http://localhost:3001/api/refreshToken", {
+      token: localStorage.getItem("refreshToken")
+    });
+
+    setUser({
+      ...user,
+      accessToken: res.data.accessToken,
+      refreshToken: res.data.refreshToken
+    })
+
+    localStorage.setItem("token", res.data.token);
+    localStorage.setItem("refreshToken", res.data.refreshToken);
+
+    return res.data;
+  }
+  catch (err){
+    console.log(err);
+  }
+}
+
+const axiosInstance = Axios.create(); // because for authentication request or get req we don't need to refresh token in before every req
+
+
+  axiosInstance.interceptors.request.use(async (config) => {        // do something before every request
+    
+    let currentDate = new Date();
+    const decodedToken = jwt_decode(localStorage.getItem("token"));
+
+    if(decodedToken.exp * 1000 < currentDate.getTime()) {
+      const data = await refreshToken();
+      config.headers["access-token"] = data.accessToken;
+    }
+
+    return config;
+  }, (error) => {
+    return Promise.reject(error);
+  }
+);
+
 const handleDelete = async (id) => {
   setSuccess(false);
   setError(false);
   try{
-    await Axios.delete("http://localhost:3001/api/delete/"+id, {    
+    await axiosInstance.delete("http://localhost:3001/api/delete/"+id, {    
 
       headers:{
         "access-token" : localStorage.getItem("token")
@@ -126,7 +173,7 @@ const handleDelete = async (id) => {
 }
 
 const userAuthenticated = () => {
-  Axios.get("http://localhost:3001/api/userAuthStatus", {
+  axiosInstance.get("http://localhost:3001/api/userAuthStatus", {
     headers:{
       "access-token" : localStorage.getItem("token")
     }}).then((response)=>{
@@ -134,14 +181,14 @@ const userAuthenticated = () => {
 
     })
 }
-
+/* //https://www.youtube.com/watch?v=Yh5Lil03tpI&ab_channel=LamaDev 1:01:00
 useEffect(()=> {
   Axios.get("http://localhost:3001/api/login").then((response)=>{
     if(response.data.loggedIn == true)
       setLoginRes(response.data[0].username);
 
   })
-},[]);
+},[]);*/
     
     return (
         <>
@@ -177,8 +224,8 @@ useEffect(()=> {
 
                     {loginStatus && (
                       
-                      //<button onClick={userAuthenticated}> check if auth</button>
-                      <button onClick={()=>handleDelete(22)}> delete</button>
+                      <button onClick={userAuthenticated}> check if auth</button>
+                      //<button onClick={()=>handleDelete(22)}> delete</button>
                       
                     )} 
 
