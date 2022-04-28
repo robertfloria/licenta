@@ -24,7 +24,7 @@ db.getConnection( (err, connection)=> {
 
 app.use(cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true       // allow the cookie to be enable
 }));
 
@@ -82,9 +82,13 @@ app.post("/api/login", async(req,res) => {
                 console.log("---> Logged successfully")
 
                 const accesToken = createTokens(result[0]);
+                const refreshToken = createRefreshTokens(result[0]);
+
+                refreshTokens.push(refreshToken);
+
                 req.session.user = result;
                 
-                res.json({authorised: true, token: accesToken});
+                res.json({authorised: true, token: accesToken, refreshToken: refreshToken});
                 //res.send(result);
             }       
             else {               
@@ -95,9 +99,51 @@ app.post("/api/login", async(req,res) => {
     });
 });
 
+app.post("/api/logout", validateToken, (req, res) => {
+
+    const refreshToken = req.body.token;
+    refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
+    res.status(200).json("You logged out successfully!");
+});
+
 app.get("/api/userAuthStatus", validateToken,(req, res)=>{
     res.send("You are authenticated!")
 });
+
+let refreshTokens = [];
+
+app.post("/api/refreshToken", (req, res) => {
+    //take the refresh token from the user
+
+    const refreshToken = req.body.token;
+
+    // send error if there is no token or it's invalid
+
+    if(!refreshToken)
+        return res.status(401).json("Your token is invalid or doesn't exist");
+    if(!refreshTokens.includes(refreshToken)){
+        return res.status(403).json("Refresh token is not valid!")
+    }
+
+    // if everything ok, create new access token, refresh token and send to user
+
+    jwt.verify(refreshToken, "MyRefreshSecretKey", (err, user) => {
+
+        err && console.log(err);
+
+        refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
+
+        const newAccessToken = createTokens(user);
+        const newRefreshToken = createRefreshTokens(user);
+
+        refreshTokens.push(newRefreshToken);
+
+        res.status(200).json({
+            accesToken: newAccessToken,
+            refreshToken: newRefreshToken
+        });
+    });
+})
 
 app.get("/api/login", (req, res)=>{
     if(req.session.user){
@@ -111,13 +157,21 @@ app.get("/profile", validateToken, (req, res) => {
     res.json("token validated")
 });
 
-app.delete('/api/delete/:userName', (req, res) => {
+app.delete('/api/delete/:userId', validateToken, (req, res) => {
 
-    const userName = req.params.userName;
-    const sqlDelete = "DELETE FROM userregister WHERE username = ?"
-    db.query(sqlDelete, userName, (err, result) => {
-        console.log(result);
-    });
+    const userId = req.params.userId;
+    const sqlDelete = "DELETE FROM userregister WHERE id = ?"
+
+    if(req.user.id == req.params.userId /*|| req.user.isAdmin*/){
+        
+        db.query(sqlDelete, userId, (err, result) => {
+            console.log(result);
+        });
+
+        res.status(200).json("User have been deleted!")
+    } else {
+        res.status(403).json({id: req.user.id, message:"User id request doesn't match"})
+    }
 });
 
 app.put('/api/update/password', (req, res) => {
@@ -130,14 +184,23 @@ app.put('/api/update/password', (req, res) => {
     });
 });
 
-app.put('/api/update/email', (req, res) => {
+app.put('/api/update/email/:userId', validateToken, (req, res) => {
 
     const userName = req.body.username;
     const userEmail = req.body.email;
     const sqlUpdate = "UPDATE userregister SET email = ? WHERE username = ?"
-    db.query(sqlUpdate,[userEmail, userName], (err, result) => {
-        console.log(result);
-    });
+
+    
+    if(req.user.id == req.params.userId /*|| req.user.isAdmin*/){
+        
+        db.query(sqlUpdate,[userEmail, userName], (err, result) => {
+            console.log(result);
+        });
+
+        res.status(200).json("User email have been updated!")
+    } else {
+        res.status(403).json({id: req.user.id, message:"User id request doesn't match"})
+    }
 });
 
 app.listen(3001, () => {
@@ -146,9 +209,15 @@ app.listen(3001, () => {
 
 function createTokens (user) {
 
-    const accesToken = jwt.sign({username: user.username, id: user.id}, "secretToken", {
+    const accesToken = jwt.sign({username: user.username, id: user.id}, "MySecretKey", {
         expiresIn: 300
     });
+    return accesToken;
+};
+
+function createRefreshTokens (user) {
+
+    const accesToken = jwt.sign({username: user.username, id: user.id}, "MyRefreshSecretKey");
     return accesToken;
 };
 
@@ -157,28 +226,15 @@ function validateToken (req, res, next) {
     const accesToken = req.headers["access-token"];
 
     if(!accesToken){
-        return res.status(400).json({error: "User not authenticated because there's no token!"});
+        return res.status(400).json({error: "You need a Token for authentication!"});
     } else {
-        jwt.verify(accesToken, "secretToken", (err, decoded) => {
+        jwt.verify(accesToken, "MySecretKey", (err, user) => {
             if(err){
-                res.json({authorisation: false, message: err})
+                return res.status(403).json({authorisation: false, message: err})
             } else {
-                req.userId = decoded.id;
+                req.user = user;
                 next();
             }
         });
     }
-    /*
-    try{
-
-        const validToken = jwt.verify(accesToken, "secret")
-
-        if(validToken){
-
-            req.authenticated = true;
-            return next();
-        }
-    } catch(err) {
-        return res.status(400).json({error: err});
-    }*/
 };

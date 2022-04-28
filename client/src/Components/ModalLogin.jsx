@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import App from '../DataVisualization/App.jsx';
+import axios from 'axios';
 
 const LoginModal = (props) => {
   
@@ -86,6 +87,44 @@ const LoginModal = (props) => {
     },[loginRes, loginErr, props]);
 */
 
+const [user, setUser] = useState("");
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try{
+    const res = await Axios.post("http://localhost:3001/api/login", {
+        username: userName, 
+        password: userPassword
+      });
+
+      setUser(res.data);
+  }
+  catch (err){
+    console.log(err);
+  }
+};
+
+const [success, setSuccess] = useState(false);
+const [error, setError] = useState(false);
+
+const handleDelete = async (id) => {
+  setSuccess(false);
+  setError(false);
+  try{
+    await Axios.delete("http://localhost:3001/api/delete/"+id, {    
+
+      headers:{
+        "access-token" : localStorage.getItem("token")
+      }
+    });
+    setSuccess(true);
+  }
+  catch (err){
+    console.log(err);
+    setError(true);
+  }
+}
+
 const userAuthenticated = () => {
   Axios.get("http://localhost:3001/api/userAuthStatus", {
     headers:{
@@ -104,7 +143,6 @@ useEffect(()=> {
   })
 },[]);
     
-
     return (
         <>
             <div className='modalLogin'>
@@ -138,7 +176,10 @@ useEffect(()=> {
                     </a>
 
                     {loginStatus && (
-                      <button onClick={userAuthenticated}> check if auth</button>
+                      
+                      //<button onClick={userAuthenticated}> check if auth</button>
+                      <button onClick={()=>handleDelete(22)}> delete</button>
+                      
                     )} 
 
                 </div>                       
