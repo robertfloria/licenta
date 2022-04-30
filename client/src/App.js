@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
-import Axios from "axios";
-import Register from "./Register";
-import Login from "./Login";
+import "D:/GitHub/licenta/client/src/App.css";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from "./Components/SideBar/Navbar";
 
-function App() {
+export default function AppNav() {
 
+    return(
+        <>
+            <BrowserRouter>
+                <Navbar />
+                <Routes>
+                    <Route></Route>
+                </Routes>
+            </BrowserRouter>
+        </>
+
+    );
 };
 
-export default App;
+

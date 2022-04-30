@@ -15,12 +15,13 @@
   width: 26.5rem;
   height: 29rem;
   border-radius: 4rem 0.4rem 4rem 0.4rem;
-  background-color: rgba(247, 247, 247, 0.941);
+  background-color: rgba(247, 247, 247, 0.974);
   box-shadow: rgba(165, 165, 165, 0.436) 0rem 0.01rem 0.6rem 0.01rem;
   display: flex;
   flex-direction: column;
   padding-bottom: 0.4rem;  
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  border-bottom:  1rem solid rgba(36, 26, 226, 0.472);
 }
 
 /*
@@ -638,3 +639,36 @@ width: 40vw;
 height: 100vh;
 
 }
+
+
+/* -----navbar----  */
+
+.navbar {
+  height: 10vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 2.3rem;
+  display: flex;
+  align-items: center;
+  width: 9rem;
+  justify-content: space-between;
+}
+
+.nav-items {
+  width: 65vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  list-style: none;
+  margin-left:  2rem;
+}
+

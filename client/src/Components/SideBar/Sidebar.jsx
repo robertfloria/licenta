@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import "D:/GitHub/licenta/client/src/App.css"
+import "D:/GitHub/licenta/client/src/App.css";
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
