@@ -139,7 +139,7 @@ app.post("/api/refreshToken", (req, res) => {
         refreshTokens.push(newRefreshToken);
 
         res.status(200).json({
-            accessToken: newAccessToken,
+            token: newAccessToken,
             refreshToken: newRefreshToken
         });
     });
@@ -210,7 +210,7 @@ app.listen(3001, () => {
 function createTokens (user) {
 
     const accessToken = jwt.sign({username: user.username, id: user.id}, "MySecretKey", {
-        expiresIn: 5
+        expiresIn: 15
     });
     return accessToken;
 };
@@ -223,11 +223,12 @@ function createRefreshTokens (user) {
 
 function validateToken (req, res, next) {
 
-    const accessToken = req.headers["access-token"];
+    const accessToken = req.headers["authorization"];
 
     if(!accessToken){
         return res.status(400).json({error: "You need a Token for authentication!"});
     } else {
+
         jwt.verify(accessToken, "MySecretKey", (err, user) => {
             if(err){
                 return res.status(403).json({authorisation: false, message: err})

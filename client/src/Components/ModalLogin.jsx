@@ -121,7 +121,7 @@ const refreshToken = async () => {
 
     setUser({
       ...user,
-      accessToken: res.data.accessToken,
+      token: res.data.token,
       refreshToken: res.data.refreshToken
     })
 
@@ -138,22 +138,6 @@ const refreshToken = async () => {
 const axiosInstance = Axios.create(); // because for authentication request or get req we don't need to refresh token in before every req
 
 
-  axiosInstance.interceptors.request.use(async (config) => {        // do something before every request
-    
-    let currentDate = new Date();
-    const decodedToken = jwt_decode(localStorage.getItem("token"));
-
-    if(decodedToken.exp * 1000 < currentDate.getTime()) {
-      const data = await refreshToken();
-      config.headers["access-token"] = data.accessToken;
-    }
-
-    return config;
-  }, (error) => {
-    return Promise.reject(error);
-  }
-);
-
 const handleDelete = async (id) => {
   setSuccess(false);
   setError(false);
@@ -161,7 +145,7 @@ const handleDelete = async (id) => {
     await axiosInstance.delete("http://localhost:3001/api/delete/"+id, {    
 
       headers:{
-        "access-token" : localStorage.getItem("token")
+        "authorization" : localStorage.getItem("token")
       }
     });
     setSuccess(true);
@@ -175,12 +159,29 @@ const handleDelete = async (id) => {
 const userAuthenticated = () => {
   axiosInstance.get("http://localhost:3001/api/userAuthStatus", {
     headers:{
-      "access-token" : localStorage.getItem("token")
+      "authorization" : localStorage.getItem("token")
     }}).then((response)=>{
       console.log(response);
 
     })
 }
+
+axiosInstance.interceptors.request.use(async (config) => {        // do something before every request
+    
+  let currentDate = new Date();
+  const decodedToken = jwt_decode(localStorage.getItem("token"));
+
+  if(decodedToken.exp * 1000 < currentDate.getTime()) {
+    const data = await refreshToken();
+    config.headers["authorization"] = data.token;
+  }
+
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+}
+);
+
 /* //https://www.youtube.com/watch?v=Yh5Lil03tpI&ab_channel=LamaDev 1:01:00
 useEffect(()=> {
   Axios.get("http://localhost:3001/api/login").then((response)=>{
