@@ -39,24 +39,26 @@ export default function Navbar() {
             <nav className='navbar'>
                 <Link to="/" className='navbar-logo' onClick={() => setSidebar(false)}>
                     <Icons.FaPiedPiper />
-                    PIPER
+                    D3
                 </Link>
 
                 {!mobile && (
-                    <ul className='nav-items'>
-                        {navItems.map((item) => {
-                            return(
-                            <li key={item.id} className={item.nName}>
-                                <Link to={item.path}>
-                                    {item.icon}
-                                    <span>{item.title}</span>
-                                </Link>
-                            </li>
-                            );
-                        })}
-                    </ul>
-                )}
-                {!mobile && <Button /> }
+                    <>
+                        <ul className='nav-items'>
+                            {navItems.map((item) => {
+                                return(
+                                <li key={item.id} className={item.nName}>
+                                    <Link to={item.path}>
+                                        {item.icon}
+                                        <span>{item.title}</span>
+                                    </Link>
+                                </li>
+                                );
+                            })}
+                        </ul>
+                        <Button />
+                    </>
+                )}            
 
                 {mobile && (
                     <div className='sidebar-toggle'>

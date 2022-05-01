@@ -7,6 +7,7 @@ import Sidebar from "./Components/SideBar/Sidebar";
 
 import OpenModal from './OpenModal';
 
+import MainMenu from "./Components/MainMenu";
 
 export default function AppNav() {
 
@@ -21,7 +22,7 @@ export default function AppNav() {
     return(
         <>
             <BrowserRouter>
-                <Navbar />
+                <MainMenu />
                 <Routes>
                     <Route path="/userInfo" element={<Sidebar />}></Route>
                     <Route path="/barchart" element={<OpenModal/>}></Route>                   

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import "../App.css";
 import Sidebar from './SideBar/Sidebar.jsx';
-
+import Navbar from './SideBar/Navbar';
 export default function MainMenu () {
 
     const [barStatus, setBatStatus] = useState(true);
@@ -11,7 +11,7 @@ export default function MainMenu () {
 
     return (
         <div className='AppMainPage'>
-            <Sidebar />
+            <Navbar />
         </div>
     )
 }

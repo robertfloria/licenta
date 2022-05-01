@@ -537,9 +537,7 @@ body {
   flex-wrap: wrap;
   align-self: center;
 }
-.two {
 
-}
 
 .sideBar {
   width: 12rem;
@@ -592,7 +590,6 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
-
 }
 /*
 .wrapper {
@@ -644,11 +641,11 @@ height: 100vh;
 /*              -----navbar----  */
 
 .navbar {
-  height: 10vh;
-  background: black;
+  height: 7vh;
+  background: rgba(0, 0, 0, 0.682);
   display: flex;
   align-items: center;
-  justify-content: center;
+  border-radius: 3rem;
 }
 
 .navbar-logo {
@@ -658,53 +655,58 @@ height: 100vh;
   display: flex;
   align-items: center;
   width: 9rem;
-  justify-content: space-between;
+  justify-content: flex-start;
+  position: relative;
+  flex: 20%;
+  margin-left: 2rem;
 }
 
 .nav-items {
-  width: 65vw;
+  flex:80%;
   display: flex;
   justify-content: flex-end;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .nav-item {
   list-style: none;
-  margin-left:  2rem;
+  margin-left: 0.9rem;
 }
 
 .nav-item a {
+  padding: 0.6rem 0.7rem;
   text-decoration: none;
   color: whitesmoke;
-  padding: 6px 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   transition: 0.2s all ease-out;
 }
 
 .nav-item a:hover {
-  background: rgba(71, 111, 255, 0.735);
+  background: rgba(71, 111, 255, 0.5);
 }
 
-.nav-item a span {
-  margin-left: 0.3rem;
-  font-size: 1.3rem;
+.nav-item span {
+  margin-left: 0.4rem;
+  font-size: 1.2rem;
 }
 
 .btn {
-  background: rgb(69, 83, 240);
+  background: rgb(67, 47, 222);
   border: none;
-  border-radius: 5px;
-  padding: 6px 16px;
-  font-size: 1.3rem;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: 0.3s all ease-out;
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgb(226, 226, 226);
+  margin-right: 1.5rem;
 }
 
 .btn:hover {
@@ -717,9 +719,10 @@ a {
 }
 
 .sidebar-toggle {
-  width: 65vw;
   display: flex;
+  flex: 80%;
   justify-content: flex-end;
+  margin-right: 2rem;
 }
 
 .sidebar-toggle-logo {
@@ -729,9 +732,12 @@ a {
 }
 
 .sidebar{
-  width: 13rem;
-  background: rgb(0, 0, 0);
-  height: 90vh;
+  width: 11rem;
+  background: rgba(0, 0, 0, 0.682);
+  margin-top: 0.2rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  height: 91vh;
   transition: 0.3s all ease-in-out;
   display: flex;
   flex-direction: column;
@@ -747,7 +753,7 @@ a {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   transition: 0.2s all ease-out;
   margin: 0;
   padding: 0;
@@ -755,7 +761,7 @@ a {
   height: auto;
 }
 
-.sidebar-item{
+.sidebar-item {
 list-style: none;
 margin-top: 1rem;
 height: 5rem;
@@ -764,13 +770,13 @@ justify-content: center;
 margin: 0;
 }
 
-.sidebar-item a{
+.sidebar-item a {
   text-decoration: none;
   color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   height: auto;
   width: 100%;
   border-radius: 5px;
@@ -782,7 +788,7 @@ margin: 0;
 }
 
 .sidebar-item a:hover {
-  background-color: rgb(53, 53, 214);
+  background-color: rgba(40, 40, 224, 0.627);
 }
 
 .sidebar .btn {
@@ -804,12 +810,7 @@ margin: 0;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "PT Sans", sans-serif;
-}
+
 
 .mama {
   display: flex;
