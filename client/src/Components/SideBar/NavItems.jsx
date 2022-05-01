@@ -65,7 +65,7 @@ export const navItems = [
         nName: "nav-item",
         sName: "sidebar-item",
         path: "./add"
-    },
+    }/*,
     {
         id: 8,
         title: "Logout",
@@ -73,5 +73,5 @@ export const navItems = [
         nName: "nav-item",
         sName: "sidebar-item",
         path: "./logout"
-    }
+    }*/
 ];
