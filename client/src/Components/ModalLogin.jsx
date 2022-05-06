@@ -4,6 +4,7 @@ import Axios from "axios";
 import App from '../DataVisualization/App.jsx';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import {Route, useNavigate} from 'react-router-dom';
 
 const LoginModal = (props) => {
   
@@ -182,6 +183,17 @@ axiosInstance.interceptors.request.use(async (config) => {        // do somethin
 }
 );
 
+const navigate = useNavigate();
+
+useEffect(() => {
+
+  if(user){
+    navigate("/mainpage")
+  }
+  
+  
+},[user])
+
 /* //https://www.youtube.com/watch?v=Yh5Lil03tpI&ab_channel=LamaDev 1:01:00
 useEffect(()=> {
   Axios.get("http://localhost:3001/api/login").then((response)=>{
@@ -218,18 +230,12 @@ useEffect(()=> {
                     <button onClick={getLogin}>Login</button>
                     
                     <p>Need an Account?</p>
-                    <a href='#' onClick={() => {
+                    <a className='aaa' onClick={() => {
                         props.openRegister(true); props.openLogin(false);
                         }}>Sign Up
                     </a>
 
-                    {loginStatus && (
-                      
-                      <button onClick={userAuthenticated}> check if auth</button>
-                      //<button onClick={()=>handleDelete(22)}> delete</button>
-                      
-                    )} 
-
+                    
                 </div>                       
             </div>
         </>           

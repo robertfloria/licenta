@@ -47,7 +47,7 @@ const RegisterModal = (props) => {
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>
                     <button onClick={insertCredentials}>Submit</button>
                     <p>Already have an Account?</p>
-                    <a href='#' onClick={()=>{
+                    <a onClick={()=>{
                         props.openRegister(false); props.openLogin(true);
                         }}>Sign In</a>
                 </div>       

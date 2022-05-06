@@ -210,7 +210,7 @@ app.listen(3001, () => {
 function createTokens (user) {
 
     const accessToken = jwt.sign({username: user.username, id: user.id}, "MySecretKey", {
-        expiresIn: 15
+        expiresIn: 300
     });
     return accessToken;
 };

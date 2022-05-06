@@ -14,14 +14,14 @@
 .modalContainer {
   width: 26.5rem;
   height: 29rem;
-  border-radius: 4rem 0.4rem 4rem 0.4rem;
+  border-radius: 4rem 0.8rem 6rem 0.1rem;
   background-color: rgba(247, 247, 247, 0.974);
   box-shadow: rgba(165, 165, 165, 0.436) 0rem 0.01rem 0.6rem 0.01rem;
   display: flex;
   flex-direction: column;
   padding-bottom: 0.4rem;  
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  border-bottom:  1rem solid rgba(36, 26, 226, 0.472);
+  border-bottom:  1rem solid rgba(16, 26, 208, 0.587);
 }
 
 /*
@@ -140,17 +140,23 @@
   justify-content: center; 
   text-align: center;
   position: relative;
-  font-size: 1.1rem;
+
 }
 
 .modalLogin .title h1{
   color:rgb(44, 44, 44);
   font-size: 2.1rem;
+  margin: 0;
+  position: relative;
+  padding-top:0.8rem;
 }
 
 .modalRegister .title h1{
   color:rgb(44, 44, 44);
   font-size: 2.1rem;
+  margin: 0;
+  position: relative;
+  padding-top:0.8rem;
 }
 
 .modalLogin .form{
@@ -159,6 +165,7 @@
   align-items: center;
   position: relative;
   flex-wrap: wrap;
+  padding-top: 1.7rem;
 }
 
 .modalRegister .form{
@@ -167,6 +174,7 @@
   align-items: center;
   position: relative;
   bottom: 1.5rem;
+  padding-top: 1.7rem;
 }
 
 .form input {
@@ -180,6 +188,7 @@
   font-size: 1.2rem; 
   box-shadow:rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.7rem 0.02rem;
   font-size: 1.3rem;
+  padding-left: 1rem;
 }
 
 .form input[type="text"]:focus {
@@ -302,7 +311,6 @@
   cursor: pointer;
 }
 
-
 .modalLogin .footer button {
   width: 9.5rem;
   height: 3rem;
@@ -343,6 +351,7 @@
   top: 1rem;
   text-decoration: none;
   color: rgba(107, 0, 165, 0.77);
+  cursor: pointer;
 }
 
 .modalLogin .footer p {
@@ -379,6 +388,7 @@
   bottom: 0.7rem;
   text-decoration: none;
   color: rgba(107, 0, 165, 0.77);
+  cursor: pointer;
 }
 
 .modalLogin .footer #line {
@@ -541,11 +551,10 @@ body {
 
 .sideBar {
   width: 12rem;
-  height: 100vh;
+  height: 90vh;
   background-color: rgba(47, 47, 47, 0.682);
   display: flex;
   box-shadow: rgba(66, 66, 66, 0.405) 0rem 0rem 0.7rem 0.08rem;
-  
 }
 
 .sideBarList {
@@ -646,10 +655,12 @@ height: 100vh;
   display: flex;
   align-items: center;
   border-radius: 3rem;
+  width: 100%;
+  align-self: flex-start;
 }
 
 .navbar-logo {
-  color: whitesmoke;
+  color: rgba(235, 235, 235, 0.87);
   text-decoration: none;
   font-size: 2.3rem;
   display: flex;
@@ -661,6 +672,11 @@ height: 100vh;
   margin-left: 2rem;
 }
 
+.navbar-logo:hover {
+  color:rgb(253, 253, 253);
+}
+
+
 .nav-items {
   flex:80%;
   display: flex;
@@ -669,11 +685,14 @@ height: 100vh;
 }
 
 .nav-item {
+  display: flex;
   list-style: none;
   margin-left: 0.9rem;
 }
 
-.nav-item a {
+.nav-item button {
+  background-color: transparent;
+  border: none;
   padding: 0.6rem 0.7rem;
   text-decoration: none;
   color: whitesmoke;
@@ -685,7 +704,7 @@ height: 100vh;
   transition: 0.2s all ease-out;
 }
 
-.nav-item a:hover {
+.nav-item button:hover {
   background: rgba(71, 111, 255, 0.5);
 }
 
@@ -695,11 +714,12 @@ height: 100vh;
 }
 
 .btn {
-  background: rgb(67, 47, 222);
+  background: rgba(220, 51, 51, 0.826);
   border: none;
   border-radius: 0.5rem;
-  padding: 0.4rem 0.6rem;
-  font-size: 1.1rem;
+  width: 4.5rem;
+  height: 2rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: 0.3s all ease-out;
   display: flex;
@@ -711,7 +731,7 @@ height: 100vh;
 
 .btn:hover {
   background: rgb(226, 226, 226);
-  color: rgb(69, 83, 240);
+  color: rgba(225, 16, 16, 0.756);
 }
 
 a {
@@ -734,15 +754,17 @@ a {
 .sidebar{
   width: 11rem;
   background: rgba(0, 0, 0, 0.682);
-  margin-top: 0.2rem;
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
-  height: 91vh;
+  height: 88vh;
   transition: 0.3s all ease-in-out;
   display: flex;
   flex-direction: column;
   position: relative;
   left: -100%;
+  justify-content: center;
+  margin-top: 0.4rem;
+  
 }
 
 .sidebar.active {
@@ -788,7 +810,7 @@ margin: 0;
 }
 
 .sidebar-item a:hover {
-  background-color: rgba(40, 40, 224, 0.627);
+  background-color: rgba(71, 111, 255, 0.5);
 }
 
 .sidebar .btn {
@@ -796,9 +818,10 @@ margin: 0;
   width: 100%;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 50rem) {
   .sidebar.active {
-    width: 5rem;
+    width: 4rem;
+    border-top-right-radius: 1.5rem;
   }
 
   .sidebar-item a span {
@@ -806,7 +829,21 @@ margin: 0;
   }
 
   .sidebar .btn{
-    display: none;
+    width: auto;
+  }
+
+  .sidebar.active .btn {
+    width: 4rem;
+  }
+
+  .navbar{
+    border-bottom-left-radius: 0rem;
+  }
+}
+
+@media screen and (max-width: 66.563rem){
+  .navbar {
+    border-bottom-left-radius: 0rem;
   }
 }
 

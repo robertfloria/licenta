@@ -3,11 +3,12 @@ import "D:/GitHub/licenta/client/src/App.css";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from "./Components/SideBar/Navbar";
 
-import Sidebar from "./Components/SideBar/Sidebar";
-
 import OpenModal from './OpenModal';
 
 import MainMenu from "./Components/MainMenu";
+import Modal from "./Components/Modal";
+import AllCharts from "./DataVisualization/AllCharts";
+
 
 export default function AppNav() {
 
@@ -22,10 +23,12 @@ export default function AppNav() {
     return(
         <>
             <BrowserRouter>
-                <MainMenu />
                 <Routes>
-                    <Route path="/userInfo" element={<Sidebar />}></Route>
-                    <Route path="/barchart" element={<OpenModal/>}></Route>                   
+                    
+                    <Route path="/mainpage/barchart" element={<AllCharts />}></Route>
+                    <Route path="/" element={<Modal />}></Route>
+                    <Route path="/mainpage" element={<MainMenu />}></Route>  
+                    <Route path="/mainpage/signup" element={<Modal />}></Route>          
                 </Routes>
             </BrowserRouter>
         </>

@@ -10,7 +10,7 @@ export default function Button() {
             <Link to="signup">
                 <button className='btn'>
                     <LogoutIcon />
-                    <span>Logout</span>
+                    {/*<span>Logout</span>*/}
                 </button>
             </Link>
         </>

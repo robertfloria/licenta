@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import "D:/GitHub/licenta/client/src/App.css";
 import { navItems } from './NavItems';
 import * as Icons from "react-icons/fa";
+import * as Icons2 from "react-icons/ri";
 import { interpolateNumber } from 'd3';
 import Button from './Button';
+import Chart5 from '../../DataVisualization/Chart5';
 
 export default function Navbar() {
 
     const [mobile, setMobile] = useState(false);
     const [sidebar, setSidebar] = useState(false);
+    const [items, setItems] = useState();
 
     useEffect(() => {
         if(window.innerWidth < 1065){
@@ -22,6 +25,7 @@ export default function Navbar() {
         const handleResize = () => {
             if(window.innerWidth < 1065) {
                 setMobile(true);
+                setSidebar(true);
             } else {
                 setMobile(false);
                 setSidebar(false);
@@ -34,11 +38,17 @@ export default function Navbar() {
         };
     }, []);
 
+    const itemsContent = (item) => {
+        if(item === "DonutChart")
+            return <Chart5 />
+    }
+
     return(
         <>
+                
             <nav className='navbar'>
-                <Link to="/" className='navbar-logo' onClick={() => setSidebar(false)}>
-                    <Icons.FaPiedPiper />
+                <Link to="/mainpage" className='navbar-logo' onClick={() => setSidebar(false)}>
+                    <Icons.FaRockrms />
                     D3
                 </Link>
 
@@ -47,18 +57,18 @@ export default function Navbar() {
                         <ul className='nav-items'>
                             {navItems.map((item) => {
                                 return(
-                                <li key={item.id} className={item.nName}>
-                                    <Link to={item.path}>
+                                <li key={item.id} className={item.nName}>                             
+                                    <button onClick={itemsContent(item.title)}>
                                         {item.icon}
                                         <span>{item.title}</span>
-                                    </Link>
+                                    </button>
                                 </li>
                                 );
                             })}
                         </ul>
                         <Button />
                     </>
-                )}            
+                )}
 
                 {mobile && (
                     <div className='sidebar-toggle'>
@@ -76,7 +86,7 @@ export default function Navbar() {
                     </div>
                 )}
             </nav>
-
+                
             <div className={sidebar ? "sidebar active" : "sidebar"}>
                 <ul className='sidebar-items'>
                     {navItems.map((item) => {
@@ -91,9 +101,9 @@ export default function Navbar() {
                     })}
                 </ul>
                 <Button onClick={() => setSidebar(false)}/>
-            </div>
+            </div>      
+            )                           
         </>
-
     );
 }
 
