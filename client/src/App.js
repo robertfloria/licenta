@@ -23,8 +23,7 @@ export default function AppNav() {
     return(
         <>
             <BrowserRouter>
-                <Routes>
-                    
+                <Routes>                 
                     <Route path="/mainpage/barchart" element={<AllCharts />}></Route>
                     <Route path="/" element={<Modal />}></Route>
                     <Route path="/mainpage" element={<MainMenu />}></Route>  
@@ -35,5 +34,3 @@ export default function AppNav() {
 
     );
 };
-
-

@@ -7,12 +7,15 @@ import * as Icons2 from "react-icons/ri";
 import { interpolateNumber } from 'd3';
 import Button from './Button';
 import Chart5 from '../../DataVisualization/Chart5';
+import Chart3 from '../../DataVisualization/Chart3';
+import AllCharts from '../../DataVisualization/AllCharts';
 
 export default function Navbar() {
 
     const [mobile, setMobile] = useState(false);
     const [sidebar, setSidebar] = useState(false);
-    const [items, setItems] = useState();
+    const [items, setItems] = useState("");
+    const [openItems, setOpenItems] = useState(false);
 
     useEffect(() => {
         if(window.innerWidth < 1065){
@@ -38,14 +41,21 @@ export default function Navbar() {
         };
     }, []);
 
-    const itemsContent = (item) => {
-        if(item === "DonutChart")
-            return <Chart5 />
-    }
 
+    useEffect(() => {
+
+        if(items === "DonutChart"){
+            setOpenItems(true);
+           
+        }
+      
+        return () => {
+            setItems("");
+        }
+    }, [items]);
+    
     return(
-        <>
-                
+        <>             
             <nav className='navbar'>
                 <Link to="/mainpage" className='navbar-logo' onClick={() => setSidebar(false)}>
                     <Icons.FaRockrms />
@@ -57,11 +67,13 @@ export default function Navbar() {
                         <ul className='nav-items'>
                             {navItems.map((item) => {
                                 return(
-                                <li key={item.id} className={item.nName}>                             
-                                    <button onClick={itemsContent(item.title)}>
-                                        {item.icon}
-                                        <span>{item.title}</span>
-                                    </button>
+                                <li key={item.id} className={item.nName}>
+                                    <Link to={item.path}>
+                                        <button onClick={() => setItems(item.title)}>
+                                            {item.icon}
+                                            <span>{item.title}</span>
+                                        </button>
+                                    </Link>                             
                                 </li>
                                 );
                             })}
@@ -106,6 +118,3 @@ export default function Navbar() {
         </>
     );
 }
-
-
-// https://www.youtube.com/watch?v=NN3fh6bJB90&ab_channel=Codamy  7:47
