@@ -6,9 +6,6 @@ import * as Icons from "react-icons/fa";
 import * as Icons2 from "react-icons/ri";
 import { interpolateNumber } from 'd3';
 import Button from './Button';
-import Chart5 from '../../DataVisualization/Chart5';
-import Chart3 from '../../DataVisualization/Chart3';
-import AllCharts from '../../DataVisualization/AllCharts';
 
 export default function Navbar() {
 
@@ -58,7 +55,7 @@ export default function Navbar() {
         <>             
             <nav className='navbar'>
                 <Link to="/mainpage" className='navbar-logo' onClick={() => setSidebar(false)}>
-                    <Icons.FaRockrms />
+                    <Icons2.RiReactjsFill className='logo-app'/>
                     D3
                 </Link>
 

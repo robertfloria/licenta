@@ -16,7 +16,7 @@ export const navItems = [
         icon: <HomeIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./"
+        path: "./mainpage"
     },
     {
         id: 2,
@@ -32,7 +32,7 @@ export const navItems = [
         icon: <BarChartIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./barchart"
+        path: "./mainpage/barchart"
     },
     {
         id: 4,

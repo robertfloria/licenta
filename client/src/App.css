@@ -1,8 +1,8 @@
 .modalBackground {
   width: 100vw;
   height: 100vh;
-  /*background-color: rgb(27, 27, 27);*/
-  background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277 - Copy.jpg");
+  /*background-color: rgba(102, 0, 0, 0.811);*/
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-cool-material-8k-c7-1920x1080_1.jpg");
   position: absolute;
   display: flex;
   justify-content: center;
@@ -12,16 +12,16 @@
 }
 
 .modalContainer {
-  width: 26.5rem;
+  width: 25.5rem;
   height: 29rem;
-  border-radius: 4rem 0.8rem 6rem 0.1rem;
-  background-color: rgba(247, 247, 247, 0.974);
-  box-shadow: rgba(165, 165, 165, 0.436) 0rem 0.01rem 0.6rem 0.01rem;
+  border-radius: 0rem 0.6rem 6rem 0.2rem;
+  background-color: rgba(42, 42, 42, 0.992);
+  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 1.4rem 0.08rem;
   display: flex;
   flex-direction: column;
   padding-bottom: 0.4rem;  
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  border-bottom:  1rem solid rgba(16, 26, 208, 0.587);
+  border-bottom:  1rem solid rgba(31, 255, 236, 0.719);
 }
 
 /*
@@ -144,19 +144,21 @@
 }
 
 .modalLogin .title h1{
-  color:rgb(44, 44, 44);
-  font-size: 2.1rem;
+  color:rgba(255, 255, 255, 0.808);
+  font-size: 1.9rem;
   margin: 0;
   position: relative;
   padding-top:0.8rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .modalRegister .title h1{
-  color:rgb(44, 44, 44);
-  font-size: 2.1rem;
+  color:rgba(255, 255, 255, 0.808);
+  font-size: 1.9rem;
   margin: 0;
   position: relative;
   padding-top:0.8rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .modalLogin .form{
@@ -166,6 +168,7 @@
   position: relative;
   flex-wrap: wrap;
   padding-top: 1.7rem;
+  font-family:'Times New Roman', Times, serif;
 }
 
 .modalRegister .form{
@@ -180,31 +183,34 @@
 .form input {
   display: flex;
   position:relative;      
-  width: 19.5rem;
+  width: 19rem;
   height: 2rem;
   border: 0;
-  border-radius: 0rem 1rem 0rem 1rem;
-  background-color: rgba(255, 255, 255, 0.386);
+  background-color: transparent;
   font-size: 1.2rem; 
-  box-shadow:rgba(64, 64, 64, 0.55) 0.1rem 0.1rem 0.7rem 0.02rem;
-  font-size: 1.3rem;
-  padding-left: 1rem;
+  /*box-shadow:rgba(220, 220, 220, 0.55) 0.4rem 0.rem 0.7rem 0rem;*/
+  padding-left: 0.5rem;
+  color:rgba(203, 255, 234, 0.912);
+  border: none;
+  border-bottom: 0.05rem solid rgb(255, 255, 255);
+  border-bottom-right-radius: 0.3rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .form input[type="text"]:focus {
-  border:none;	
   outline:none;
   max-width: 100%;
-  width: 18.5rem;
+  width: 18rem;
   transition: ease-in-out, width .1s ease-in-out;
+  border-bottom: 0.08rem solid rgb(202, 103, 255);
 }
 
 .form input[type="password"]:focus {
-  border:none;	
   outline:none;
   max-width: 100%;
-  width: 18.5rem;
+  width: 18rem;
   transition: ease-in-out, width .1s ease-in-out;
+  border-bottom: 0.08rem solid rgb(202, 103, 255);
 }
 
 .modalContainer .closeButton{
@@ -221,6 +227,11 @@
   right: 0.4rem;
   top: 0.2rem;
   cursor: pointer;
+  color: rgba(188, 255, 242, 0.96);
+}
+
+.modalContainer .closeButton button:hover {
+  color: rgb(0, 225, 255);
 }
 
 .modalLogin .body {
@@ -252,13 +263,14 @@
 }
 
 .form label {
-    color: rgb(44, 44, 44);
+    color: rgba(255, 255, 255, 0.808);
     display: flex;
     position: relative;
     bottom: 0.5rem;
     padding-top: 1.8rem;     
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     align-self: flex-start;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .form button {
@@ -269,8 +281,14 @@
     align-items: center;
 }
 
-.footer button:hover {
-  opacity: 0.95;
+.modalLogin .footer button:hover {
+  color: rgb(129, 50, 255);
+  background-color:rgba(245, 245, 245, 0.937);
+}
+
+.modalRegister .footer button:hover {
+  color: rgb(129, 50, 255);
+  background-color:rgba(245, 245, 245, 0.937);
 }
 
 .modalRegister .body {
@@ -303,12 +321,13 @@
   align-self: flex-start;
   position: relative;
   top: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-decoration: none;
-  color:rgba(63, 63, 63, 0.587);
+  color:rgba(204, 202, 202, 0.737);
   cursor: pointer;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .modalLogin .footer button {
@@ -316,13 +335,14 @@
   height: 3rem;
   margin: 0.6rem;
   border: none;
-  background-color: rgba(47, 29, 206, 0.801);
+  background-color: rgba(129, 50, 255, 0.934);
   color:white;
   border-radius: 0rem 0.6rem 0rem 0.6rem;
   font-size: 1.3rem;
   cursor: pointer;   
   position:relative;
   top: 1.9rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .modalRegister .footer button {
@@ -330,7 +350,7 @@
   height: 3rem;
   margin: 0.6rem;
   border: none;
-  background-color: rgba(47, 29, 206, 0.801);
+  background-color: rgba(129, 50, 255, 0.934);
   color:white;
   border-radius: 0rem 0.6rem 0rem 0.6rem;
   font-size: 1.3rem;
@@ -340,81 +360,83 @@
 }
 
 .modalLogin .footer a {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  left: 0.2rem;
+  left: 0.3rem;
   top: 1rem;
   text-decoration: none;
-  color: rgba(107, 0, 165, 0.77);
+  color: rgba(172, 255, 231, 0.857);
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
 }
 
 .modalLogin .footer p {
   font-size: 0.95rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   top: 1rem;
-  color: rgba(0, 0, 0, 0.801);
+  color: rgba(222, 222, 222, 0.852);
 }
 
 .modalRegister .footer p {
   font-size: 0.95rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   display: flex;
   position: relative;
   bottom: 0.7rem;
-  color: rgba(0, 0, 0, 0.801);
+  color: rgba(222, 222, 222, 0.852);
 }
 
 .modalRegister .footer a {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  left: 0.2rem;
+  left: 0.3rem;
   bottom: 0.7rem;
   text-decoration: none;
-  color: rgba(107, 0, 165, 0.77);
+  color: rgba(172, 255, 231, 0.857);
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
 }
 
 .modalLogin .footer #line {
   display: flex;
-  color:rgb(0, 0, 0);
+  color:rgb(31, 155, 149);
   margin-left: auto;
   margin-right: auto;
-  border-style:ridge;
-  border-width: 0.01rem;
+  border-style:solid;
+  border-width: 0.1rem;
   width: 85%;
   position:relative;
   top: 2rem;
-  box-shadow: rgba(64, 64, 64, 0.55) 0rem 0.1rem 0.2rem 0.02rem;
+  border-radius: 100%;
 }
 
 .modalRegister .footer #line {
   display: flex;
-  color:rgb(0, 0, 0);
+  color:rgb(31, 155, 149);
   margin-left: auto;
   margin-right: auto;
-  border-style:ridge;
-  border-width: 0.01rem;
+  border-style:solid;
+  border-width: 0.1rem;
   width: 85%;
   position:relative;
   top: 0.2rem;
-  box-shadow: rgba(64, 64, 64, 0.55) 0rem 0.1rem 0.2rem 0.02rem;
+  border-radius: 100%;
 }
 
 
@@ -598,7 +620,7 @@ body {
 .AppMainPage {
   width: 100vw;
   height: 100vh;
-  background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg");
 }
 /*
 .wrapper {
@@ -863,4 +885,31 @@ margin: 0;
   align-items: center;
   height: 90vh;
   font-size: 4rem;
+}
+
+.ChartBody {
+  position:relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.logo-app {
+  margin-right: 0.4rem;
+  font-size: 3.2rem;
+  color: rgb(48, 255, 162);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-app{
+    animation: logo-app-spin infinite 12s linear;
+  }
+}
+
+@keyframes logo-app-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

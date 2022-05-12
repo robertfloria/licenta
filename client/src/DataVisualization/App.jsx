@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import AllCharts from './AllCharts';
+
 import '../App.css';
 
 import ReactComponent from './Experimental/ChartTest';
@@ -13,7 +13,7 @@ export default function App () {
 
     return (
       <div>
-           <AllCharts />
+          
            
       </div>
     );

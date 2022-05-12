@@ -1,10 +1,10 @@
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
 import '../App.css';
-import Chart3 from './Chart3';
 import Chart5 from './Chart5';
+import Chart3 from './Chart3'
 
-export default function AllCharts (props) {
+export default function ReturnChart3 (props) {
     const [data3, setData3] = useState([
         {id: 'd1', region: 'USA', value: 17},
         {id: 'd2', region: 'India', value: 12},
@@ -32,10 +32,10 @@ export default function AllCharts (props) {
       const [height3, setHeight3] = useState(200 - margin.top - margin.bottom);
 
     return (
-    <div>        
+        <div className='ChartBody'>        
             <Chart3 data={data3} width={width3} height={height3} margin={margin} />
 
         {/*<div className="two"><Chart5 /></div>*/}
-    </div>
+        </div>
     );
 }

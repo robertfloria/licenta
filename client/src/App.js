@@ -1,36 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "D:/GitHub/licenta/client/src/App.css";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from "./Components/SideBar/Navbar";
-
 import OpenModal from './OpenModal';
 
 import MainMenu from "./Components/MainMenu";
 import Modal from "./Components/Modal";
-import AllCharts from "./DataVisualization/AllCharts";
+import ReturnChart3 from "./DataVisualization/ReturnChart3";
+import Navbar from "./Components/SideBar/Navbar";
 
 
 export default function AppNav() {
 
-    const white = ()=>{
-        return(
-            <>
-                <h1 className="mama">Hello!</h1>
-            </>
-        )
-    };
-
     return(
-        <>
+        <div className="AppMainPage">
             <BrowserRouter>
-                <Routes>                 
-                    <Route path="/mainpage/barchart" element={<AllCharts />}></Route>
+                <Navbar />
+                <Routes>                
+                    <Route path="/mainpage/barchart" element={<ReturnChart3 />}></Route>
                     <Route path="/" element={<Modal />}></Route>
-                    <Route path="/mainpage" element={<MainMenu />}></Route>  
-                    <Route path="/mainpage/signup" element={<Modal />}></Route>          
+                    <Route path="/login" element={<Modal />}></Route>        
                 </Routes>
             </BrowserRouter>
-        </>
+        </div>
 
     );
 };

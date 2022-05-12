@@ -7,10 +7,9 @@ import LogoutIcon from '@mui/icons-material/Logout';
 export default function Button() {
     return(
         <>
-            <Link to="signup">
+            <Link to="login">
                 <button className='btn'>
                     <LogoutIcon />
-                    {/*<span>Logout</span>*/}
                 </button>
             </Link>
         </>

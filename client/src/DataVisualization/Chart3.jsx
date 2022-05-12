@@ -117,12 +117,10 @@ export default function Chart3 (props) {
       },[drowChart]);
 
     return (
-        <div className='AppMainPage'>
-            <div id="app">
-                <div id="chart" ref = {myRef}></div>
-                <div id="data">
-                    <ul></ul>
-                </div>
+        <div id="app">
+            <div id="chart" ref = {myRef}></div>
+            <div id="data">
+                <ul></ul>
             </div>
         </div>
     );
