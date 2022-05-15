@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   /*background-color: rgba(102, 0, 0, 0.811);*/
-  background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-cool-material-8k-c7-1920x1080_1.jpg");
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-cool-material-8k-c7-1920x1080.jpg");
   position: absolute;
   display: flex;
   justify-content: center;
@@ -490,27 +490,33 @@ body {
 
 
 #app {
+  position: relative;
   display: flex;
-  margin: 2rem 1rem;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
 }
 
 #chart {
-  width: 30vw;
-  height: 25vh;
+  width: auto;
+  height: auto;
   padding: 1rem;
 }
 
 #chart,
 #data {
   display: flex;
-  align-content: flex-start;
-  margin: 0 2rem;
-
-  
 }
 
 #data {
   position: relative;
+  display: flex;
+  width: 100vw;
 }
 
 #data ul {
@@ -621,6 +627,15 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg");
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.AppMainPage .ChartBody{
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 /*
 .wrapper {
@@ -889,8 +904,9 @@ margin: 0;
 
 .ChartBody {
   position:relative;
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-app {

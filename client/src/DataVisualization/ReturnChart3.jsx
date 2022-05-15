@@ -25,11 +25,9 @@ export default function ReturnChart3 (props) {
         {id: 'd17', region: 'Antarctica', value: 19}
       ]);
       const [data2, setData2] = useState([22,12,5,2,3,12,5,16,14,11,7,2,3,5,2,1,8,9]);
-      const [width, setWidth] = useState("1350");
-      const [height, setHeight] = useState("250");
-      const [margin, setMargin] = useState({top: 20, bottom: 10});
-      const [width3, setWidth3] = useState(450);
-      const [height3, setHeight3] = useState(200 - margin.top - margin.bottom);
+      const [margin, setMargin] = useState({top: 10, bottom: 10});
+      const [width3, setWidth3] = useState(750);
+      const [height3, setHeight3] = useState(500 - margin.top - margin.bottom);
 
     return (
         <div className='ChartBody'>        

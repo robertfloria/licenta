@@ -9,7 +9,7 @@ export default function MainMenu () {
     
 
     return (
-        <div className='AppMainPage'>
+        <div>
             <Navbar />
         </div>
     )

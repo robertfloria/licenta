@@ -110,8 +110,7 @@ export default function Navbar() {
                     })}
                 </ul>
                 <Button onClick={() => setSidebar(false)}/>
-            </div>      
-            )                           
+            </div>                                 
         </>
     );
 }
