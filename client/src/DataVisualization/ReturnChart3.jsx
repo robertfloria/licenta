@@ -26,14 +26,12 @@ export default function ReturnChart3 (props) {
       ]);
       const [data2, setData2] = useState([22,12,5,2,3,12,5,16,14,11,7,2,3,5,2,1,8,9]);
       const [margin, setMargin] = useState({top: 10, bottom: 10});
-      const [width3, setWidth3] = useState(750);
-      const [height3, setHeight3] = useState(500 - margin.top - margin.bottom);
+      const [width3, setWidth3] = useState(650);
+      const [height3, setHeight3] = useState(400 - margin.top - margin.bottom);
 
     return (
-        <div className='ChartBody'>        
+        <div>        
             <Chart3 data={data3} width={width3} height={height3} margin={margin} />
-
-        {/*<div className="two"><Chart5 /></div>*/}
         </div>
     );
 }

@@ -56,7 +56,7 @@ export const navItems = [
         icon: <DonutSmallIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./donutchart"
+        path: "./mainpage/donutchart"
     },
     {
         id: 7,

@@ -1,12 +1,13 @@
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
 import * as dataJson from './data/data.json';
+import { height } from '@mui/system';
 
 export default function Chart5 (props) {
 
     const myRef = useRef(null); 
 
-    const width = 600;
+    const width = 670;
     const radius = width / 6;
 
     const data = dataJson;
@@ -22,12 +23,12 @@ export default function Chart5 (props) {
       
     const color = d3.scaleOrdinal(data.children, d3.quantize(d3.interpolateRainbow, data.children.length));
 
-    const format = d3.format(".2f");
+    const format = d3.format(",d");
 
     const arc = d3.arc()
            .startAngle(d => d.x0)
            .endAngle(d => d.x1)
-           .padAngle(d => Math.min((d.x1 - d.x0) / 1.5, 0.01))
+           .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.0035))
            .padRadius(radius * 1.5)
            .innerRadius(d => d.y0 * radius)
            .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius) -1);
@@ -40,8 +41,7 @@ export default function Chart5 (props) {
 
         const svg = d3.select(myRef.current)
                       .append("svg")
-                      .attr("viewbox", [0, 0 , width, width])
-                      .style("font", "10px sans-serif");
+                      .attr("viewbox", [0, 0 , width, width]);
 
         const g = svg.append("g")
                      .attr("transform", `translate(${width / 2}, ${width / 2})`);
@@ -55,7 +55,7 @@ export default function Chart5 (props) {
                           d = d.parent; 
                         return color(d.current);                       
                       })
-                      .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.7 : 0.45) : 0)
+                      .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.8 : 0.45) : 0)
                       .attr("pointer-events", (d) => arcVisible(d.current) ? "auto" : "none")
                       .attr("d", (d) => arc(d.current));
 
@@ -76,7 +76,8 @@ export default function Chart5 (props) {
                        .data(root.descendants().slice(1))
                        .join("text")
                        .attr("dy", "0.35em")
-                       .attr("fill","#000000")
+                       .attr("fill","rgba(208, 208, 208, 0.944)")
+                       .attr("font-family","'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif")
                        .attr("fill-opacity", d => +labelVisible(d.current))
                        .attr("transform", d => labelTransform(d.current))
                        .text(d => d.data.name);
@@ -144,11 +145,13 @@ export default function Chart5 (props) {
     } 
     useEffect(()=> {
       drowChart();
-    }, [drowChart]);
+    }, []);
 
     return (
-    <div id='dd' ref={myRef}>
-        
+    <div id="app">
+      <div id='dd' ref={myRef}>
+
+      </div>
     </div>
     );
 }

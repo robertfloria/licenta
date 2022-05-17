@@ -490,16 +490,20 @@ body {
 
 
 #app {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
   padding: 0;
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 93vh;
   background-color: transparent;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  top: 7vh;
+  flex-direction: column;
+
 }
 
 #chart {
@@ -516,7 +520,8 @@ body {
 #data {
   position: relative;
   display: flex;
-  width: 100vw;
+  width: auto;
+  height: auto;
 }
 
 #data ul {
@@ -531,8 +536,8 @@ body {
 #data li {
   margin-bottom: 0.2rem;
   padding: 0.3rem;
-  width: 2rem; 
-  height: 2rem;
+  width: 1.5rem; 
+  height: 1.5rem;
   align-content: center;
   font-weight: bold;
   color: rgb(83, 83, 83);
@@ -540,10 +545,11 @@ body {
   border-radius: 5%;
   margin-left: 1rem;
   border-style: groove;
+  position: relative;
 }
 #data input {
- width: 0.7rem;
- height: 0.7rem;
+ width: 0.9rem;
+ height: 0.9rem;
  position:relative;
 }
 
@@ -624,18 +630,20 @@ body {
 }
 
 .AppMainPage {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg");
   position: absolute;
   display: flex;
   flex-direction: column;
 }
 
-.AppMainPage .ChartBody{
-  position: relative;
+.AppMainPage #app{
   display: flex;
-  justify-content: center;
+  align-self: flex-end;
+}
+
+#root {
 }
 /*
 .wrapper {
@@ -672,15 +680,18 @@ position: relative;
 display: flex;
 justify-content:center;
 align-content:center;
-right: 0;
-top: 1rem;
-
+align-items: center;
 }
 
 #dd svg {
-width: 40vw;
-height: 100vh;
+position: relative;
+display: flex;
+width: 44vw;
+height: 90vh;
+}
 
+#dd g {
+display: flex;
 }
 
 
@@ -801,11 +812,12 @@ a {
   left: -100%;
   justify-content: center;
   margin-top: 0.4rem;
-  
+  /*top: 3rem;*/
 }
 
 .sidebar.active {
   left: 0;
+  display: flex;
 }
 
 .sidebar-items {
@@ -890,8 +902,9 @@ margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color:rgb(255, 255, 255);
+  color:rgba(208, 208, 208, 0.944);
   font-size: 14rem;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .home {
@@ -903,10 +916,9 @@ margin: 0;
 }
 
 .ChartBody {
-  position:relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+
 }
 
 .logo-app {
