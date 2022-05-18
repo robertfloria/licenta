@@ -503,10 +503,11 @@ body {
   animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   top: 7vh;
   flex-direction: column;
-
+  align-self: flex-start;
 }
 
 #chart {
+  position: relative;
   width: auto;
   height: auto;
   padding: 1rem;
@@ -684,10 +685,15 @@ align-items: center;
 }
 
 #dd svg {
+align-items: center;
+align-content: center;
+justify-content: center;
 position: relative;
 display: flex;
-width: 44vw;
-height: 90vh;
+width: 43.5vw;
+height: 88.8vh;
+border-radius: 100%;
+box-shadow: rgba(0, 0, 0, 0.533) 0rem 0.01rem 4.8rem 0.08rem;
 }
 
 #dd g {
@@ -702,7 +708,10 @@ display: flex;
   background: rgba(0, 0, 0, 0.682);
   display: flex;
   align-items: center;
-  border-radius: 3rem;
+  border-bottom-left-radius: 2.5rem;
+  border-bottom-right-radius: 2.5rem;
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
   width: 100%;
   align-self: flex-start;
 }
@@ -718,6 +727,7 @@ display: flex;
   position: relative;
   flex: 20%;
   margin-left: 2rem;
+  margin-top: 0.6rem;
 }
 
 .navbar-logo:hover {
@@ -741,19 +751,20 @@ display: flex;
 .nav-item button {
   background-color: transparent;
   border: none;
-  padding: 0.6rem 0.7rem;
+  width: auto;
+  height: 5.5vh;
   text-decoration: none;
   color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: 0.7rem;
   transition: 0.2s all ease-out;
 }
 
 .nav-item button:hover {
-  background: rgba(71, 111, 255, 0.5);
+  background: rgba(75, 51, 255, 0.274);
 }
 
 .nav-item span {
@@ -811,7 +822,7 @@ a {
   position: relative;
   left: -100%;
   justify-content: center;
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   /*top: 3rem;*/
 }
 
@@ -848,9 +859,9 @@ margin: 0;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  height: auto;
-  width: 100%;
-  border-radius: 5px;
+  height: 4rem;
+  width: 90%;
+  border-radius: 1.5rem;
   cursor: pointer;
   transition: 0.2s all ease-out;
 } 
@@ -859,7 +870,7 @@ margin: 0;
 }
 
 .sidebar-item a:hover {
-  background-color: rgba(71, 111, 255, 0.5);
+  background-color: rgba(75, 51, 255, 0.274);
 }
 
 .sidebar .btn {
@@ -888,11 +899,19 @@ margin: 0;
   .navbar{
     border-bottom-left-radius: 0rem;
   }
+
+  #app {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 66.563rem){
   .navbar {
     border-bottom-left-radius: 0rem;
+  }
+
+  #app {
+    width: 80%;
   }
 }
 
@@ -902,7 +921,7 @@ margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color:rgba(208, 208, 208, 0.944);
+  color:rgb(171, 27, 27);
   font-size: 14rem;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -923,8 +942,10 @@ margin: 0;
 
 .logo-app {
   margin-right: 0.4rem;
-  font-size: 3.2rem;
-  color: rgb(48, 255, 162);
+  font-size: 3.3rem;
+  color: rgb(31, 255, 206);
+  border-radius: 100%;
+  box-shadow: rgba(187, 255, 225, 0.623) 0rem 0.01rem 0.35rem 0.08rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -30,8 +30,8 @@ export default function ReturnChart3 (props) {
       const [height3, setHeight3] = useState(400 - margin.top - margin.bottom);
 
     return (
-        <div>        
+        <>        
             <Chart3 data={data3} width={width3} height={height3} margin={margin} />
-        </div>
+        </>
     );
 }

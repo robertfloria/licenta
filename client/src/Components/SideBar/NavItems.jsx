@@ -24,7 +24,7 @@ export const navItems = [
         icon: <AccountCircleIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./userInfo"
+        path: "./mainpage/userInfo"
     },
     {
         id: 3,
@@ -40,7 +40,7 @@ export const navItems = [
         icon: <PieChartIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./piechart"
+        path: "./mainpage/piechart"
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ export const navItems = [
         icon: <SsidChartIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./ssidchart"
+        path: "./mainpage/ssidchart"
     },
     {
         id: 6,
@@ -64,7 +64,7 @@ export const navItems = [
         icon: <AddIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./add"
+        path: "./mainpage/add"
     }/*,
     {
         id: 8,

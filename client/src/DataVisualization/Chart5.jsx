@@ -21,8 +21,8 @@ export default function Chart5 (props) {
                  .size([2 * Math.PI, root.height + 1])(root);
       }
       
-    const color = d3.scaleOrdinal(data.children, d3.quantize(d3.interpolateRainbow, data.children.length));
-
+       const color = d3.scaleOrdinal(data.children, d3.quantize(d3.interpolateRainbow, data.children.length));
+      //const color = d3.scaleOrdinal().range(["rgb(239, 88, 88)","rgb(77, 77, 77)","rgb(223, 57, 39","rgb(39, 223, 202)","rgb(40, 40, 40)"]);
     const format = d3.format(",d");
 
     const arc = d3.arc()
