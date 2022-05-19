@@ -8,6 +8,7 @@ import Modal from "./Components/Modal";
 import ReturnChart3 from "./DataVisualization/ReturnChart3";
 import Navbar from "./Components/SideBar/Navbar";
 import Chart5 from "./DataVisualization/Chart5";
+import UserMenu from "./Components/UserMenu";
 
 
 export default function AppNav() {
@@ -21,7 +22,7 @@ export default function AppNav() {
                     <Route path="/" element={<Modal />}></Route>
                     <Route path="/login" element={<Modal />}></Route>        
                     <Route path="/mainpage/donutchart" element={<Chart5 />}></Route> 
-                    <Route path="/mainpage/userInfo"></Route>
+                    <Route path="/mainpage/userInfo" element={<UserMenu />}></Route>
                     <Route path="/mainpage/piechart"></Route>
                     <Route path="/mainpage/ssidchart"></Route>        
                     <Route path="/mainpage/add"></Route> 

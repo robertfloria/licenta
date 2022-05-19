@@ -903,6 +903,10 @@ margin: 0;
   #app {
     width: 90%;
   }
+
+  .UserBodyMenu {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 66.563rem){
@@ -912,6 +916,12 @@ margin: 0;
 
   #app {
     width: 80%;
+  }
+
+  .UserBodyMenu { 
+    width: 80%;
+    background-color: blanchedalmond;
+    left: 20%;
   }
 }
 
@@ -961,4 +971,121 @@ margin: 0;
   to {
     transform: rotate(360deg);
   }
+}
+
+.UserBackgroundMenu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 93vh;
+  background-color: transparent;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  top: 7vh;
+  flex-direction: column;
+}
+
+.UserContainer {
+  position: relative;
+  width: 32vw;
+  height: 80vh;
+  background-color: rgba(240, 248, 255, 0.849);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 3.4rem 0.2rem;
+  border-radius: 1rem;
+}
+
+.UserLogoContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 30%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.userLogo {
+  position: relative;
+  width: 20vw;
+  height: 20vh;
+  color: rgb(47, 47, 47);
+  display: flex;
+  padding-top: 1rem;
+}
+
+#line-user {
+  display: flex;
+  color:rgb(31, 155, 149);
+  margin-left: auto;
+  margin-right: auto;
+  border-style:solid;
+  border-width: 0.2rem;
+  width: 90%;
+  position:relative;
+  border-radius: 100%;
+}
+
+.currentUserData {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 10%;
+  background-color: rgb(196, 218, 255);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userInfoContainer {
+  width: 100%;
+  height: 57%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userInfoContainer h2 {
+  color: rgba(53, 53, 53, 0.934);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.userInfoContainer label {
+  display: flex;
+  position: relative;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: large;
+  margin-bottom: 1rem;
+}
+
+.userInfoContainer input {
+  display: flex;
+  position: relative;
+  width: 16vw;
+  height: 2rem;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  font-size: 1.2rem; 
+  color:rgba(64, 64, 64, 0.912);
+  border: none;
+  border-bottom: 0.05rem solid rgb(55, 55, 55);
+  border-bottom-right-radius: 0.3rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.userInfoContainer input[type="text"]:focus {
+  outline:none;
+  max-width: 100%;
+  width: 18rem;
+  transition: ease-in-out, width .1s ease-in-out;
+  border-bottom: 0.08rem solid rgb(202, 103, 255);
 }

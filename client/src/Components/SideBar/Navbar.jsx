@@ -15,7 +15,7 @@ export default function Navbar() {
     const [openItems, setOpenItems] = useState(false);
 
     useEffect(() => {
-        if(window.innerWidth < 1065){
+        if(window.innerWidth < 1140){
             setMobile(true);
         }       
     },[]);
@@ -23,7 +23,7 @@ export default function Navbar() {
     useEffect(() => {
 
         const handleResize = () => {
-            if(window.innerWidth < 1065) {
+            if(window.innerWidth < 1140) {
                 setMobile(true);
                 setSidebar(true);
             } else {
