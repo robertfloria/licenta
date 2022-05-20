@@ -19,8 +19,8 @@ export default function AppNav() {
                 <Navbar />
                 <Routes>                
                     <Route path="/mainpage/barchart" element={<ReturnChart3 />}></Route>
-                    <Route path="/" element={<Modal />}></Route>
-                    <Route path="/login" element={<Modal />}></Route>        
+                    <Route path="/" element={<OpenModal />}></Route>
+                    <Route path="/login" element={<OpenModal />}></Route>        
                     <Route path="/mainpage/donutchart" element={<Chart5 />}></Route> 
                     <Route path="/mainpage/userInfo" element={<UserMenu />}></Route>
                     <Route path="/mainpage/piechart"></Route>

@@ -3,42 +3,31 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import App from './DataVisualization/App.jsx';
 import MainMenu from "./Components/MainMenu.jsx";
-import { BrowserRouter as Router, Switch, Route, Navigate} from "react-router-dom";
+import * as Icons2 from "react-icons/ri";
 
 export default function OpenModal() {
 
     const [openModal, setOpenModal] = useState(false);
     const [loginStatus, setLoginStatus] = useState(false);
     const [openCharts, setOpenCharts] = useState(false);
-    const OpenPages = () => {
-        if(openModal == true && loginStatus == false)
-            {return <Modal closeModal={setOpenModal} loginStatus = {setLoginStatus}/>}
-        else
-            if(loginStatus == true)
-                return <MainMenu />
-    }
 
     return (
         <>
         <div className="openModal">
-            <h1>Welcome Back!</h1>
+            <h1 className="headingOpenModal">Welcome Back!</h1>
             <button 
                 className="openModalBtn" 
                 onClick={() => {
                     setOpenModal(true)
                 }}
             >
-                Modal
+                Click here!
             </button>           
-            
+            <Icons2.RiReactjsFill className='logo-openModal-app'/>
             {openModal && <Modal closeModal={setOpenModal} loginStatus = {setLoginStatus}/>} {/* if statement, daca openModal este true atunci se executa functia Modal */}
-            {OpenPages()}
 
         </div>
-        
-
-        
-
+              
         </>
     )
 }

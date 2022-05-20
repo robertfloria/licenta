@@ -30,8 +30,7 @@ export default function Modal ({closeModal, loginStatus}) {
                 <div className='closeButton'>
                     <button onClick={() => closeModal(false)}>x</button>
                 </div>
-            <OpenLoginRegisterModal/>
-            
+            <OpenLoginRegisterModal/>        
             
              {/*{openLogin ? <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} /> : <RegisterModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal}/>}   */}   
             </div>

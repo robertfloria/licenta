@@ -19,10 +19,18 @@ const UserMenu = (props) => {
                   <div className='currentUserData'>
                     <label>User:</label>
                     <label>ceva:</label>
-                  </div>
-                    
+                  </div>                  
                   <hr id="line-user"></hr>
+                
+              </div>
 
+              <div className='UserSecondContainer'>
+                  <div className='userInfoItems'>
+                    <button>Change credentials</button>
+                    <button>Something</button>
+                    <button>Something</button>
+                  </div>
+                  <hr id="line-user"></hr>
                   <div className='userInfoContainer'>
                     <h2>Update personal information</h2>
                     <label>Change Password :</label>
