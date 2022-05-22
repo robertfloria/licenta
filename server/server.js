@@ -45,7 +45,6 @@ app.use(session({
 app.post("/api/insert/credentials", async (req,res) => {
 
     const userName = req.body.username;
-    //const userPassword = req.body.password;
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const userEmail = req.body.email;
     const sqlInsert = "INSERT INTO userregister (username, password, email) VALUES (?, ?, ?)"
@@ -71,7 +70,7 @@ app.post("/api/login", async(req,res) => {
 
     await db.query(sqlSearch, [userName], async(err, result) => {        
         if(err || result.length == 0)
-        {                    
+        {
             console.log("---> User does not exist")
             res.json({authorised: false, message: "User does not exist!"});        
         }
@@ -162,7 +161,7 @@ app.delete('/api/delete/:userId', validateToken, (req, res) => {
     const userId = req.params.userId;
     const sqlDelete = "DELETE FROM userregister WHERE id = ?"
 
-    if(req.user.id == req.params.userId /*|| req.user.isAdmin*/){
+    if(req.user.id == userId /*|| req.user.isAdmin*/){
         
         db.query(sqlDelete, userId, (err, result) => {
             console.log(result);
@@ -174,24 +173,31 @@ app.delete('/api/delete/:userId', validateToken, (req, res) => {
     }
 });
 
-app.put('/api/update/password', (req, res) => {
+app.put('/api/update/password/:username', validateToken, async (req, res) => {
 
     const userName = req.body.username;
-    const userPassword = req.body.password;
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const sqlUpdate = "UPDATE userregister SET password = ? WHERE username = ?"
-    db.query(sqlUpdate,[userPassword, userName], (err, result) => {
-        console.log(result);
-    });
+
+    if(req.user.username == req.params.username /*|| req.user.isAdmin*/) {
+
+        db.query(sqlUpdate,[hashedPassword, userName], (err, result) => {
+            console.log(result);
+        });
+
+        res.status(200).json("User password have been updated!")
+    } else {
+        res.status(403).json({id: req.user.id, message:"You have not permission to make changes!"})
+    }
 });
 
-app.put('/api/update/email/:userId', validateToken, (req, res) => {
+app.put('/api/update/email/:username', validateToken, (req, res) => {
 
     const userName = req.body.username;
     const userEmail = req.body.email;
     const sqlUpdate = "UPDATE userregister SET email = ? WHERE username = ?"
-
     
-    if(req.user.id == req.params.userId /*|| req.user.isAdmin*/){
+    if(req.user.username == req.params.username /*|| req.user.isAdmin*/){
         
         db.query(sqlUpdate,[userEmail, userName], (err, result) => {
             console.log(result);
@@ -199,7 +205,7 @@ app.put('/api/update/email/:userId', validateToken, (req, res) => {
 
         res.status(200).json("User email have been updated!")
     } else {
-        res.status(403).json({id: req.user.id, message:"User id request doesn't match"})
+        res.status(403).json({id: req.user.id, message:"You have not permission to make changes!"})
     }
 });
 

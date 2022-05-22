@@ -14,14 +14,14 @@ export default function OpenModal() {
     return (
         <>
         <div className="openModal">
-            <h1 className="headingOpenModal">Welcome Back!</h1>
+            <h1 className="headingOpenModal">Welcome to our app!</h1>
             <button 
                 className="openModalBtn" 
                 onClick={() => {
                     setOpenModal(true)
                 }}
             >
-                Click here!
+                Log in
             </button>           
             <Icons2.RiReactjsFill className='logo-openModal-app'/>
             {openModal && <Modal closeModal={setOpenModal} loginStatus = {setLoginStatus}/>} {/* if statement, daca openModal este true atunci se executa functia Modal */}

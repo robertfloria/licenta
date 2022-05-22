@@ -5,6 +5,7 @@ import "../App.css"
 import LoginModal from './ModalLogin';
 import RegisterModal from './ModalRegister';
 import App from '../DataVisualization/App.jsx';
+import * as Icons2 from "react-icons/ri";
 
 export default function Modal ({closeModal, loginStatus}) {
 

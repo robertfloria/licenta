@@ -43,6 +43,7 @@ const LoginModal = (props) => {
         } else {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("refreshToken", response.data.refreshToken);
+          localStorage.setItem("user", userName);
 
           setUser(response.data);
           setLoginStatus(true);
@@ -242,19 +243,3 @@ useEffect(()=> {
     )
 }
 export default LoginModal;
-
-/*}
-    <div>
-        <input type="text" name="newUserEmail" onChange={(e) => {
-            setNewUserEmail(e.target.value);
-          }}
-        />
-        <button onClick={updateEmail}>Update Email</button>   
-        
-        <input type="password" name="newUserPassword" onChange={(e) => {
-            setNewUserPassword(e.target.value);
-          }}
-        />
-        <button onClick={updatePassword}>Update Password</button>     
-        <button onClick={() => {deleteUser(userName)}}>Delete User</button>        
-    </div>*/

@@ -22,6 +22,7 @@
   padding-bottom: 0.4rem;  
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   border-bottom:  1rem solid rgba(31, 255, 236, 0.719);
+  position: absolute;
 }
 
 /*
@@ -284,11 +285,15 @@
 .modalLogin .footer button:hover {
   color: rgb(129, 50, 255);
   background-color:rgba(245, 245, 245, 0.937);
+  width: 9.8rem;
+  transition: all 0.2s;
 }
 
 .modalRegister .footer button:hover {
   color: rgb(129, 50, 255);
   background-color:rgba(245, 245, 245, 0.937);
+  width: 9.8rem;
+  transition: all 0.2s;
 }
 
 .modalRegister .body {
@@ -461,6 +466,7 @@
   position: relative;
   right: 22rem;
   top:23rem;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 .openModal .openModalBtn {
@@ -476,12 +482,16 @@
   right: 22rem;
   top:23rem;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  
 }
 
 .openModal .openModalBtn:hover{
   background-color: rgb(236, 236, 236);
   color: blueviolet;
   cursor: pointer;
+  width: 9rem;
+  transition: all 0.5s;
 }
 
 /* ---------------------------- D3 ---------------------------------*/
@@ -963,7 +973,7 @@ margin: 0;
   box-shadow: rgba(187, 255, 225, 0.623) 0rem 0.01rem 0.35rem 0.08rem;
 }
 
-.logo-openModal-app {
+.openModal .logo-openModal-app {
   font-size: 33rem;
   color: rgba(35, 255, 189, 0.568);
   border-radius: 100%;
@@ -979,8 +989,8 @@ margin: 0;
     animation: logo-app-spin infinite 12s linear;
   }
 
-  .logo-openModal-app {
-    animation: logo-app-spin infinite 12s linear;
+  .openModal .logo-openModal-app {
+    animation: logo-app-spin infinite 19s linear;
   }
 }
 
