@@ -116,14 +116,6 @@ app.post("/api/refreshToken", (req, res) => {
 
     const refreshToken = req.body.token;
 
-    // send error if there is no token or it's invalid
-
-    if(!refreshToken)
-        return res.status(401).json("Your token is invalid or doesn't exist");
-    if(!refreshTokens.includes(refreshToken)){
-        return res.status(403).json("Refresh token is not valid!")
-    }
-
     // if everything ok, create new access token, refresh token and send to user
 
     jwt.verify(refreshToken, "MyRefreshSecretKey", (err, user) => {
@@ -142,6 +134,14 @@ app.post("/api/refreshToken", (req, res) => {
             refreshToken: newRefreshToken
         });
     });
+
+    // send error if there is no token or it's invalid
+
+    if(!refreshToken)
+        return res.status(401).json("Your token is invalid or doesn't exist");
+    if(!refreshTokens.includes(refreshToken)){
+        return res.status(403).json("Refresh token is not valid!")
+    }
 })
 
 app.get("/api/login", (req, res)=>{
@@ -204,6 +204,21 @@ app.put('/api/update/email/:username', validateToken, (req, res) => {
         });
 
         res.status(200).json("User email have been updated!")
+    } else {
+        res.status(403).json({id: req.user.id, message:"You have not permission to make changes!"})
+    }
+});
+
+app.post("/api/select/userData/:username", validateToken, (req, res) => {
+
+    const userName = req.body.username;
+    const sqlSelect = "SELECT id, username, email FROM userregister WHERE username = ?"
+
+    if(req.user.username == req.params.username /*|| req.user.isAdmin*/) {
+        db.query(sqlSelect, [userName], (err, result) => {
+            res.send(result[0]);
+        });
+
     } else {
         res.status(403).json({id: req.user.id, message:"You have not permission to make changes!"})
     }

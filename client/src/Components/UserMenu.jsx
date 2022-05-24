@@ -13,7 +13,7 @@ const UserMenu = (props) => {
   const [userName, setUserName] = useState(localStorage.getItem("user"));
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState([]);
   /*
   const deleteUser = (userName) => {
     Axios.delete(`http://localhost:3001/api/delete/${userName}`)
@@ -25,12 +25,6 @@ const UserMenu = (props) => {
       const res = await Axios.post("http://localhost:3001/api/refreshToken", {
         token: localStorage.getItem("refreshToken")
       });
-  
-      setUser({
-        ...user,
-        token: res.data.token,
-        refreshToken: res.data.refreshToken
-      })
   
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("refreshToken", res.data.refreshToken);
@@ -74,7 +68,7 @@ const UserMenu = (props) => {
       });
 
       setSuccess(true);
-      setNewUserPassword("");
+      //setNewUserPassword("");
     }
     catch (err){
       console.log(err);
@@ -92,13 +86,31 @@ const UserMenu = (props) => {
     });
 
       setSuccess(true);
-      setNewUserEmail("");
+      //setNewUserEmail("");
     }
     catch (err){
       console.log(err);
       setError(true);
     }
   };
+
+  const selectUserData = async (user) => {
+
+    try{
+      await axiosInstance.post("http://localhost:3001/api/select/userData/"+user, {
+        username: userName
+      }).then((response) => {
+        setUser(response.data);
+      });
+    }
+    catch (err){
+      console.log(err);
+    }
+  }
+
+  useEffect(()=>{
+    selectUserData(userName);
+  },[user])
 
     return (
         <>
@@ -107,12 +119,13 @@ const UserMenu = (props) => {
                   <div className='userLogoContainer'>
                     <Icons.FaUserCircle className='userLogo'/>
                   </div>
+                  
                   <div className='currentUserData'>
-                    <label>User:</label>
-                    <label>ceva:</label>
+                    <label>User: {user.username}</label>
+                    <label>Id: {user.id}</label>
+                    <label>Email: {user.email}</label>
                   </div>
-                  <hr id="line-user"></hr>
-                
+                  <hr id="line-user"></hr>           
               </div>
 
               <div className='UserSecondContainer'>
@@ -129,7 +142,7 @@ const UserMenu = (props) => {
                       setNewUserPassword(e.target.value);
                     }}
                     />
-                    <button onChange={() => updatePassword(userName)}>Change Password</button>
+                    <button onClick={() => updatePassword(userName)}>Update Password</button>
 
                     <label>Change Email :</label>
                     <input type="text" name="changeEmail" onChange={(e) => {
@@ -140,6 +153,7 @@ const UserMenu = (props) => {
                     <button onClick={() => updateEmail(userName)}>Update Email</button>
 
                   </div>
+                  <hr id="line-user"></hr>
               </div>
 
           </div>
