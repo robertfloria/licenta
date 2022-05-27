@@ -121,8 +121,11 @@ const UserMenu = (props) => {
                   </div>
                   
                   <div className='currentUserData'>
+                    <Icons.FaUserTie className='userLabelLogo'/>
                     <label>User: {user.username}</label>
+                    <Icons.FaIdCardAlt className='userLabelLogo'/>
                     <label>Id: {user.id}</label>
+                    <Icons.FaMailBulk className='userLabelLogo'/> 
                     <label>Email: {user.email}</label>
                   </div>
                   <hr id="line-user"></hr>           
@@ -153,7 +156,6 @@ const UserMenu = (props) => {
                     <button onClick={() => updateEmail(userName)}>Update Email</button>
 
                   </div>
-                  <hr id="line-user"></hr>
               </div>
 
           </div>
