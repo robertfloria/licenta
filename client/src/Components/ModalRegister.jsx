@@ -22,7 +22,7 @@ const RegisterModal = (props) => {
                 <div className='title'>
                     <h1>Register</h1>
                 </div>
-                <div className='form'>
+                <form className='form'>
                     <label>Username</label>
                     <input type="text" name="userName" onChange={(e) => {
                         setUserName(e.target.value);
@@ -41,7 +41,7 @@ const RegisterModal = (props) => {
                     }} 
                     />
 
-                </div>
+                </form>
                 <div className='footer'>
                     <hr id="line"></hr>
                     <button onClick={() => props.closeModal(false)} id='cancelButton'>Cancel</button>

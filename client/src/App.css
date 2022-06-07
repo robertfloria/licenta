@@ -25,57 +25,6 @@
   position: absolute;
 }
 
-/*
-
- Change styles for span and cancel button on extra small screens 
-@media screen and (max-width: 300px) {
-  span.passw {
-     
-     float: right;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-*/
-
-/*
-.modalContainer { https://codepen.io/designcouch/pen/obvKxm
-  width: 30rem;
-  height: 32rem;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.906);
-  box-shadow: rgba(255, 255, 255, 0.436) 0rem 0.1rem 0.7rem 0.1rem;
-  display: flex;
-  flex-direction: column;
-  padding: 0.4rem;
-
-    z-index: 0;
-    transform: scale(1);
-    .modal-background {
-      background: rgba(0, 0, 0, 0.7);
-      .modal {
-        animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-      }
-    }
-    + .content {
-      z-index: 1;
-      animation: blowUpContent 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    }
-    &.out {
-      .modal-background {
-        .modal {
-          animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
-            forwards;
-        }
-      }
-      + .content {
-        animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
-          forwards;
-      }
-    }
-}*/
-
 @keyframes blowUpModal {
   0% {
     transform: scale(0);
@@ -119,9 +68,6 @@
     opacity: 1;
   }
 }
-
-
-
 
 .modalLogin {   
   display: flex;
@@ -444,7 +390,6 @@
   border-radius: 100%;
 }
 
-
 .openModal {
   width: 100vw;
   height: 100vh;
@@ -459,7 +404,6 @@
   left: 0;
   top: 0;
 }
-
 
 .openModal .headingOpenModal {
   color: rgba(240, 255, 255, 0.885);
@@ -483,7 +427,6 @@
   top:23rem;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  
 }
 
 .openModal .openModalBtn:hover{
@@ -498,7 +441,6 @@
 
 .test{
     color:rgba(78, 0, 204, 0.685);
-  
 }
 
 body {     
@@ -512,7 +454,6 @@ body {
     background-color: rgba(0, 0, 0, 0.952);
 }
 /* ------------------------------- */
-
 
 #app {
   position: absolute;
@@ -591,23 +532,16 @@ body {
 .test{
   fill: rgba(255, 177, 177, 0.82);
   font-size: 2px;
-  
-  
 }
-
 
 .wrapper {
   display: flex;
   flex-direction: column;
- 
-  
- 
 }
 .one {
   flex-wrap: wrap;
   align-self: center;
 }
-
 
 .sideBar {
   width: 12rem;
@@ -668,33 +602,6 @@ body {
   display: flex;
   align-self: flex-end;
 }
-
-#root {
-}
-/*
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.2rem;
-  grid-auto-rows: minmax(30rem, auto);
- 
-}
-.one {
-  grid-column: 1;
-  grid-row: 1;
-}
-.two {
-  grid-column: 2;
-  grid-row: 1;
-}
-.three {
-  grid-column: 1;
-  grid-row: 2;
-}
-.four {
-  grid-column: 2;
-  grid-row: 2;
-}*/
 
 .wrapper div { 
     background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
@@ -848,7 +755,6 @@ a {
   left: -100%;
   justify-content: center;
   margin-top: 0.6rem;
-  /*top: 3rem;*/
 }
 
 .sidebar.active {
@@ -940,8 +846,6 @@ margin: 0;
   }
 }
 
-
-
 .mama {
   display: flex;
   align-items: center;
@@ -1024,51 +928,58 @@ margin: 0;
   position: relative;
   width: 18vw;
   height: 70vh;
-  background-color: rgb(255, 251, 246);
+  background-color: rgba(255, 255, 255, 0.971);
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
-  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 0.9rem 0rem;
+  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 0.9rem 0.5rem;
   border-radius: 0.1rem;
   border-top-left-radius: 7.5rem;
   margin-right: 0.6rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-top:  0.5rem solid rgb(208, 36, 220);
+  border-bottom:  0.3rem solid rgb(208, 36, 220);
 }
 
 .UserSecondContainer {
   position: relative;
   width: 38vw;
-  height: 70vh;
-  background-color: rgb(255, 251, 246);
+  height: 67vh;
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
-  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 0.9rem 0rem;
+  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 0.9rem 0.9rem;
   border-radius: 0.1rem;
   border-bottom-right-radius: 7.5rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-bottom:  0.5rem solid rgba(87, 31, 255, 0.719);
 }
 
 .userLogoContainer {
   display: flex;
   position: relative;
-  width: 100%;
-  height: 40%;
+  width: 12rem;
+  height: 12rem;
   align-items: center;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   margin-bottom: 0.5rem;
-  background-color: transparent
+  margin-top: 1rem;
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\pngtree-user-icon-isolated-on-abstract-background-png-image_5192004.jpg");
+  background-size: 12rem;
+  border-radius: 100%;
 }
 
 .userLogo {
   position: relative;
   width: auto;
   height: 27vh;
-  color: rgb(44, 6, 48);
+  color: rgba(3, 0, 79, 0.839);
+  background-image: url("D:\GitHub\licenta\client\src\Pictures\kisspng-user-logo-information-service-design-5ba34f88a0c3a6.5907352915374293846585.jpg");
   display: flex;
   padding-top: 1rem;
   border-radius: 100%;
@@ -1077,8 +988,8 @@ margin: 0;
 .userLabelLogo {
   position: relative;
   width: 2rem;
-  height: 3.5vh;
-  color: rgb(44, 6, 48);
+  height: 3vh;
+  color: rgba(59, 0, 108, 0.839);
   display: flex;
   border-radius: 100%;
 }
@@ -1107,26 +1018,36 @@ margin: 0;
 .currentUserData {
   display: flex;
   position: relative;
-  width: 100%;
-  height: 13%;
+  width: 60%;
+  height: auto;
   background-color: transparent;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
 }
 
-.currentUserData label {
+.currentUserDataItems {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.currentUserDataItems label {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 1.1rem;
-  color: #1d1d1d;
-  margin-right: 7rem;
+  color: #6d028a;
+  padding-left: 0.5rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .userInfoContainer {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: auto;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -1202,7 +1123,7 @@ margin: 0;
 
 .userInfoItems {
   width: 100%;
-  height: 2rem;
+  height: auto;
   display: flex;
   align-items: center;
   position: relative;

@@ -117,16 +117,25 @@ const UserMenu = (props) => {
           <div className='UserBackgroundMenu'>
               <div className='UserContainer'>
                   <div className='userLogoContainer'>
-                    <Icons.FaUserCircle className='userLogo'/>
+                    {/*<Icons.FaUserCircle className='userLogo'/>*/}
                   </div>
                   
                   <div className='currentUserData'>
-                    <Icons.FaUserTie className='userLabelLogo'/>
-                    <label>User: {user.username}</label>
-                    <Icons.FaIdCardAlt className='userLabelLogo'/>
-                    <label>Id: {user.id}</label>
-                    <Icons.FaMailBulk className='userLabelLogo'/> 
-                    <label>Email: {user.email}</label>
+                    <div className='currentUserDataItems'>
+                      <Icons.FaUserTie className='userLabelLogo'/> 
+                      <label>User: {user.username}</label>
+                    </div>
+                    
+                    <div className='currentUserDataItems'>
+                      <Icons.FaIdCardAlt className='userLabelLogo'/>
+                      <label>Id: {user.id}</label>
+                    </div>
+                    
+                    <div className='currentUserDataItems'>
+                      <Icons.FaMailBulk className='userLabelLogo'/>
+                      <label>Email: {user.email}</label>
+                    </div>
+                    
                   </div>
                   <hr id="line-user"></hr>           
               </div>

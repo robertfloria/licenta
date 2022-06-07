@@ -37,19 +37,6 @@ export default function Navbar() {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
-
-
-    useEffect(() => {
-
-        if(items === "DonutChart"){
-            setOpenItems(true);
-           
-        }
-      
-        return () => {
-            setItems("");
-        }
-    }, [items]);
     
     return(
         <>             

@@ -40,6 +40,7 @@ const LoginModal = (props) => {
       }).then((response) => {
         if(response.data.authorised == false){
           setLoginStatus(false);
+          alert("password or username is wrong!")
         } else {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("refreshToken", response.data.refreshToken);
@@ -189,7 +190,7 @@ const navigate = useNavigate();
 useEffect(() => {
 
   if(user){
-    navigate("/mainpage")
+    navigate("/mainpage");
   }
   
   
@@ -210,7 +211,7 @@ useEffect(()=> {
                 <div className='title'>
                     <h1>Login</h1>
                 </div>
-                <div className='form'>
+                <form className='form'>
                     <label>Username</label>
                     <input type="text" name="userName" onChange={(e) => {
                         setUserName(e.target.value);
@@ -222,8 +223,8 @@ useEffect(()=> {
                         setUserPassword(e.target.value);
                     }} 
                     />    
-                    <a href='#'>Forgot Password?</a>                 
-                </div> 
+                    <a href='mailto:robertfloria27@gmail.com?Subject=Dada'>Forgot Password?</a>                 
+                </form> 
 
                 <div className='footer'>
                     <hr id="line"></hr>
