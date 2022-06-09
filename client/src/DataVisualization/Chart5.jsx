@@ -139,9 +139,7 @@ export default function Chart5 (props) {
             return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
           }
         
-          return svg.node();
-
-            
+          return svg.node();          
     } 
     useEffect(()=> {
       drowChart();

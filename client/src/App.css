@@ -592,6 +592,7 @@ body {
 .AppMainPage {
   width: 100%;
   height: 100%;
+  /* background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg"); */
   background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg");
   position: absolute;
   display: flex;
@@ -907,6 +908,41 @@ margin: 0;
   }
 }
 
+.UploadFilePageBackground{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 93vh;
+  background-color: rgba(207, 207, 207, 0.52);
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  top: 7vh;
+  flex-direction: row;
+  align-self: center;
+}
+
+.UploadFilePageContainer{
+  position: relative;
+  width: 18vw;
+  height: 70vh;
+  background-color: rgba(255, 255, 255, 0.967);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  box-shadow: rgb(0, 0, 0) 0rem 0.01rem 0.9rem 0.5rem;
+  border-radius: 0.1rem;
+  border-top-left-radius: 7.5rem;
+  margin-right: 0.6rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-top:  0.5rem solid rgb(208, 36, 220);
+  border-bottom:  0.3rem solid rgb(208, 36, 220);
+}
+
 .UserBackgroundMenu {
   position: absolute;
   display: flex;
@@ -928,7 +964,7 @@ margin: 0;
   position: relative;
   width: 18vw;
   height: 70vh;
-  background-color: rgba(255, 255, 255, 0.971);
+  background-color: rgba(255, 255, 255, 0.967);
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -946,7 +982,7 @@ margin: 0;
   position: relative;
   width: 38vw;
   height: 67vh;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.967);
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -971,17 +1007,6 @@ margin: 0;
   margin-top: 1rem;
   background-image: url("D:\GitHub\licenta\client\src\Pictures\pngtree-user-icon-isolated-on-abstract-background-png-image_5192004.jpg");
   background-size: 12rem;
-  border-radius: 100%;
-}
-
-.userLogo {
-  position: relative;
-  width: auto;
-  height: 27vh;
-  color: rgba(3, 0, 79, 0.839);
-  background-image: url("D:\GitHub\licenta\client\src\Pictures\kisspng-user-logo-information-service-design-5ba34f88a0c3a6.5907352915374293846585.jpg");
-  display: flex;
-  padding-top: 1rem;
   border-radius: 100%;
 }
 
@@ -1131,6 +1156,7 @@ margin: 0;
   margin-left: 2rem;
   margin-bottom: none;
   padding-bottom: none;
+  background-color: transparent;
 }
 
 .userInfoItems button {
@@ -1145,6 +1171,6 @@ margin: 0;
 }
 
 .userInfoItems button:hover {
- border-bottom: solid rgb(0, 57, 212);
+ border-bottom: 0.2rem solid rgb(63, 73, 255);
  cursor:pointer;
 }
