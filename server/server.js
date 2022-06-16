@@ -260,3 +260,23 @@ function validateToken (req, res, next) {
         });
     }
 };
+
+const fs = require('fs'); // file-system module
+
+function WriteFile (file) {
+
+    const jsonFile = JSON.stringify(file);
+
+    fs.writeFile("D:\GitHub\licenta\client\src\DataVisualization\data\ImportedData.json", jsonFile, 'utf8',  (err) => {
+        if (err)
+            return console.log(err);
+        
+        console.log("file saved!")
+     });
+}
+
+app.get("D:\GitHub\licenta\client\src\DataVisualization\data\ImportedData.json", (err)=> {
+    
+
+});
+

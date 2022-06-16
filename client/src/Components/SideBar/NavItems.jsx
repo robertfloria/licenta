@@ -57,7 +57,7 @@ export const navItems = [
         nName: "nav-item",
         sName: "sidebar-item",
         path: "./mainpage/donutchart"
-    },
+    }/*
     {
         id: 7,
         title: "Add",
@@ -65,7 +65,7 @@ export const navItems = [
         nName: "nav-item",
         sName: "sidebar-item",
         path: "./mainpage/add"
-    }/*,
+    }
     {
         id: 8,
         title: "Logout",

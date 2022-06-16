@@ -7,9 +7,9 @@ import AddIcon from '@mui/icons-material/Logout';
 export default function AddButton() {
     return(
         <>
-            <button className='btn'>
+            <input type="file" className='btn'>
                 <AddIcon />
-            </button>
+            </input>
         </>
     );
 }

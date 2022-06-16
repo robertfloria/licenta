@@ -534,61 +534,6 @@ body {
   font-size: 2px;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.one {
-  flex-wrap: wrap;
-  align-self: center;
-}
-
-.sideBar {
-  width: 12rem;
-  height: 90vh;
-  background-color: rgba(47, 47, 47, 0.682);
-  display: flex;
-  box-shadow: rgba(66, 66, 66, 0.405) 0rem 0rem 0.7rem 0.08rem;
-}
-
-.sideBarList {
-  height: auto;
-  width: 100%;
-  padding: 0;
-}
-
-.sideBarList .row {
-  width: 100%;
-  height: 4rem;
-  list-style-type: none;
-  margin: 0;
-  display: flex;
-  color:rgba(224, 224, 224, 0.959);
-  justify-content: center;
-  align-items: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-}
-
-.sideBarList .row:hover {
-  cursor: pointer;
-  background-color: rgba(23, 17, 66, 0.735);
-}
-
-.sideBarList .row #icon {
-  flex:25%;
-  display: grid;
-  place-items: center;
-}
-
-.sideBarList .row #title {
-  flex:75%;
-}
-
-.sideBarList #active {
-  background-color: rgba(23, 13, 99, 0.751);
-}
-
 .AppMainPage {
   width: 100%;
   height: 100%;
@@ -685,19 +630,21 @@ display: flex;
   background-color: transparent;
   border: none;
   width: auto;
-  height: 5.5vh;
+  height: 5vh;
   text-decoration: none;
   color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 0.7rem;
-  transition: 0.2s all ease-out;
+  border-radius: 0.5rem;  
+  transition: 0.1s all ease-out;
 }
 
 .nav-item button:hover {
-  background: rgba(75, 51, 255, 0.274);
+  color: rgb(178, 255, 231);
+  background-color: rgba(157, 157, 157, 0.248);
+  font-family:'Times New Roman', Times, serif;
 }
 
 .nav-item span {
@@ -726,6 +673,47 @@ display: flex;
   color: rgba(225, 16, 16, 0.756);
 }
 
+.addBtn{
+  background: transparent;
+  width: 6rem;
+  height: 1.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(226, 226, 226);
+  margin-right: 1.5rem;
+  overflow: hidden;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.addBtn::before {
+  background-color: transparent;
+  content: '+ Add';
+  width: 5rem;
+  height: 1.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(250, 250, 250);
+  margin-right: 1.5rem;
+  overflow: hidden;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.addBtn:hover::before
+{
+  background-color: rgba(250, 250, 250, 0.894);
+  color: rgb(101, 54, 255);
+}
+
 a {
   text-decoration: none;
 }
@@ -740,6 +728,10 @@ a {
 .sidebar-toggle-logo {
   font-size: 2rem;
   color: whitesmoke;
+}
+
+.sidebar-toggle-logo:hover {
+  color: rgb(129, 255, 228);
   cursor: pointer;
 }
 
@@ -768,7 +760,7 @@ a {
   display: flex;
   flex-direction: column;
   border-radius: 0.5rem;
-  transition: 0.2s all ease-out;
+  transition: 0.1s all ease-out;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -793,16 +785,19 @@ margin: 0;
   font-size: 1.1rem;
   height: 4rem;
   width: 90%;
-  border-radius: 1.5rem;
+  border-radius: 1.7rem;
   cursor: pointer;
   transition: 0.2s all ease-out;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 } 
 .sidebar-item span {
   margin-left: 0.5rem;
 }
 
 .sidebar-item a:hover {
-  background-color: rgba(75, 51, 255, 0.274);
+  background-color: rgba(255, 255, 255, 0.157);
+  color: rgb(178, 255, 231);    
+  font-family:'Times New Roman', Times, serif;
 }
 
 .sidebar .btn {
@@ -820,11 +815,15 @@ margin: 0;
     display:none;
   }
 
-  .sidebar .btn{
-    width: auto;
+  .sidebar.active .btn {
+    width: 4rem;
   }
 
-  .sidebar.active .btn {
+  .sidebar.active .addBtn::before {
+    width: 4rem;
+  }
+
+  .sidebar.active .addBtn {
     width: 4rem;
   }
 
@@ -837,13 +836,21 @@ margin: 0;
   }
 }
 
-@media screen and (max-width: 66.563rem){
+@media screen and (max-width: 71.25rem){
   .navbar {
     border-bottom-left-radius: 0rem;
   }
 
   #app {
     width: 80%;
+  }
+
+  .sidebar .addBtn {
+    width: 11rem;
+  }
+
+  .sidebar .addBtn::before {
+    width: 11rem;
   }
 }
 

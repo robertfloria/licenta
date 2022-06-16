@@ -9,7 +9,6 @@ import ReturnChart3 from "./DataVisualization/ReturnChart3";
 import Navbar from "./Components/SideBar/Navbar";
 import Chart5 from "./DataVisualization/Chart5";
 import UserMenu from "./Components/UserMenu";
-import UploadFile from "./Components/UploadFile";
 
 
 export default function AppNav() {
@@ -26,7 +25,7 @@ export default function AppNav() {
                     <Route path="/mainpage/userInfo" element={<UserMenu />}></Route>
                     <Route path="/mainpage/piechart"></Route>
                     <Route path="/mainpage/ssidchart"></Route>        
-                    <Route path="/mainpage/add" element={<UploadFile />}></Route> 
+                    <Route path="/mainpage/add"></Route> 
                 </Routes>
             </BrowserRouter>
         </div>
