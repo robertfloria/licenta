@@ -17,6 +17,7 @@ export default function Navbar() {
     const [items, setItems] = useState("");
     const [openItems, setOpenItems] = useState(false);
     const [dataFile, setDataFile] = useState();
+    const FormData = require('form-data');
 
     useEffect(() => {
         if(window.innerWidth < 1140){
@@ -48,18 +49,20 @@ export default function Navbar() {
         setDataFile(file);
     }
 
-    const handleUpload = (e) => {
+    const handleUpload = async(e) => {
 
         let formData = new FormData();
-        formData.append('file', JSON.stringify(dataFile));
-
+        formData.append('file', dataFile);
+        const dataJson = dataFile;
         console.log(formData, " ---- this is the fileee");
 
-        /*Axios.post('http://localhost:3001/api/', {
-            data: formData
+        await Axios.post('http://localhost:3001/api/uploadFile', dataJson, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }).then((response) => {
-
-        });*/
+            console.log(response);
+        });
     }
 
     

@@ -1,6 +1,7 @@
 import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
 import * as dataJson from './data/data.json';
+import * as dataJson2 from './data/ImportedData.json';
 import { height } from '@mui/system';
 
 export default function Chart5 (props) {
@@ -10,7 +11,7 @@ export default function Chart5 (props) {
     const width = 670;
     const radius = width / 6;
 
-    const data = dataJson;
+    const data = dataJson2;
 
     const partition = (data) => {
         const root = d3.hierarchy(data)

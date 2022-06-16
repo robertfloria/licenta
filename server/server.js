@@ -265,9 +265,7 @@ const fs = require('fs'); // file-system module
 
 function WriteFile (file) {
 
-    const jsonFile = JSON.stringify(file);
-
-    fs.writeFile("D:\GitHub\licenta\client\src\DataVisualization\data\ImportedData.json", jsonFile, 'utf8',  (err) => {
+    fs.writeFile("D:/GitHub/licenta/client/src/DataVisualization/data/ImportedData.json", file, 'utf8',  (err) => {
         if (err)
             return console.log(err);
         
@@ -275,8 +273,10 @@ function WriteFile (file) {
      });
 }
 
-app.get("D:\GitHub\licenta\client\src\DataVisualization\data\ImportedData.json", (err)=> {
+app.post("/api/uploadFile", async(req, res)=> {
     
-
+    const jsonFile = req.body;
+   // console.log(JSON.stringify(jsonFile)) 
+    WriteFile(JSON.stringify(jsonFile));
 });
 
