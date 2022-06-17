@@ -11,7 +11,7 @@ export default function Chart5 (props) {
     const width = 670;
     const radius = width / 6;
 
-    const data = dataJson2;
+    const data = dataJson;
 
     const partition = (data) => {
         const root = d3.hierarchy(data)

@@ -17,7 +17,7 @@ export default function Navbar() {
     const [items, setItems] = useState("");
     const [openItems, setOpenItems] = useState(false);
     const [dataFile, setDataFile] = useState();
-    const FormData = require('form-data');
+    const [pushData, setPushData] = useState(false);
 
     useEffect(() => {
         if(window.innerWidth < 1140){
@@ -51,10 +51,7 @@ export default function Navbar() {
 
     const handleUpload = async(e) => {
 
-        let formData = new FormData();
-        formData.append('file', dataFile);
         const dataJson = dataFile;
-        console.log(formData, " ---- this is the fileee");
 
         await Axios.post('http://localhost:3001/api/uploadFile', dataJson, {
             headers: {
@@ -64,8 +61,21 @@ export default function Navbar() {
             console.log(response);
         });
     }
-
     
+    useEffect(()=> {
+        
+        if(dataFile != null)
+            setPushData(true);
+        else
+            setPushData(false);
+
+        console.log("----"+ pushData)
+        return () => {
+            setPushData(false);
+            setDataFile();
+        }
+    }, [dataFile])
+
     return(
         <>             
             <nav className='navbar'>
@@ -93,7 +103,7 @@ export default function Navbar() {
                         <input type='file' name="uploadFile" accept='.json' className='addBtn' onChange={(e) => {
                             AddFile(e);
                         }}></input>
-                        <button className='btn' onClick={(e) => handleUpload(e)}>clk</button>
+                        <button className={pushData ? 'pushBtn active' : 'pushBtn'} onClick={(e) => handleUpload(e)}>Push</button>
                         <Button />
                     </>
                 )}
@@ -128,7 +138,10 @@ export default function Navbar() {
                         );
                     })}
                 </ul>
-                <input type='file' id="uploadFile" accept='.json' className='addBtn'></input>
+                <input type='file' name="uploadFile" accept='.json' className='addBtn' onChange={(e) => {
+                    AddFile(e);
+                }}></input>
+                <button className={pushData ? 'pushBtn active' : 'pushBtn'} onClick={(e) => handleUpload(e)}>Push</button>
                 <Button onClick={() => setSidebar(false)}/>
             </div>                                 
         </>
