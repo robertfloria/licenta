@@ -2,7 +2,6 @@ import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
 import * as dataJson from './data/data.json';
 import * as dataJson2 from './data/ImportedData.json';
-import { height } from '@mui/system';
 
 export default function Chart5 (props) {
 

@@ -276,7 +276,7 @@ function WriteFile (file) {
 app.post("/api/uploadFile", async(req, res)=> {
     
     const jsonFile = req.body;
-   // console.log(JSON.stringify(jsonFile)) 
     WriteFile(JSON.stringify(jsonFile));
+    res.status(200);
 });
 

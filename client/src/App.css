@@ -574,9 +574,29 @@ border-radius: 100%;
 box-shadow: rgba(0, 0, 0, 0.533) 0rem 0.01rem 4.8rem 0.08rem;
 }
 
-#dd g {
+#dd svg {
 display: flex;
 }
+
+#piechart {
+  position: relative;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  align-items: center;
+  }
+  
+  #piechart svg {
+    width: 80%;
+    height: 80%;
+  }
+  
+  #piechart polyline {
+  
+	  stroke: black;
+	  stroke-width: 2px;
+	  fill: none;
+  }
 
 
 /*              -----navbar----  */
@@ -656,7 +676,7 @@ display: flex;
   background: rgba(220, 51, 51, 0.826);
   border: none;
   border-radius: 0.5rem;
-  width: 4.5rem;
+  width: 2.5rem;
   height: 2rem;
   font-size: 1rem;
   cursor: pointer;
@@ -674,32 +694,35 @@ display: flex;
 }
 
 .pushBtn {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.303);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 3.1rem;
   border-bottom-left-radius: 0rem;
   border-top-left-radius: 0rem;
   width: 4.5rem;
   height: 1.7rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s all ease-out;
+  transition: 0.2s all ease-out;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(225, 16, 16, 0.756);
+  color: whitesmoke;
   margin-right: 1.5rem;
   border-left: solid 0.3rem red;
 }
 
 .pushBtn.active {
-  color: rgba(0, 241, 96, 0.756);
-  border-left: solid 0.3rem rgba(0, 241, 96, 0.756);
+  color: whitesmoke;
+  border-left: solid 0.7rem rgba(0, 239, 155, 0.778);
+}
+
+.pushBtn.active:hover {
+  color: rgb(4, 255, 155);
 }
 
 .pushBtn:hover {
-  background: rgba(226, 226, 226, 0.9);
-  color: rgb(255, 0, 0);
+  color: rgb(255, 67, 67);
 }
 
 .addBtn{
@@ -721,7 +744,7 @@ display: flex;
 }
 
 .addBtn::before {
-  background-color: transparent;
+  background-color: rgba(245, 245, 245, 0.179);
   content: '+ Add';
   width: 5rem;
   height: 1.7rem;
@@ -885,20 +908,21 @@ margin: 0;
   }
 
   .sidebar .addBtn {
-    width: 10rem;
-    border-radius: 0.5rem;
+    width: 11rem;
+    border-radius: 0.7rem;
     border-bottom-left-radius: 0rem;
     border-bottom-right-radius: 0rem;
     align-self: center;
-    height: 2.5rem;
+    height: 1.6rem;
   }
 
   .sidebar .addBtn::before {
-    width: 10rem;
-    border-radius: 0.5rem;
+    background-color: rgba(245, 245, 245, 0.044);
+    width: 11rem;
+    border-radius: 0.7rem;
     border-bottom-left-radius: 0rem;
     border-bottom-right-radius: 0rem;
-    height: 2.5rem;
+    height: 1.6rem;
   }
 
   .sidebar .pushBtn {
@@ -907,7 +931,21 @@ margin: 0;
     border-bottom-right-radius: 0.8rem;
     margin-top: 0rem;
     border-left: none;
-    border-top: solid 0.3rem red
+    border-top: solid 0.3rem red;
+    background-color: rgba(245, 245, 245, 0.094);
+    height: 1.6rem;
+  }
+
+  .sidebar .pushBtn.active {
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    margin-top: 0rem;
+    border-left: none;
+    border-top: solid 0.4rem rgba(0, 239, 155, 0.778);
+    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.094);
+    height: 1.6rem;
   }
 }
 

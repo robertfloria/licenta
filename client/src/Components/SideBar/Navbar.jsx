@@ -16,7 +16,7 @@ export default function Navbar() {
     const [sidebar, setSidebar] = useState(false);
     const [items, setItems] = useState("");
     const [openItems, setOpenItems] = useState(false);
-    const [dataFile, setDataFile] = useState();
+    const [dataFile, setDataFile] = useState(null);
     const [pushData, setPushData] = useState(false);
 
     useEffect(() => {
@@ -49,19 +49,23 @@ export default function Navbar() {
         setDataFile(file);
     }
 
-    const handleUpload = async(e) => {
+    const handleUpload = (e) => {
 
         const dataJson = dataFile;
 
-        await Axios.post('http://localhost:3001/api/uploadFile', dataJson, {
+        Axios.post('http://localhost:3001/api/uploadFile', dataJson, {
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            console.log(response);
+            if(response){
+                // setPushData(false);
+                // setDataFile(null)
+                console.log(dataFile);
+            }
         });
     }
-    
+
     useEffect(()=> {
         
         if(dataFile != null)
@@ -70,10 +74,7 @@ export default function Navbar() {
             setPushData(false);
 
         console.log("----"+ pushData)
-        return () => {
-            setPushData(false);
-            setDataFile();
-        }
+
     }, [dataFile])
 
     return(
@@ -103,7 +104,13 @@ export default function Navbar() {
                         <input type='file' name="uploadFile" accept='.json' className='addBtn' onChange={(e) => {
                             AddFile(e);
                         }}></input>
-                        <button className={pushData ? 'pushBtn active' : 'pushBtn'} onClick={(e) => handleUpload(e)}>Push</button>
+                        <button className={pushData ? 'pushBtn active' : 'pushBtn'} onClick={(e) => {
+                            if(pushData) {
+                                handleUpload(e); 
+                                alert("File uploaded successfully!");
+                            } else
+                                alert("There's no data to upload! Please choose a file!")
+                        }}>Push</button>
                         <Button />
                     </>
                 )}
@@ -141,7 +148,13 @@ export default function Navbar() {
                 <input type='file' name="uploadFile" accept='.json' className='addBtn' onChange={(e) => {
                     AddFile(e);
                 }}></input>
-                <button className={pushData ? 'pushBtn active' : 'pushBtn'} onClick={(e) => handleUpload(e)}>Push</button>
+                <button className={pushData ? 'pushBtn active' : 'pushBtn'} onClick={(e) => {
+                    if(pushData) {
+                        handleUpload(e); 
+                        alert("File uploaded successfully!");
+                    } else
+                        alert("There's no data to upload! Please choose a file!")
+                    }}>Push</button>
                 <Button onClick={() => setSidebar(false)}/>
             </div>                                 
         </>

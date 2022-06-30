@@ -5,10 +5,6 @@ import App from './DataVisualization/App'; // data visualization
 import OpenModal from './OpenModal';  // login/register
 import Navbar from "./Components/SideBar/Navbar";
 import AppNav from "./App";
-import Chart3 from './DataVisualization/ReturnChart3';
-import ReturnChart3 from './DataVisualization/ReturnChart3';
-import Chart5 from './DataVisualization/Chart5';
+import Chart2 from './DataVisualization/Chart2';
 
 ReactDOM.render(<AppNav />, document.getElementById('root'));
-//ReactDOM.render(<Chart5 />, document.getElementById('root'));
-

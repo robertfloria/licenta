@@ -64,9 +64,7 @@ const UserMenu = (props) => {
       username: userName,
       password: newUserPassword
       });
-
       setSuccess(true);
-      //setNewUserPassword("");
     }
     catch (err){
       console.log(err);
@@ -82,9 +80,7 @@ const UserMenu = (props) => {
       username: userName,
       email: newUserEmail
     });
-
       setSuccess(true);
-      //setNewUserEmail("");
     }
     catch (err){
       console.log(err);
@@ -114,10 +110,7 @@ const UserMenu = (props) => {
         <>
           <div className='UserBackgroundMenu'>
               <div className='UserContainer'>
-                  <div className='userLogoContainer'>
-                    {/*<Icons.FaUserCircle className='userLogo'/>*/}
-                  </div>
-                  
+                  <div className='userLogoContainer'></div>          
                   <div className='currentUserData'>
                     <div className='currentUserDataItems'>
                       <Icons.FaUserTie className='userLabelLogo'/> 
@@ -171,19 +164,3 @@ const UserMenu = (props) => {
     )
 }
 export default UserMenu;
-
-/*}
-    <div>
-        <input type="text" name="newUserEmail" onChange={(e) => {
-            setNewUserEmail(e.target.value);
-          }}
-        />
-        <button onClick={updateEmail}>Update Email</button>   
-        
-        <input type="password" name="newUserPassword" onChange={(e) => {
-            setNewUserPassword(e.target.value);
-          }}
-        />
-        <button onClick={updatePassword}>Update Password</button>     
-        <button onClick={() => {deleteUser(userName)}}>Delete User</button>        
-    </div>*/

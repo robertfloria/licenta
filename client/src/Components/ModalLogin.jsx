@@ -15,7 +15,8 @@ const LoginModal = (props) => {
   const [loginRes, setLoginRes] = useState("");
   const [loginErr, setLoginErr] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
-
+  const [user, setUser] = useState("");
+  
   Axios.defaults.withCredentials = true;
   
   const getLogin = () => {
@@ -54,7 +55,7 @@ const LoginModal = (props) => {
     });
     setNewUserEmail("");
   };
-  const [user, setUser] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{

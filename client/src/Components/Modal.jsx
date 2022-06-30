@@ -11,7 +11,6 @@ export default function Modal ({closeModal, loginStatus}) {
 
     const [openLogin, setOpenLogin] = useState(true);
     const [openRegister, setOpenRegister] = useState(false);
-    //const [loginStatus, setLoginStatus] = useState(false);
 
     const OpenLoginRegisterModal = () => {
         if (openLogin == true && openRegister == false)
@@ -31,9 +30,7 @@ export default function Modal ({closeModal, loginStatus}) {
                 <div className='closeButton'>
                     <button onClick={() => closeModal(false)}>x</button>
                 </div>
-            <OpenLoginRegisterModal/>        
-            
-             {/*{openLogin ? <LoginModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal} /> : <RegisterModal openRegister = {setOpenRegister} openLogin = {setOpenLogin} closeModal = {closeModal}/>}   */}   
+            <OpenLoginRegisterModal/>                  
             </div>
         </div>
     )

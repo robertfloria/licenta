@@ -9,25 +9,22 @@ export default function OpenModal() {
 
     const [openModal, setOpenModal] = useState(false);
     const [loginStatus, setLoginStatus] = useState(false);
-    const [openCharts, setOpenCharts] = useState(false);
 
     return (
         <>
-        <div className="openModal">
-            <h1 className="headingOpenModal">Welcome to our app!</h1>
-            <button 
-                className="openModalBtn" 
-                onClick={() => {
-                    setOpenModal(true)
-                }}
-            >
-                Log in
-            </button>           
-            <Icons2.RiReactjsFill className='logo-openModal-app'/>
-            {openModal && <Modal closeModal={setOpenModal} loginStatus = {setLoginStatus}/>} {/* if statement, daca openModal este true atunci se executa functia Modal */}
-
-        </div>
-              
+            <div className="openModal">
+                <h1 className="headingOpenModal">Welcome to our app!</h1>
+                <button 
+                    className="openModalBtn" 
+                    onClick={() => {
+                        setOpenModal(true)
+                    }}
+                >
+                    Log in
+                </button>           
+                <Icons2.RiReactjsFill className='logo-openModal-app'/>
+                {openModal && <Modal closeModal={setOpenModal} loginStatus = {setLoginStatus}/>}
+            </div>
         </>
     )
 }
