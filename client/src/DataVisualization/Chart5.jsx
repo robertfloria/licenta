@@ -21,8 +21,8 @@ export default function Chart5 (props) {
                  .size([2 * Math.PI, root.height + 1])(root);
       }
       
-       const color = d3.scaleOrdinal(data.children, d3.quantize(d3.interpolateRainbow, data.children.length));
-      //const color = d3.scaleOrdinal().range(["rgb(239, 88, 88)","rgb(77, 77, 77)","rgb(223, 57, 39","rgb(39, 223, 202)","rgb(40, 40, 40)"]);
+       //const color = d3.scaleOrdinal(data.children, d3.quantize(d3.interpolateRainbow, data.children.length));
+      const color = d3.scaleOrdinal().range(["rgba(194, 69, 55, 0.886)","rgb(50, 52, 85)","rgba(200, 115, 35, 0.919)"]);
     const format = d3.format(",d");
 
     const arc = d3.arc()
@@ -55,7 +55,7 @@ export default function Chart5 (props) {
                           d = d.parent; 
                         return color(d.current);                       
                       })
-                      .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.8 : 0.45) : 0)
+                      .attr("fill-opacity", (d) => arcVisible(d.current) ? (d.children ? 0.95 : 0.60) : 0)
                       .attr("pointer-events", (d) => arcVisible(d.current) ? "auto" : "none")
                       .attr("d", (d) => arc(d.current));
 
@@ -76,8 +76,8 @@ export default function Chart5 (props) {
                        .data(root.descendants().slice(1))
                        .join("text")
                        .attr("dy", "0.35em")
-                       .attr("fill","rgba(208, 208, 208, 0.944)")
-                       .attr("font-family","'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif")
+                       .attr("fill","rgba(230, 230, 230, 0.965)")
+                       .attr("font-family","'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif")
                        .attr("fill-opacity", d => +labelVisible(d.current))
                        .attr("transform", d => labelTransform(d.current))
                        .text(d => d.data.name);
@@ -113,7 +113,7 @@ export default function Chart5 (props) {
                 .filter(function(d) {
                 return +this.getAttribute("fill-opacity") || arcVisible(d.target);
                 })
-                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.7 : 0.45) : 0)
+                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.95 : 0.60) : 0)
                 .attr("pointer-events", d => arcVisible(d.target) ? "auto" : "none")         
                 .attrTween("d", d => () => arc(d.current));
         
@@ -142,8 +142,11 @@ export default function Chart5 (props) {
           return svg.node();          
     } 
     useEffect(()=> {
-      drowChart();
-    }, []);
+      if(myRef.current){
+        drowChart();
+      }
+      
+    }, [myRef]);
 
     return (
     <div id="app">

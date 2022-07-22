@@ -3,9 +3,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import PieChartIcon from '@mui/icons-material/PieChart';
 import DonutSmallIcon from '@mui/icons-material/DonutSmall';
-import SsidChartIcon from '@mui/icons-material/SsidChart';
+import SsidChartIcon from '@mui/icons-material/SsidChart'
+import ScatterPlotIcon from '@mui/icons-material/ScatterPlot';
 import AddIcon from '@mui/icons-material/Add';
 
 
@@ -36,11 +36,11 @@ export const navItems = [
     },
     {
         id: 4,
-        title: "PieChart",
-        icon: <PieChartIcon />,
+        title: "ScatterPlot",
+        icon: <ScatterPlotIcon />,
         nName: "nav-item",
         sName: "sidebar-item",
-        path: "./mainpage/piechart"
+        path: "./mainpage/scatterplot"
     },
     {
         id: 5,

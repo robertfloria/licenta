@@ -13,7 +13,8 @@ export default function OpenModal() {
     return (
         <>
             <div className="openModal">
-                <h1 className="headingOpenModal">Welcome to our app!</h1>
+                <h1 className="headingOpenModal">Welcome to</h1>
+                <h1 className="headingOpenModal2">Data Visualization App!</h1>
                 <button 
                     className="openModalBtn" 
                     onClick={() => {

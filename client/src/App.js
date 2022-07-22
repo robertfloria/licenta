@@ -24,7 +24,7 @@ export default function AppNav() {
                     <Route path="/login" element={<OpenModal />}></Route>        
                     <Route path="/mainpage/donutchart" element={<Chart5 />}></Route> 
                     <Route path="/mainpage/userInfo" element={<UserMenu />}></Route>
-                    <Route path="/mainpage/piechart" element={<Chart2 />}></Route>
+                    <Route path="/mainpage/scatterplot" element={<Chart2 />}></Route>
                     <Route path="/mainpage/ssidchart"></Route>        
                     <Route path="/mainpage/add"></Route> 
                 </Routes>

@@ -19,7 +19,7 @@
   box-shadow: rgb(0, 0, 0) 0rem 0.01rem 1.4rem 0.08rem;
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.4rem;  
+  padding-bottom: 0.4rem;
   animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   border-bottom:  1rem solid rgba(31, 255, 236, 0.719);
   position: absolute;
@@ -69,7 +69,7 @@
   }
 }
 
-.modalLogin {   
+.modalLogin {
   display: flex;
   flex-direction: column;
   animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
@@ -84,7 +84,7 @@
 .title {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
   position: relative;
 
@@ -129,12 +129,12 @@
 
 .form input {
   display: flex;
-  position:relative;      
+  position:relative;
   width: 19rem;
   height: 2rem;
   border: 0;
   background-color: transparent;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   /*box-shadow:rgba(220, 220, 220, 0.55) 0.4rem 0.rem 0.7rem 0rem;*/
   padding-left: 0.5rem;
   color:rgba(203, 255, 234, 0.912);
@@ -214,7 +214,7 @@
     display: flex;
     position: relative;
     bottom: 0.5rem;
-    padding-top: 1.8rem;     
+    padding-top: 1.8rem;
     font-size: 1.1rem;
     align-self: flex-start;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -290,7 +290,7 @@
   color:white;
   border-radius: 0rem 0.6rem 0rem 0.6rem;
   font-size: 1.3rem;
-  cursor: pointer;   
+  cursor: pointer;
   position:relative;
   top: 1.9rem;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -305,7 +305,7 @@
   color:white;
   border-radius: 0rem 0.6rem 0rem 0.6rem;
   font-size: 1.3rem;
-  cursor: pointer;   
+  cursor: pointer;
   position: relative;
   top: 0.1rem;
 }
@@ -412,6 +412,13 @@
   top:23rem;
   animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
+.openModal .headingOpenModal2 {
+  color: rgba(240, 255, 255, 0.885);
+  position: relative;
+  top:22rem;
+  right: 22rem;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
 
 .openModal .openModalBtn {
   width: 7rem;
@@ -440,10 +447,11 @@
 /* ---------------------------- D3 ---------------------------------*/
 
 .test{
-    color:rgba(78, 0, 204, 0.685);
+    color:rgb(204, 204, 204);
+    
 }
 
-body {     
+body {
     margin:0;
     padding: 0;
 }
@@ -456,6 +464,23 @@ body {
 /* ------------------------------- */
 
 #app {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 93vh;
+  background-color: transparent;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  top: 7vh;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+#app1 {
   position: absolute;
   display: flex;
   align-items: center;
@@ -503,7 +528,7 @@ body {
 #data li {
   margin-bottom: 0.2rem;
   padding: 0.3rem;
-  width: 1.5rem; 
+  width: 1.5rem;
   height: 1.5rem;
   align-content: center;
   font-weight: bold;
@@ -530,14 +555,19 @@ body {
 }
 
 .test{
-  fill: rgba(255, 177, 177, 0.82);
+  fill: rgba(200, 115, 35, 0.919);
   font-size: 2px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
 }
 
 .AppMainPage {
   width: 100%;
   height: 100%;
-  /* background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg"); */
+  /* background-image: url("D:\GitHub\licenta\client\src\Pictures\stretched-1920-1080-1246601.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-image: url("D:\GitHub\licenta\client\src\Pictures\abstract-shape-cards-5k-z0-1920x1080.jpg");
   position: absolute;
   display: flex;
@@ -547,11 +577,6 @@ body {
 .AppMainPage #app{
   display: flex;
   align-self: flex-end;
-}
-
-.wrapper div { 
-    background-image: url("D:\GitHub\licenta\client\src\Pictures\WallpaperDog-825277.jpg");
-    color: white;
 }
 
 #dd {
@@ -571,11 +596,8 @@ display: flex;
 width: 43.5vw;
 height: 88.8vh;
 border-radius: 100%;
-box-shadow: rgba(0, 0, 0, 0.533) 0rem 0.01rem 4.8rem 0.08rem;
-}
-
-#dd svg {
-display: flex;
+/* box-shadow: rgba(0, 0, 0, 0.533) 0rem 0.01rem 4.8rem 0.08rem; */
+box-shadow: rgba(42, 42, 42, 0.734) 0rem 0.01rem 3.9rem 0.08rem;
 }
 
 #piechart {
@@ -584,26 +606,28 @@ display: flex;
   justify-content:center;
   align-content:center;
   align-items: center;
+  padding-left: 5rem;
   }
   
-  #piechart svg {
-    width: 80%;
-    height: 80%;
+#piechart svg {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  width: 45vw;
+  height: 65vh;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.533) 0rem 0.01rem 4.8rem 0.08rem;
+  padding-top: 2rem;
+  padding-left: 3rem;
+  border-radius: 5rem;
+  background-color: #e9e9e90a;
   }
-  
-  #piechart polyline {
-  
-	  stroke: black;
-	  stroke-width: 2px;
-	  fill: none;
-  }
-
-
-/*              -----navbar----  */
 
 .navbar {
   height: 7vh;
-  background: rgba(0, 0, 0, 0.682);
+  background: rgba(2, 4, 26, 0.801);
   display: flex;
   align-items: center;
   border-bottom-left-radius: 2.5rem;
@@ -657,7 +681,7 @@ display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 0.5rem;  
+  border-radius: 0.5rem;
   transition: 0.1s all ease-out;
 }
 
@@ -790,7 +814,7 @@ a {
 
 .sidebar{
   width: 11rem;
-  background: rgba(0, 0, 0, 0.682);
+  background: rgba(2, 4, 26, 0.801);
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   height: 88vh;
@@ -842,14 +866,14 @@ margin: 0;
   cursor: pointer;
   transition: 0.2s all ease-out;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-} 
+}
 .sidebar-item span {
   margin-left: 0.5rem;
 }
 
 .sidebar-item a:hover {
   background-color: rgba(255, 255, 255, 0.157);
-  color: rgb(178, 255, 231);    
+  color: rgb(178, 255, 231);
   font-family:'Times New Roman', Times, serif;
 }
 
@@ -986,7 +1010,7 @@ margin: 0;
   border-radius: 100%;
   box-shadow: rgba(0, 0, 0, 0.334) 0rem 0.01rem 2.35rem 0.08rem;
   position: relative;
-  bottom: 5rem;
+  bottom: 7rem;
   left: 24rem;
   display: flex;
 }
@@ -1207,7 +1231,7 @@ margin: 0;
   height: 2rem;
   margin-bottom: 1rem;
   background-color: transparent;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   color:rgba(64, 64, 64, 0.912);
   border: none;
   border-bottom: 0.09rem solid rgb(55, 55, 55);
@@ -1274,4 +1298,11 @@ margin: 0;
 .userInfoItems button:hover {
  border-bottom: 0.2rem solid rgb(63, 73, 255);
  cursor:pointer;
+}
+
+.tableGrid {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #e3e3e3;
 }
