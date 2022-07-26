@@ -2,8 +2,6 @@ import React, {useRef, useState, useEffect, useCallback} from 'react';
 import * as  d3 from 'd3';
 import * as dataJson from './data/population.json';
 import * as dataJson2 from './data/ImportedData.json';
-import * as dataJson3 from 'D:/GitHub/licenta/client/src/DataVisualization/data/bar.csv';
-
 
 export default function Chart2 (){
 
@@ -26,7 +24,7 @@ export default function Chart2 (){
 	[14, 132], [250, 72], [302, 76], [1, 130], [400, 55],
 	[430, 13], [113, 32], [32, 442], [321, 323], [432, 223]];
 
-	const data = dataJson3;
+	//const data = dataJson3;
     const myRef = useRef(null); 
 
 	const width = 500;
