@@ -1,0 +1,45 @@
+.tableGrid {
+    width: 80vw;
+    height: auto;
+    position: relative;
+    background-color: #e3e3e3;
+    align-self: center;
+    display: flex;
+    top: 2rem;  
+  }
+
+  .dadadada{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(92, 92, 92);
+  }
+
+  table {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  table td{
+    border: 1px solid #ddd;
+    padding: 8px; 
+    border-radius: 0.5rem;
+  }
+
+  table th {
+    border: 0.05rem solid rgb(243, 243, 243);
+    padding: 8px;
+  }
+
+  table tr:nth-child(even){background-color: #f2f2f2;}
+
+  table tr:hover {background-color: #ddd;}
+
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #5d3fe3be;
+    color: white;
+  }

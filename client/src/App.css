@@ -564,7 +564,6 @@ body {
 .AppMainPage {
   width: 100%;
   height: 100%;
-  /* background-image: url("D:\GitHub\licenta\client\src\Pictures\stretched-1920-1080-1246601.jpg"); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -1300,9 +1299,9 @@ margin: 0;
  cursor:pointer;
 }
 
-.tableGrid {
+/* .tableGrid {
   width: 100vw;
   height: 100vh;
   position: relative;
   background-color: #e3e3e3;
-}
+} */
