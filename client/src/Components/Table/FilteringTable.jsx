@@ -1,31 +1,37 @@
 import React from 'react';
 import { useState, useMemo } from "react";
 import Axios from "axios";
-import { useTable } from 'react-table';
+import { useTable, useGlobalFilter } from 'react-table';
 import MOCK_DATA from '../../DataVisualization/data/MOCK_DATA.json'
 import { COLUMNS, GROUPED_COLUMNS } from './Columns';
 import 'D:/GitHub/licenta/client/src/Components/Table/Table.css';
+import { GlobalFilter } from './GlobalFilter';
 
-export const TableGrid = (props) => {
+export const FilteringTable = (props) => {
   
     // useMemo hooks ensures that the data isn't recreated on every render
     const columns = useMemo(() => COLUMNS, []); 
     const data = useMemo(() => MOCK_DATA, []);
-
+//CURS 9 next
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
         footerGroups,
         rows,
-        prepareRow
+        prepareRow,
+        state,
+        setGlobalFilter
     } = useTable({
         columns: columns,
         data: data
-    });
+    }, useGlobalFilter);
+
+    const { globalFilter } = state;
 
     return (
-        <div className='backgroundTable'>               
+        <div className='backgroundTable'>      
+            <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />         
             <div className='tableGrid'>
                 <table {...getTableProps}>  
                     <thead>

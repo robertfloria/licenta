@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState, useMemo } from "react";
 import Axios from "axios";
-import { useTable } from 'react-table';
+import { useTable, useSortBy } from 'react-table';
 import MOCK_DATA from '../../DataVisualization/data/MOCK_DATA.json'
 import { COLUMNS, GROUPED_COLUMNS } from './Columns';
 import 'D:/GitHub/licenta/client/src/Components/Table/Table.css';
 
-export const TableGrid = (props) => {
+export const SortingTable = (props) => {
   
     // useMemo hooks ensures that the data isn't recreated on every render
     const columns = useMemo(() => COLUMNS, []); 
@@ -22,7 +22,7 @@ export const TableGrid = (props) => {
     } = useTable({
         columns: columns,
         data: data
-    });
+    }, useSortBy);
 
     return (
         <div className='backgroundTable'>               
@@ -35,7 +35,12 @@ export const TableGrid = (props) => {
                                     <tr {...headerGroup.getHeaderGroupProps()}>
                                         {
                                             headerGroup.headers.map((column) => (
-                                                <th {...column.getHeaderProps()}> {column.render('Header')} </th>            
+                                                <th {...column.getHeaderProps(column.getSortByToggleProps())}> 
+                                                    {column.render('Header')} 
+                                                    <span>
+                                                        {column.isSorted ? (column.isSortedDesc ? '▼' : '▲') : ''}
+                                                    </span>
+                                                </th>            
                                             ))
                                         }                       
                                     </tr>
