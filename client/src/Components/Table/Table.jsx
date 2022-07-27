@@ -12,18 +12,17 @@ export const TableGrid = (props) => {
     const columns = useMemo(() => COLUMNS, []); 
     const data = useMemo(() => MOCK_DATA, []);
 
-    const tableInstance = useTable({
-        columns: columns,
-        data: data
-    });
-
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
+        footerGroups,
         rows,
         prepareRow
-    } = tableInstance;
+    } = useTable({
+        columns: columns,
+        data: data
+    });
 
     return (
         <div className='dadadada'>               
@@ -35,11 +34,9 @@ export const TableGrid = (props) => {
                                 return (
                                     <tr {...headerGroup.getHeaderGroupProps()}>
                                         {
-                                            headerGroup.headers.map((column) => {
-                                                return (
-                                                    <th {...column.getHeaderProps()}> {column.render('Header')} </th>
-                                                )             
-                                            })
+                                            headerGroup.headers.map((column) => (
+                                                <th {...column.getHeaderProps()}> {column.render('Header')} </th>            
+                                            ))
                                         }                       
                                     </tr>
                                 )
@@ -54,9 +51,9 @@ export const TableGrid = (props) => {
                                 return (
                                     <tr {...row.getRowProps()}>
                                         {
-                                            row.cells.map((cell) => {
-                                                return  <td {...cell.getCellProps()}> {cell.render('Cell')} </td>
-                                            })
+                                            row.cells.map((cell) => (
+                                                <td {...cell.getCellProps()}> {cell.render('Cell')} </td>
+                                            ))
                                         }
 
                                     </tr>
@@ -65,6 +62,21 @@ export const TableGrid = (props) => {
                         }
 
                     </tbody>
+                    <tfoot>
+                        {
+                            footerGroups.map((footerGroup) => {
+                                return (
+                                    <tr {...footerGroup.getFooterGroupProps()}>
+                                        {
+                                            footerGroup.headers.map((column) => (
+                                                <td {...column.getFooterProps}> {column.render('Footer')} </td>
+                                            ))
+                                        }
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tfoot>
                 </table>
             </div>  
         </div>
